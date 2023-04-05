@@ -3,32 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    private static readonly int GameOver = Animator.StringToHash("GameOver");
+    
     public PlayerHealth playerHealth;       
     public float restartDelay = 5f;            
+    
+    private Animator _anim;                          
+    private float _restartTimer;
+    
 
-
-    Animator anim;                          
-    float restartTimer;                    
-
-
-    void Awake()
+    private void Awake()
     {
-        anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
     }
 
 
-    void Update()
+    private void Update()
     {
-        if (playerHealth.currentHealth <= 0)
+        if (playerHealth.currentHealth > 0) return;
+        
+        _anim.SetTrigger(GameOver);
+        _restartTimer += Time.deltaTime;
+
+        if (_restartTimer >= restartDelay)
         {
-            anim.SetTrigger("GameOver");
-
-            restartTimer += Time.deltaTime;
-
-            if (restartTimer >= restartDelay)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
