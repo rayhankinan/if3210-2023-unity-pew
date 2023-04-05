@@ -28,20 +28,7 @@ public class PlayerMovement : MonoBehaviour
         // Mendapatkan komponen Rigidbody
         _playerRigidbody = GetComponent<Rigidbody>();
     }
-    
-    // Method player dapat berjalan
-    private void Move(float h, float v)
-    {
-        // Set nilai x dan y
-        _movement.Set(h, 0f, v);
-        
-        // Menormalisasi nilai vector agar total panjang dari vector adalah 1
-        _movement = _movement.normalized * (speed * Time.deltaTime);
-        
-        // Move to position
-        _playerRigidbody.MovePosition(transform.position + _movement);
-    }
-    
+
     private void Turning()
     {
         // Buat Ray dari posisi mouse di layar
@@ -61,12 +48,6 @@ public class PlayerMovement : MonoBehaviour
         _playerRigidbody.MoveRotation(newRotation);
     }
 
-    private void Animating(float h, float v)
-    {
-        var walking = h != 0f || v != 0f;
-        _anim.SetBool(IsWalking, walking);
-    }
-    
     private void FixedUpdate()
     {
         // Mendapatkan nilai input horizontal (-1,0,1)
@@ -78,5 +59,24 @@ public class PlayerMovement : MonoBehaviour
         Move(h, v);
         Turning();
         Animating(h, v);
+    }
+    
+    // Method player dapat berjalan
+    public void Move(float h, float v)
+    {
+        // Set nilai x dan y
+        _movement.Set(h, 0f, v);
+        
+        // Menormalisasi nilai vector agar total panjang dari vector adalah 1
+        _movement = _movement.normalized * (speed * Time.deltaTime);
+        
+        // Move to position
+        _playerRigidbody.MovePosition(transform.position + _movement);
+    }
+    
+    public void Animating(float h, float v)
+    {
+        var walking = h != 0f || v != 0f;
+        _anim.SetBool(IsWalking, walking);
     }
 }
