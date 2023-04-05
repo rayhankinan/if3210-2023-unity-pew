@@ -42,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         _timer = 0f;
 

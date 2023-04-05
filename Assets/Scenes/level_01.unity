@@ -5642,6 +5642,20 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+--- !u!114 &1797860518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797860509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46e54f933264529a142203111e9b4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1797860510}
+  playerShooting: {fileID: 1339386423}
 --- !u!114 &2047708619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8806000715544760610, guid: de52442555b174340b27dc91c546b341, type: 3}
