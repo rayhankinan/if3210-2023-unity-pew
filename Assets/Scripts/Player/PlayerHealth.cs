@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     
     public int startingHealth = 100;
     public int currentHealth;
-    public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
     public float flashSpeed = 5f;
@@ -66,10 +65,7 @@ public class PlayerHealth : MonoBehaviour
         
         // Mengurangi health
         currentHealth -= amount;
-        
-        // Mengubah tampilan dari health slider
-        healthSlider.value = currentHealth;
-        
+
         // Memainkan suara ketika terkena damage
         _playerAudio.Play();
 
