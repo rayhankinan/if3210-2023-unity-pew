@@ -26,23 +26,7 @@ public class PlayerShooting : MonoBehaviour
         _gunLight = GetComponent<Light>();
     }
 
-    private void Update()
-    {
-        _timer += Time.deltaTime;
-
-        if (Input.GetButton("Fire1") && _timer >= timeBetweenBullets)
-        {
-            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-            Shoot();
-        }
-
-        if (_timer >= timeBetweenBullets * EffectsDisplayTime)
-        {
-            DisableEffects();
-        }
-    }
-
-    public void Shoot()
+    private void Shoot()
     {
         _timer = 0f;
 
@@ -83,5 +67,21 @@ public class PlayerShooting : MonoBehaviour
     {
         _gunLine.enabled = false;
         _gunLight.enabled = false;
+    }
+    
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+
+        if (Input.GetButton($"Fire1") && _timer >= timeBetweenBullets)
+        {
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            Shoot();
+        }
+
+        if (_timer >= timeBetweenBullets * EffectsDisplayTime)
+        {
+            DisableEffects();
+        }
     }
 }
