@@ -91,7 +91,7 @@ public class EnemyHealth : MonoBehaviour
         // Set isSinking
         _isSinking = true;
         
-        ScoreManager.Score += scoreValue;
+        ScoreManager.score += scoreValue;
         
         Destroy(gameObject, 2f);
     }

@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine.Audio;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,19 +9,29 @@ public class PauseManager : MonoBehaviour {
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
 	
-	Canvas canvas;
+	private Canvas _canvas;
 	
-	void Start()
+	private void Start()
 	{
-		canvas = GetComponent<Canvas>();
+		_canvas = GetComponent<Canvas>();
 	}
 	
-	void Update()
+	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (!Input.GetKeyDown(KeyCode.Escape)) return;
+		_canvas.enabled = !_canvas.enabled;
+		Pause();
+	}
+
+	private void Lowpass()
+	{
+		if (Time.timeScale == 0)
 		{
-			canvas.enabled = !canvas.enabled;
-			Pause();
+			paused.TransitionTo(.01f);
+		}
+		else
+		{
+			unpaused.TransitionTo(.01f);
 		}
 	}
 	
@@ -32,20 +40,6 @@ public class PauseManager : MonoBehaviour {
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 		Lowpass ();
 		
-	}
-	
-	void Lowpass()
-	{
-		if (Time.timeScale == 0)
-		{
-			paused.TransitionTo(.01f);
-		}
-		
-		else
-			
-		{
-			unpaused.TransitionTo(.01f);
-		}
 	}
 	
 	public void Quit()
