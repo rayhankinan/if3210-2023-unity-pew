@@ -48,21 +48,8 @@ public class PlayerMovement : MonoBehaviour
         _playerRigidbody.MoveRotation(newRotation);
     }
 
-    private void FixedUpdate()
-    {
-        // Mendapatkan nilai input horizontal (-1,0,1)
-        var h = Input.GetAxisRaw("Horizontal");
-        
-        // Mendapatkan nilai input vertical (-1,0,1)
-        var v = Input.GetAxisRaw("Vertical");
-        
-        Move(h, v);
-        Turning();
-        Animating(h, v);
-    }
-    
     // Method player dapat berjalan
-    public void Move(float h, float v)
+    private void Move(float h, float v)
     {
         // Set nilai x dan y
         _movement.Set(h, 0f, v);
@@ -74,9 +61,22 @@ public class PlayerMovement : MonoBehaviour
         _playerRigidbody.MovePosition(transform.position + _movement);
     }
     
-    public void Animating(float h, float v)
+    private void Animating(float h, float v)
     {
         var walking = h != 0f || v != 0f;
         _anim.SetBool(IsWalking, walking);
+    }
+    
+    private void FixedUpdate()
+    {
+        // Mendapatkan nilai input horizontal (-1,0,1)
+        var h = Input.GetAxisRaw("Horizontal");
+        
+        // Mendapatkan nilai input vertical (-1,0,1)
+        var v = Input.GetAxisRaw("Vertical");
+        
+        Move(h, v);
+        Turning();
+        Animating(h, v);
     }
 }

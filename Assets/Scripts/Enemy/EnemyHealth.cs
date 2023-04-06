@@ -85,7 +85,7 @@ public class EnemyHealth : MonoBehaviour
         // Disable Navmesh Component
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         
-        // Set rigisbody ke kinematic
+        // Set rigidbody ke kinematic
         GetComponent<Rigidbody>().isKinematic = true;
         
         // Set isSinking
