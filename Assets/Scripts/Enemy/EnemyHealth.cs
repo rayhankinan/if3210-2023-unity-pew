@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
+    public int coinValue = 1;
     public AudioClip deathClip;
 
     private Animator _anim;
@@ -91,7 +92,11 @@ public class EnemyHealth : MonoBehaviour
         // Set isSinking
         _isSinking = true;
         
+        // Add Score
         ScoreManager.score += scoreValue;
+        
+        // Add Coin
+        CoinManager.coin += coinValue;
         
         Destroy(gameObject, 2f);
     }
