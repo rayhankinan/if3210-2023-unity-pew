@@ -7,6 +7,7 @@ public class CoinManager : MonoBehaviour
     
     private void Awake()
     {
+        CoinGlobal.LoadFromFile();
         _text = GetComponent<Text>();
     }
     

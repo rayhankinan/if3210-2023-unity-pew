@@ -1,14 +1,23 @@
+using System;
+
 public class ScoreGlobal
 {
     public static int value = 0;
     
     public static void LoadFromFile()
     {
-        // TODO : IMPLEMENTASIKAN INI
+        try
+        {
+            value = DataSaver.LoadData<int>("score");
+        }
+        catch (Exception)
+        {
+            value = 0;
+        }
     }
     
     public static void SaveToFile()
     {
-        // TODO : IMPLEMENTASIKAN INI
+        DataSaver.SaveData(value, "score");
     }
 }

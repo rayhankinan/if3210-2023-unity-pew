@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     
     private void Awake()
     {
+        ScoreGlobal.LoadFromFile();
         _text = GetComponent<Text>();
     }
     
