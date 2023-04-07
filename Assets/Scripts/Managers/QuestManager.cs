@@ -1,42 +1,22 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
-    private static Objective[] _currentObjectives; // TODO: DIBUAT MENJADI PUBLIC UNTUK GUI MELIHAT QUEST
+    private Text _text;
     
-    public float restartDelay = 5f;
-    public string nextScene = "main_menu";
-    
-    private Animator _anim;
-    private float _restartTimer;
-
     private void Awake()
     {
-        _currentObjectives = GetComponents<Objective>();
-        _anim = GetComponent<Animator>();
+        _text = GetComponent<Text>();
     }
 
     private void Update()
     {
-        if (!_currentObjectives.All(objective => objective.IsCompleted())) return;
+        _text.text = $"Quest:\n";
         
-        // TODO: SET TRIGGER UNTUK ANIMASI MEMBERESKAN QUEST
-        _restartTimer += Time.deltaTime;
-
-        if (_restartTimer >= restartDelay)
+        foreach (var objective in Quest.currentObjectives)
         {
-            SceneManager.LoadScene(nextScene);
+            _text.text += $"-. {objective.enemy.tag} ({objective.currentAmount}/{objective.amount})\n";
         }
-    }
-
-    public static void AddEnemy(GameObject killedEnemy)
-    {
-        foreach (var currentObjective in _currentObjectives)
-            if (!currentObjective.IsCompleted())
-            {
-                currentObjective.AddEnemy(killedEnemy);
-            }
     }
 }

@@ -5,24 +5,24 @@ public class Objective : MonoBehaviour
 {
     public GameObject enemy;
     public int amount;
-
-    private int _currentAmount;
+    
+    public int currentAmount;
 
     private void Awake()
     {
-        _currentAmount = 0;
+        currentAmount = 0;
     }
 
     public void AddEnemy(GameObject killedEnemy)
     {
         if (enemy.CompareTag(killedEnemy.tag))
         {
-            _currentAmount = Math.Min(_currentAmount + 1, amount);
+            currentAmount = Math.Min(currentAmount + 1, amount);
         }
     }
 
     public bool IsCompleted()
     {
-        return _currentAmount == amount;
+        return currentAmount == amount;
     }
 }
