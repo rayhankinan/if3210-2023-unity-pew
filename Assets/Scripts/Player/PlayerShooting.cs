@@ -4,17 +4,17 @@ public class PlayerShooting : MonoBehaviour
 {
     private const float EffectsDisplayTime = 0.2f;
     
-    public int damagePerShot = 20;                  
-    public float timeBetweenBullets = 0.15f;        
-    public float range = 100f;                      
+    public int damagePerShot = 20;
+    public float timeBetweenBullets = 0.15f;
+    public float range = 100f;
 
-    private float _timer;                                    
-    private Ray _shootRay;                                   
-    private RaycastHit _shootHit;                            
-    private int _shootableMask;                             
-    private ParticleSystem _gunParticles;                    
-    private LineRenderer _gunLine;                           
-    private AudioSource _gunAudio;                           
+    private float _timer;
+    private Ray _shootRay;
+    private RaycastHit _shootHit;
+    private int _shootableMask;
+    private ParticleSystem _gunParticles;
+    private LineRenderer _gunLine;
+    private AudioSource _gunAudio;
     private Light _gunLight;
 
     private void Awake()
@@ -73,7 +73,7 @@ public class PlayerShooting : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (Input.GetButton($"Fire1") && _timer >= timeBetweenBullets)
+        if (Input.GetButton($"Fire1") && _timer >= timeBetweenBullets && !PauseManager.isPaused)
         {
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             Shoot();

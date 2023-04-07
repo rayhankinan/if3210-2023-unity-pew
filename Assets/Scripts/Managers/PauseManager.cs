@@ -5,13 +5,16 @@ using UnityEditor;
 #endif
 
 // TODO: BISA DITAMBAHKAN ANIMATOR ISPAUSED
-public class PauseManager : MonoBehaviour {
+public class PauseManager : MonoBehaviour
+{
+	public static bool isPaused;
+	
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
 
 	private void Start()
 	{
-
+		isPaused = false;
 	}
 	
 	private void Update()
@@ -35,6 +38,7 @@ public class PauseManager : MonoBehaviour {
 	public void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+		isPaused = Time.timeScale == 0;
 		Lowpass();
 	}
 	
