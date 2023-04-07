@@ -20,8 +20,7 @@ public class EnemyManager : MonoBehaviour
         // Mengeksekusi fungsi Spawn setiap beberapa detik sesui dengan nilai spawnTime
         InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
     }
-
-
+    
     private void Spawn()
     {
         // Jika player telah mati maka tidak membuat enemy baru

@@ -4,22 +4,19 @@ using UnityEngine.Audio;
 using UnityEditor;
 #endif
 
+// TODO: BISA DITAMBAHKAN ANIMATOR ISPAUSED
 public class PauseManager : MonoBehaviour {
-	
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
-	
-	private Canvas _canvas;
-	
+
 	private void Start()
 	{
-		_canvas = GetComponent<Canvas>();
+
 	}
 	
 	private void Update()
 	{
 		if (!Input.GetKeyDown(KeyCode.Escape)) return;
-		_canvas.enabled = !_canvas.enabled;
 		Pause();
 	}
 
@@ -38,8 +35,7 @@ public class PauseManager : MonoBehaviour {
 	public void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-		Lowpass ();
-		
+		Lowpass();
 	}
 	
 	public void Quit()

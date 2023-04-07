@@ -8,6 +8,7 @@ public class EnemyFactory : MonoBehaviour, IFactory
     public GameObject FactoryMethod(int enemyTag, Transform spawnPoint)
     {
         var enemy = Instantiate(enemyPrefab[enemyTag], spawnPoint.position, spawnPoint.rotation);
+
         return enemy;
     }
 }

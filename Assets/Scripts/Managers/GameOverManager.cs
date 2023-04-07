@@ -10,13 +10,11 @@ public class GameOverManager : MonoBehaviour
     
     private Animator _anim;                          
     private float _restartTimer;
-    
 
     private void Awake()
     {
         _anim = GetComponent<Animator>();
     }
-
 
     private void Update()
     {

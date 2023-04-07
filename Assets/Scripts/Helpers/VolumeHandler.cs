@@ -3,6 +3,11 @@ using UnityEngine.UI;
 
 
 public class VolumeHandler : MonoBehaviour {
+	
+	private void SetVolume(float volume)
+	{
+		GetComponent<AudioSource>().volume = volume;
+	}
 
 	// Use this for initialization
 	private void Start()
@@ -10,12 +15,7 @@ public class VolumeHandler : MonoBehaviour {
 		if (GameObject.Find("EffectsSlider"))
 			GameObject.Find("EffectsSlider").GetComponent<Slider>().onValueChanged.AddListener(SetVolume);
 	}
-
-	private void SetVolume(float volume)
-	{
-		GetComponent<AudioSource>().volume = volume;
-	}
-
+	
 	private void OnDestroy()
 	{
 		if (GameObject.Find("EffectsSlider"))
