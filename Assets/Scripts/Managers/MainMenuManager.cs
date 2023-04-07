@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     private void Update()
     {
@@ -19,7 +19,7 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("level_01");
     }
-
+    
     public void QuitGame()
     {
         Application.Quit();
