@@ -25,7 +25,7 @@ public class GameOverManager : MonoBehaviour
 
         if (_restartTimer >= restartDelay)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("main_menu");
         }
     }
 }

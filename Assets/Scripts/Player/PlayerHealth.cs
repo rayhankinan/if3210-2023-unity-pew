@@ -75,10 +75,4 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
     }
-    
-    public void RestartLevel()
-    {
-        // Meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene("main_menu");
-    }
 }
