@@ -6,13 +6,13 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
     
-    [SerializeField]
-    private EnemyFactory enemyFactory;
-    private IFactory Factory => enemyFactory;
+
+    private EnemyFactory _enemyFactory;
+    private IFactory Factory => _enemyFactory;
 
     private void Awake()
     {
-        enemyFactory = GetComponent<EnemyFactory>();
+        _enemyFactory = GetComponent<EnemyFactory>();
     }
 
     private void Start()
@@ -30,10 +30,10 @@ public class EnemyManager : MonoBehaviour
         }
 
         // Mendapatkan nilai random
-        var enemyTag = Random.Range(0, enemyFactory.enemyPrefab.Length);
+        var enemyTag = Random.Range(0, _enemyFactory.enemyPrefab.Length);
         var spawnTag = Random.Range(0, spawnPoints.Length);
 
-        // Memduplikasi enemy
+        // Menduplikasi enemy
         Factory.FactoryMethod(enemyTag, spawnPoints[spawnTag]);
     }
 }

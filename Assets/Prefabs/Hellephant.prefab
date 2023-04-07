@@ -9935,7 +9935,7 @@ GameObject:
   - component: {fileID: -8805802702385445675}
   m_Layer: 6
   m_Name: Hellephant
-  m_TagString: Enemy
+  m_TagString: Hellephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

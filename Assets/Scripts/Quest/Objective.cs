@@ -15,7 +15,7 @@ public class Objective : MonoBehaviour
 
     public void AddEnemy(GameObject killedEnemy)
     {
-        if (ReferenceEquals(enemy, killedEnemy))
+        if (enemy.CompareTag(killedEnemy.tag))
         {
             _currentAmount = Math.Min(_currentAmount + 1, amount);
         }

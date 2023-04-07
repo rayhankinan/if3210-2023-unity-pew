@@ -1,9 +1,10 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
-    public static Objective[] objectives;
+    public static Objective[] currentObjectives; // TODO: DIGUNAKAN PADA GUI UNTUK MELIHAT PROGRESS QUEST
     
     public float restartDelay = 5f;
     
@@ -12,21 +13,29 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
+        currentObjectives = GetComponents<Objective>();
         _anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (!objectives.All(objective => objective.IsCompleted())) return;
+        if (!currentObjectives.All(objective => objective.IsCompleted())) return;
         
         // TODO: SET TRIGGER UNTUK ANIMASI MEMBERESKAN QUEST
         _restartTimer += Time.deltaTime;
 
-        Debug.Log("WIH QUEST BERHASIL");
-        
         if (_restartTimer >= restartDelay)
         {
-            // TODO: SET SCENE SELANJUTNYA
+            SceneManager.LoadScene("main_menu");
         }
+    }
+
+    public static void AddEnemy(GameObject killedEnemy)
+    {
+        foreach (var currentObjective in currentObjectives)
+            if (!currentObjective.IsCompleted())
+            {
+                currentObjective.AddEnemy(killedEnemy);
+            }
     }
 }

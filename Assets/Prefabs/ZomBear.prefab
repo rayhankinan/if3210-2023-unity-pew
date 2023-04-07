@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 6756641005996454459}
   m_Layer: 6
   m_Name: ZomBear
-  m_TagString: Enemy
+  m_TagString: ZomBear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
