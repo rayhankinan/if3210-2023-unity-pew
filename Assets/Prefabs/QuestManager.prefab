@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708510228381980439}
   - component: {fileID: 4374317338395077591}
+  - component: {fileID: 1909588049684891313}
   - component: {fileID: 5852815715898314045}
   m_Layer: 0
   m_Name: QuestManager
@@ -46,7 +47,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6158598208432632802, guid: ef20e3b4a3b0245fa8bd871d571fdb0f, type: 3}
-  amount: 1
+  amount: 3
+  currentAmount: 0
+--- !u!114 &1909588049684891313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829165633787732441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7b7e36c8704243ade1a3c019446ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 100000, guid: 3688f3f3f312c984fa78e00c09819e6c, type: 3}
+  amount: 2
   currentAmount: 0
 --- !u!114 &5852815715898314045
 MonoBehaviour:

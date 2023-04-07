@@ -93,10 +93,10 @@ public class EnemyHealth : MonoBehaviour
         _isSinking = true;
         
         // Add Score
-        ScoreManager.score += scoreValue;
+        ScoreGlobal.value += scoreValue;
         
         // Add Coin
-        CoinManager.coin += coinValue;
+        CoinGlobal.value += coinValue;
         
         // Add Enemy to Quest
         Quest.AddEnemy(gameObject);

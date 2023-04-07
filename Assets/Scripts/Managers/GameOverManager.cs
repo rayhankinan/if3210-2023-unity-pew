@@ -5,8 +5,8 @@ public class GameOverManager : MonoBehaviour
 {
     private static readonly int GameOver = Animator.StringToHash("GameOver");
     
-    public PlayerHealth playerHealth;       
-    public float restartDelay = 5f;            
+    public PlayerHealth playerHealth;
+    public float restartDelay = 5f;
     
     private Animator _anim;                          
     private float _restartTimer;
