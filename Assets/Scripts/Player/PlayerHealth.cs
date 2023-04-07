@@ -79,6 +79,6 @@ public class PlayerHealth : MonoBehaviour
     public void RestartLevel()
     {
         // Meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene(sceneBuildIndex: 0);
+        SceneManager.LoadScene("main_menu");
     }
 }
