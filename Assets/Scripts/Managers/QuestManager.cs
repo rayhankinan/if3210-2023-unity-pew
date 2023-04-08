@@ -1,22 +1,28 @@
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class QuestManager : MonoBehaviour
+public class QuestManager: MonoBehaviour
 {
-    private Text _text;
-    
+    public static ObjectiveManager[] currentObjectives;
+
     private void Awake()
     {
-        _text = GetComponent<Text>();
+        currentObjectives = GetComponents<ObjectiveManager>();
     }
 
     private void Update()
     {
-        _text.text = $"Quest:\n";
-        
-        foreach (var objective in Quest.currentObjectives)
-        {
-            _text.text += $"-. {objective.enemy.tag} ({objective.currentAmount}/{objective.amount})\n";
-        }
+        if (!currentObjectives.All(objective => objective.IsCompleted())) return;
+
+        FinishManager.nextButton.gameObject.SetActive(true);
+    }
+
+    public static void AddEnemy(GameObject killedEnemy)
+    {
+        foreach (var currentObjective in currentObjectives)
+            if (!currentObjective.IsCompleted())
+            {
+                currentObjective.AddEnemy(killedEnemy);
+            }
     }
 }

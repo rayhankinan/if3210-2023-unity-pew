@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Objective : MonoBehaviour
+public class ObjectiveManager : MonoBehaviour
 {
     public GameObject enemy;
     public int amount;

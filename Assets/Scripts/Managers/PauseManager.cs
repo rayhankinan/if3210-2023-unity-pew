@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 // TODO: BISA DITAMBAHKAN ANIMATOR ISPAUSED
 public class PauseManager : MonoBehaviour

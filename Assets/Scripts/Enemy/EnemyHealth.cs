@@ -99,7 +99,7 @@ public class EnemyHealth : MonoBehaviour
         CoinGlobal.value += coinValue;
         
         // Add Enemy to Quest
-        Quest.AddEnemy(gameObject);
+        QuestManager.AddEnemy(gameObject);
         
         // Destroy Object
         Destroy(gameObject, 2f);

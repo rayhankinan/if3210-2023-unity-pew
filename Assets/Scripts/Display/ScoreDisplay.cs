@@ -1,14 +1,13 @@
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinManager : MonoBehaviour
+public class ScoreDisplay : MonoBehaviour
 {
     private Text _text;
 
     private void Start()
     {
-        CoinGlobal.LoadFromFile();
+        ScoreGlobal.LoadFromFile();
     }
 
     private void Awake()
@@ -18,6 +17,6 @@ public class CoinManager : MonoBehaviour
     
     private void Update()
     {
-        _text.text = $"{CoinGlobal.value}";
+        _text.text = $"Score: {ScoreGlobal.value}";
     }
 }
