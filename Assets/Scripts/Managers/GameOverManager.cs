@@ -8,7 +8,7 @@ public class GameOverManager : MonoBehaviour
     public PlayerHealth playerHealth;
     public float restartDelay = 5f;
     
-    private Animator _anim;                          
+    private Animator _anim;
     private float _restartTimer;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class GameOverManager : MonoBehaviour
     private void Update()
     {
         if (playerHealth.currentHealth > 0) return;
-        
+
         _anim.SetTrigger(GameOver);
         _restartTimer += Time.deltaTime;
 

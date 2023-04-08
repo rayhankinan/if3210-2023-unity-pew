@@ -1,5 +1,3 @@
-using System;
-
 public class CoinGlobal
 {
     public static int value;

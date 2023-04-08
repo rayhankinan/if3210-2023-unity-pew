@@ -1,5 +1,3 @@
-using System;
-
 public class ScoreGlobal
 {
     public static int value;
