@@ -6,7 +6,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+        SceneGlobal.LoadFromFile();
     }
     
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     
     public void PlayGame()
     {
-        SceneManager.LoadScene("level_01");
+        SceneManager.LoadScene(SceneGlobal.value ?? "level_01");
     }
     
     public void QuitGame()
