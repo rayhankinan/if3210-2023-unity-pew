@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class FinishManager : MonoBehaviour
 {
-    public static Button nextButton;
-    
-    public string nextScene;
+    private static Button _nextButton;
 
     private void Awake()
     {
-        nextButton = GetComponent<Button>();
+        _nextButton = GetComponent<Button>();
         
-        nextButton.gameObject.SetActive(false);
+        _nextButton.gameObject.SetActive(false);
     }
 
-    public void NextScene()
+    public void OpenMenu()
     {
-        SceneManager.LoadScene(nextScene);
+        TransitionManager.AccessMenu();
+    }
+
+    public static void DisplayButton()
+    {
+        _nextButton.gameObject.SetActive(true);
     }
 }

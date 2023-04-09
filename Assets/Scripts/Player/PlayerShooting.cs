@@ -73,7 +73,7 @@ public class PlayerShooting : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (Input.GetButton($"Fire1") && _timer >= timeBetweenBullets && !PauseManager.isPaused)
+        if (Input.GetButton($"Fire1") && _timer >= timeBetweenBullets && !PauseManager.CheckIfPaused())
         {
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             Shoot();

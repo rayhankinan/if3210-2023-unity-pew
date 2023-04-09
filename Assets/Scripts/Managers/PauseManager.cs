@@ -5,20 +5,14 @@ using UnityEngine.SceneManagement;
 // TODO: BISA DITAMBAHKAN ANIMATOR ISPAUSED
 public class PauseManager : MonoBehaviour
 {
-	public static bool isPaused;
+	private static bool _isPaused;
 	
 	public AudioMixerSnapshot paused;
 	public AudioMixerSnapshot unpaused;
 
 	private void Start()
 	{
-		isPaused = false;
-	}
-	
-	private void Update()
-	{
-		if (!Input.GetKeyDown(KeyCode.Escape)) return;
-		Pause();
+		_isPaused = false;
 	}
 
 	private void Lowpass()
@@ -36,12 +30,12 @@ public class PauseManager : MonoBehaviour
 	public void Pause()
 	{
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-		isPaused = Time.timeScale == 0;
+		_isPaused = Time.timeScale == 0;
 		Lowpass();
 	}
-	
-	public void Quit()
+
+	public static bool CheckIfPaused()
 	{
-		SceneManager.LoadScene("main_menu");
+		return _isPaused;
 	}
 }

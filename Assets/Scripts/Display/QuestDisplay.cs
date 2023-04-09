@@ -14,7 +14,7 @@ public class QuestDisplay : MonoBehaviour
     {
         _text.text = $"Quest:\n";
         
-        foreach (var objective in QuestManager.currentObjectives)
+        foreach (var objective in QuestManager.GetCurrentObjectives())
         {
             _text.text += $"-. {objective.enemy.tag} ({objective.currentAmount}/{objective.amount})\n";
         }

@@ -17,6 +17,6 @@ public class ScoreDisplay : MonoBehaviour
     
     private void Update()
     {
-        _text.text = $"Score: {ScoreGlobal.value}";
+        _text.text = $"Score: {ScoreGlobal.GetCurrentValue()}";
     }
 }

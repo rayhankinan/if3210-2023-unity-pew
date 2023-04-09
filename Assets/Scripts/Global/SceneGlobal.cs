@@ -1,14 +1,24 @@
 public class SceneGlobal
 {
-    public static string value;
+    private static string _value;
     
     public static void LoadFromFile()
     {
-        value = DataSaver.LoadData<string>("scene");
+        _value = DataSaver.LoadData<string>("scene");
     }
     
     public static void SaveToFile()
     {
-        DataSaver.SaveData(value, "scene");
+        DataSaver.SaveData(_value, "scene");
+    }
+
+    public static string GetCurrentValue()
+    {
+        return _value;
+    }
+    
+    public static void ChangeScene(string value)
+    {
+        _value = value;
     }
 }

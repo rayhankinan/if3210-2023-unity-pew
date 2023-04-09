@@ -11,16 +11,10 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneGlobal.LoadFromFile();
     }
-    
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
-    
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneGlobal.value ?? "level_01");
+        SceneManager.LoadScene(SceneGlobal.GetCurrentValue() ?? "level_01");
     }
     
     public void QuitGame()

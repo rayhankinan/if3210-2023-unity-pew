@@ -1,14 +1,24 @@
 public class CoinGlobal
 {
-    public static int value;
+    private static int _value;
 
     public static void LoadFromFile()
     {
-        value = DataSaver.LoadData<int>("coin");
+        _value = DataSaver.LoadData<int>("coin");
     }
     
     public static void SaveToFile()
     {
-        DataSaver.SaveData(value, "coin");
+        DataSaver.SaveData(_value, "coin");
+    }
+
+    public static int GetCurrentValue()
+    {
+        return _value;
+    }
+
+    public static void AddCoin(int value)
+    {
+        _value += value;
     }
 }

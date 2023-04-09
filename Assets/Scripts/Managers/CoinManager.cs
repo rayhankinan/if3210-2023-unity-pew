@@ -18,6 +18,6 @@ public class CoinManager : MonoBehaviour
     
     private void Update()
     {
-        _text.text = $"{CoinGlobal.value}";
+        _text.text = $"{CoinGlobal.GetCurrentValue()}";
     }
 }

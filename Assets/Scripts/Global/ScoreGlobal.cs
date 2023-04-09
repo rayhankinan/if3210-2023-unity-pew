@@ -1,14 +1,24 @@
 public class ScoreGlobal
 {
-    public static int value;
+    private static int _value;
     
     public static void LoadFromFile()
     {
-        value = DataSaver.LoadData<int>("score");
+        _value = DataSaver.LoadData<int>("score");
     }
     
     public static void SaveToFile()
     {
-        DataSaver.SaveData(value, "score");
+        DataSaver.SaveData(_value, "score");
+    }
+    
+    public static int GetCurrentValue()
+    {
+        return _value;
+    }
+
+    public static void AddScore(int value)
+    {
+        _value += value;
     }
 }
