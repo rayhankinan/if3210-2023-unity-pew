@@ -7,19 +7,17 @@ public class NextScene: MonoBehaviour
 
     public void NextWithoutSave()
     {
-        SceneGlobal.ChangeScene(scene);
+        CurrentStateData.ChangeScene(scene);
         
-        SceneManager.LoadScene(SceneGlobal.GetCurrentValue());
+        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
 
     public void NextWithSave()
     {
-        SceneGlobal.ChangeScene(scene);
+        CurrentStateData.ChangeScene(scene);
         
-        // CoinGlobal.SaveToFile();
-        // ScoreGlobal.SaveToFile();
-        // SceneGlobal.SaveToFile();
+        CurrentStateData.SaveData();
 
-        SceneManager.LoadScene(SceneGlobal.GetCurrentValue());
+        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
 }

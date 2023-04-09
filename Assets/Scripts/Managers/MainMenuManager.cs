@@ -9,12 +9,12 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        SceneGlobal.LoadFromFile();
+        CurrentStateData.LoadData();
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneGlobal.GetCurrentValue() ?? "level_01");
+        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
     
     public void QuitGame()

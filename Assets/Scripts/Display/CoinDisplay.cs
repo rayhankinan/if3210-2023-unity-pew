@@ -1,15 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinManager : MonoBehaviour
+public class CoinDisplay : MonoBehaviour
 {
     private Text _text;
-
-    private void Start()
-    {
-        CoinGlobal.LoadFromFile();
-    }
 
     private void Awake()
     {
@@ -18,6 +12,6 @@ public class CoinManager : MonoBehaviour
     
     private void Update()
     {
-        _text.text = $"{CoinGlobal.GetCurrentValue()}";
+        _text.text = $"{CurrentStateData.GetCurrentCoin()}";
     }
 }

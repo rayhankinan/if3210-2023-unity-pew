@@ -34,7 +34,7 @@ public class DataSaver
     }
 
     // Load Data
-    public static T LoadData<T>(string dataFileName)
+    public static T LoadData<T>(string dataFileName) where T: new()
     {
         var tempPath = Path.Combine(Application.persistentDataPath, "data");
         tempPath = Path.Combine(tempPath, dataFileName + ".txt");
@@ -43,13 +43,13 @@ public class DataSaver
         if (!Directory.Exists(Path.GetDirectoryName(tempPath)))
         {
             Debug.LogWarning("Directory does not exist");
-            return default(T);
+            return new T();
         }
 
         if (!File.Exists(tempPath))
         {
             Debug.Log("File does not exist");
-            return default(T);
+            return new T();
         }
 
         // Load saved Json
