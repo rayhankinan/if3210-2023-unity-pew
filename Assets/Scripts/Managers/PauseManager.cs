@@ -12,6 +12,7 @@ public class PauseManager : MonoBehaviour
 
 	private void Start()
 	{
+		Time.timeScale = 1;
 		_isPaused = false;
 	}
 
