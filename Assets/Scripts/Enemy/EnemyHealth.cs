@@ -7,7 +7,6 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
-    public int scoreValue = 10;
     public int coinValue = 1;
     public AudioClip deathClip;
 
@@ -91,10 +90,7 @@ public class EnemyHealth : MonoBehaviour
         
         // Set isSinking
         _isSinking = true;
-        
-        // Add Score
-        CurrentStateData.AddScore(scoreValue);
-        
+
         // Add Coin
         CurrentStateData.AddCoin(coinValue);
         

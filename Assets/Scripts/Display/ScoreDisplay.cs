@@ -12,6 +12,10 @@ public class ScoreDisplay : MonoBehaviour
     
     private void Update()
     {
-        _text.text = $"Score: {CurrentStateData.GetCurrentScore()}";
+        var currentScore = CurrentStateData.GetCurrentScore();
+        var minutes = Mathf.FloorToInt(currentScore / 60);
+        var seconds = Mathf.FloorToInt(currentScore % 60);
+        
+        _text.text = $"{minutes:00}:{seconds:00}";
     }
 }

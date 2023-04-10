@@ -4,6 +4,6 @@ using System;
 public class StateData
 {
     public int coin;
-    public int score;
+    public float score;
     public string scene = "level_01";
 }
