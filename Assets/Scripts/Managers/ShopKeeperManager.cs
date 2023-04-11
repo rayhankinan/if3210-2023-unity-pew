@@ -7,7 +7,6 @@ public class ShopKeeperManager : MonoBehaviour
     private static readonly int BuyClick = Animator.StringToHash("BuyClick");
 
     private Animator _anim;
-    private float _restartTimer;
 
     // Start is called before the first frame update
     void Start()
