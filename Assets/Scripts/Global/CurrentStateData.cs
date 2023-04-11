@@ -31,12 +31,12 @@ public class CurrentStateData
         _currentStateData.coin -= coin;
     }
 
-    public static int GetCurrentScore()
+    public static float GetCurrentScore()
     {
         return _currentStateData.score;
     }
 
-    public static void AddScore(int score)
+    public static void AddScore(float score)
     {
         _currentStateData.score += score;
     }
