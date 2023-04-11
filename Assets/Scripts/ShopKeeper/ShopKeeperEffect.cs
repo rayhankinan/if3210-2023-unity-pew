@@ -11,7 +11,7 @@ public class ShopKeeperEffect : MonoBehaviour
     private Vector3 _movement;
     private Vector3 _currentPosition;
     public float speed = 5f;
-    private bool _isShopKeeperFlying = false;
+    public bool isShopKeeperFlying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class ShopKeeperEffect : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isShopKeeperFlying)
+        if (isShopKeeperFlying)
         {
             _shopKeeperLight.enabled = true;
 
@@ -52,7 +52,7 @@ public class ShopKeeperEffect : MonoBehaviour
     {
         if (other.gameObject == _player)
         {
-            _isShopKeeperFlying = true;
+            isShopKeeperFlying = true;
             _anim.SetBool("ShopKeeperFlying", true);
         }
     }
@@ -61,7 +61,7 @@ public class ShopKeeperEffect : MonoBehaviour
     {
         if (other.gameObject == _player)
         {
-            _isShopKeeperFlying = false;
+            isShopKeeperFlying = false;
             _anim.SetBool("ShopKeeperFlying", false);
         }
     }
