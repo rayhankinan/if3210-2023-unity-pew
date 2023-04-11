@@ -14,6 +14,27 @@ public class CurrentStateData
         DataSaver.SaveData(_currentStateData, "current_state");
     }
 
+    public static string GetPlayerName()
+    {
+        return _currentStateData.playerName;
+    }
+
+    public static void ChangeName(string name)
+    {
+        _currentStateData.playerName = name;
+    }
+
+    public static int GetVolume()
+    {
+        return _currentStateData.volume;
+    }
+
+    public static void ChangeVolume(int volumeDiff)
+    {
+        _currentStateData.volume += volumeDiff;
+        _currentStateData.volume = Math.Min(Math.Max(_currentStateData.volume, 0), 100);
+    }
+
     public static int GetCurrentCoin()
     {
         return _currentStateData.coin;
