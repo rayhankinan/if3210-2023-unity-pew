@@ -6,7 +6,7 @@ using TMPro;
 
 public class CheatManager : MonoBehaviour
 {
-    private PauseManager pauseManager;
+    //private PauseManager pauseManager;
     
     [Header("UI Components")]
     public Canvas consoleCanvas;
@@ -15,25 +15,20 @@ public class CheatManager : MonoBehaviour
     public TMP_Text inputText;
     public TMP_InputField consoleInput;
     
-    // Start is called before the first frame update
     void Start()
     {
         consoleCanvas.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             consoleCanvas.gameObject.SetActive(!consoleCanvas.gameObject.activeInHierarchy);
-            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-            //Time.timeScale = 0;
             //pauseManager.Pause();
+            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
         }
         
-        
-
         if (consoleCanvas.gameObject.activeInHierarchy)
         {
             Time.timeScale = 0;
@@ -51,6 +46,6 @@ public class CheatManager : MonoBehaviour
     private void AddMessageToConsole(string msg)
     {
         consoleText.text += msg + "\n";
-        scrollRect.verticalNormalizedPosition = 0f;
+        //scrollRect.verticalNormalizedPosition = 0f;
     }
 }
