@@ -10,7 +10,6 @@ public class CheatManager : MonoBehaviour
     
     [Header("UI Components")]
     public Canvas consoleCanvas;
-    public ScrollRect scrollRect;
     public TMP_Text consoleText;
     public TMP_Text inputText;
     public TMP_InputField consoleInput;
@@ -46,6 +45,5 @@ public class CheatManager : MonoBehaviour
     private void AddMessageToConsole(string msg)
     {
         consoleText.text += msg + "\n";
-        //scrollRect.verticalNormalizedPosition = 0f;
     }
 }
