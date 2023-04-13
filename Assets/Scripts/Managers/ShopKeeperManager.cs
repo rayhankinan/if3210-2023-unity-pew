@@ -34,12 +34,15 @@ public class ShopKeeperManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.B))
         {
+            Debug.Log("Press B");
             if (!_shopKeeperEffect.isShopKeeperFlying)
             {
+                Debug.Log("False");
                 _anim.SetTrigger(BuyErrorClick);
             }
             else
             {
+                Debug.Log("True");
                 Time.timeScale = 0;
                 shopKeeperCanvas.SetActive(true);
             }

@@ -2827,8 +2827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787506a5a14ef484db5e5e00d14c3369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  speed: 3
+  player: {fileID: 0}
+  speed: 4
+  isShopKeeperFlying: 0
 --- !u!1 &7879114997111878892
 GameObject:
   m_ObjectHideFlags: 0
