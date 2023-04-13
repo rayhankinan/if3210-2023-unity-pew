@@ -15,8 +15,8 @@ public class SettingsManager : MonoBehaviour
 
         if (settingsPanel.activeSelf)
         {
-            ShowName();
-            ShowVolume();
+            playerName.text = CurrentStateData.GetPlayerName();
+            volumeInfo.text = CurrentStateData.GetVolume() + "%";
         }
         else
         {
@@ -28,31 +28,23 @@ public class SettingsManager : MonoBehaviour
     {
         settingsPanel.SetActive(false);
     }
-
-    private void ShowName()
-    {
-        playerName.text = CurrentStateData.GetPlayerName();
-    }
-
-    public void ChangeName()
+    
+    private void ChangeName()
     {
         CurrentStateData.ChangeName(playerName.text);
     }
-
-    private void ShowVolume()
-    {
-        volumeInfo.text = CurrentStateData.GetVolume() + "%";
-    }
-
+    
     public void VolumeUp()
     {
         CurrentStateData.ChangeVolume(5);
-        ShowVolume();
+        AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
+        volumeInfo.text = CurrentStateData.GetVolume() + "%";
     }
 
     public void VolumeDown()
     {
         CurrentStateData.ChangeVolume(-5);
-        ShowVolume();
+        AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
+        volumeInfo.text = CurrentStateData.GetVolume() + "%";
     }
 }
