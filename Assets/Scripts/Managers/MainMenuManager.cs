@@ -9,7 +9,8 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start ()
     {
-        CurrentStateData.LoadData ();
+        CurrentStateData.LoadData();
+        AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
     }
 
     public void PlayGame()

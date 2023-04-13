@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3197559019298417245}
   - component: {fileID: 3197559019298417244}
   - component: {fileID: 3197559019298417254}
-  - component: {fileID: 3197559019298417252}
+  - component: {fileID: -461550441185040775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -250,7 +250,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
---- !u!114 &3197559019298417252
+--- !u!114 &-461550441185040775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
