@@ -6,11 +6,17 @@ using UnityEditor;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public GameObject mainCanvas;
+    public GameObject scoreboardCanvas;
+    
     // Start is called before the first frame update
-    private void Start ()
+    private void Start()
     {
         CurrentStateData.LoadData();
         AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
+        
+        mainCanvas.SetActive(true);
+        scoreboardCanvas.SetActive(false);
     }
 
     public void PlayGame()
@@ -25,5 +31,17 @@ public class MainMenuManager : MonoBehaviour
         #else 
 		Application.Quit();
         #endif
+    }
+
+    public void OpenScoreboard()
+    {
+        mainCanvas.SetActive(false);
+        scoreboardCanvas.SetActive(true);
+    }
+
+    public void CloseScoreboard()
+    {
+        mainCanvas.SetActive(true);
+        scoreboardCanvas.SetActive(false);
     }
 }
