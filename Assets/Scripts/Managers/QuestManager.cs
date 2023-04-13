@@ -6,6 +6,10 @@ public class QuestManager: MonoBehaviour
 {
     private static ObjectiveManager[] _currentObjectives;
 
+    private bool added = false;
+
+    public int rewardCompletion;
+
     private void Awake()
     {
         _currentObjectives = GetComponents<ObjectiveManager>();
@@ -14,7 +18,12 @@ public class QuestManager: MonoBehaviour
     private void Update()
     {
         if (!_currentObjectives.All(objective => objective.IsCompleted())) return;
-
+        
+        if (added == false)
+        {
+            CurrentStateData.AddCoin(rewardCompletion);
+            added = true;
+        }
         FinishManager.DisplayButton();
     }
 

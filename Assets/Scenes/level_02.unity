@@ -2867,6 +2867,10 @@ PrefabInstance:
       propertyPath: amount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5852815715898314045, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
+      propertyPath: rewardCompletion
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
 --- !u!1001 &3197559021058508482

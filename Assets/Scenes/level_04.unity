@@ -2287,14 +2287,6 @@ PrefabInstance:
       propertyPath: shopKeeperCanvas
       value: 
       objectReference: {fileID: 796717174}
-    - target: {fileID: 3330418814595299882, guid: de52442555b174340b27dc91c546b341, type: 3}
-      propertyPath: scene
-      value: level_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586712432078565062, guid: de52442555b174340b27dc91c546b341, type: 3}
-      propertyPath: scene
-      value: level_04
-      objectReference: {fileID: 0}
     - target: {fileID: 8806000715362971552, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2869,7 +2861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852815715898314045, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: rewardCompletion
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
@@ -2891,7 +2883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 153412, guid: f264ab47e25d0374ba89abced0b94b2a, type: 3}
-  amount: 2
+  amount: 3
   currentAmount: 0
 --- !u!1001 &3197559021058508482
 PrefabInstance:
