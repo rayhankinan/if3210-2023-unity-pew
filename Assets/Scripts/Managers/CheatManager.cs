@@ -39,9 +39,13 @@ public class CheatManager : MonoBehaviour
         Commands = new Dictionary<string, CheatCommandBase>();
     }
 
+    //List of cheat commands
     private void CreateCommands()
     {
         CommandNoDamage.CreateCommand();
+        CommandOneHitKill.CreateCommand();
+        CommandMotherlode.CreateCommand();
+        CommandDoubleSpeed.CreateCommand();
     }
     
     void Start()
@@ -55,7 +59,6 @@ public class CheatManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             consoleCanvas.gameObject.SetActive(!consoleCanvas.gameObject.activeInHierarchy);
-            //pauseManager.Pause();
             Time.timeScale = Time.timeScale == 0 ? 1 : 0;
         }
         

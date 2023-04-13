@@ -22,8 +22,8 @@ public class CommandDoubleSpeed : CheatCommandBase
         _playerMovement.speed *= 2;
     }
 
-    public static CommandNoDamage CreateCommand()
+    public static CommandDoubleSpeed CreateCommand()
     {
-        return new CommandNoDamage();
+        return new CommandDoubleSpeed();
     }
 }
