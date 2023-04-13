@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class QuestManager: MonoBehaviour
             }
     }
 
-    public static ObjectiveManager[] GetCurrentObjectives()
+    public static IEnumerable<ObjectiveManager> GetCurrentObjectives()
     {
         return _currentObjectives;
     }

@@ -20,8 +20,8 @@ public class ScoreboardManager : MonoBehaviour
         headerTextFields[2].text = "Time Spent";
 
         // @TODO change this to actual instantiations
-        int numberOfItems = 21;
-        for (int i = 1; i <= numberOfItems; i++)
+        const int numberOfItems = 21;
+        for (var i = 1; i <= numberOfItems; i++)
         {
             var entry = Instantiate(scoreEntryPrefab, content.transform);
             var entryRectTransform = entry.GetComponent<RectTransform>();

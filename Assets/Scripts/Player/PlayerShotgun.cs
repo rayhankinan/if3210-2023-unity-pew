@@ -45,9 +45,10 @@ public class PlayerShotgun : MonoBehaviour
         _gunLine.SetPosition(0, position);
         _shootRay.origin = position;
         
-        for (int i = 0; i < pelletsPerShot; i++){
-            Vector3 direction = transform.forward + Random.insideUnitSphere * 0.1f;
-            _shootRay.direction = transform.forward;
+        for (var i = 0; i < pelletsPerShot; i++){
+            var forward = transform.forward;
+            var direction = forward + Random.insideUnitSphere * 0.1f;
+            _shootRay.direction = direction;
 
             if (Physics.Raycast(_shootRay, out _shootHit, range, _shootableMask))
             {
@@ -56,9 +57,9 @@ public class PlayerShotgun : MonoBehaviour
 
                 if (enemyHealth)
                 {
-                    float distance = Vector3.Distance(transform.position, _shootHit.point);
-                    float damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
-                    int damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
+                    var distance = Vector3.Distance(transform.position, _shootHit.point);
+                    var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
+                    var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
                     enemyHealth.TakeDamage(damage, _shootHit.point);
                 }
 
