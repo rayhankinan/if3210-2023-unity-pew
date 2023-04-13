@@ -8,7 +8,7 @@ public abstract class CheatCommandBase
 {
     public abstract string commandID { get; protected set; }
     public abstract string commandDescription { get; protected set; }
-    public string commandFormat { get; protected set; }
+    //public string commandFormat { get; protected set; }
 
     public void AddCommandToConsole()
     {
@@ -41,7 +41,7 @@ public class CheatManager : MonoBehaviour
 
     private void CreateCommands()
     {
-        
+        CommandNoDamage.CreateCommand();
     }
     
     void Start()
@@ -67,7 +67,7 @@ public class CheatManager : MonoBehaviour
                 if (inputText.text != "")
                 {
                     AddMessageToConsole(inputText.text);
-                    AddMessageToConsole("Command not recognized.");
+                    ParseInput(inputText.text);
                 }
             }
         }
@@ -77,12 +77,32 @@ public class CheatManager : MonoBehaviour
     {
         if (!Commands.ContainsKey(_name))
         {
-            Commands.Add(_name, _command);
+            Commands.Add(_name.Trim(), _command);
         }
     }
     
     private void AddMessageToConsole(string msg)
     {
         consoleText.text += msg + "\n";
+    }
+    
+    private void ParseInput(string input)
+    {
+        string[] _input = input.Split(null);
+
+        if (_input.Length == 0 || _input == null)
+        {
+            AddMessageToConsole("Command not recognized.");
+            return;
+        }
+
+        if (!Commands.ContainsKey(_input[0]))
+        {
+            AddMessageToConsole("Command not recognized.");
+        }
+        else
+        {
+            Commands[_input[0]].RunCommand();
+        }
     }
 }
