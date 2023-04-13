@@ -47,8 +47,7 @@ public class PlayerShotgun : MonoBehaviour
         
         for (var i = 0; i < pelletsPerShot; i++){
             var forward = transform.forward;
-            var direction = forward + Random.insideUnitSphere * 0.1f;
-            _shootRay.direction = direction;
+            _shootRay.direction = forward;
 
             if (Physics.Raycast(_shootRay, out _shootHit, range, _shootableMask))
             {

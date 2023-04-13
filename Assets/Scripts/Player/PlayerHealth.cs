@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private AudioSource _playerAudio;
     private PlayerMovement _playerMovement;
     private PlayerShooting _playerShooting;
+    private PlayerShotgun _playerShotgun;
     private bool _isDead;                                                
     private bool _damaged;
 
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         _playerAudio = GetComponent<AudioSource>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerShooting = GetComponentInChildren<PlayerShooting>();
+        _playerShotgun = GetComponentInChildren<PlayerShotgun>();
 
         currentHealth = startingHealth;
     }
@@ -44,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         _isDead = true;
         
         _playerShooting.DisableEffects();
+        _playerShotgun.DisableEffects();
         
         // Mentrigger animasi Die
         _anim.SetTrigger(Die);
@@ -54,8 +57,8 @@ public class PlayerHealth : MonoBehaviour
         
         // Mematikan script player movement
         _playerMovement.enabled = false;
-        
         _playerShooting.enabled = false;
+        _playerShotgun.enabled = false;
     }
     
     // Fungsi untuk mendapatkan damage
