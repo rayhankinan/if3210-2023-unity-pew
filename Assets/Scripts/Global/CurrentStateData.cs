@@ -6,11 +6,10 @@ public class CurrentStateData
     private static StateData _currentStateData;
     private static GameData _currentGameData;
 
-    public static void LoadData()
+    public static void LoadStateData()
     {
-        _currentStateData = DataSaver.LoadData<StateData>("current_state");
-        _currentStateData ??= new StateData();
-        _currentStateData.saveEntries ??= new List<SaveEntry>();
+        _currentStateData = DataSaver.LoadData<StateData>("current_state") ?? new StateData();
+        _currentStateData.saveEntries ??= new SaveEntry[3];
         _currentStateData.scoreEntries ??= new List<ScoreEntry>();
 
         _currentGameData.playerName = _currentStateData.playerName;
@@ -19,7 +18,7 @@ public class CurrentStateData
         _currentGameData.playTime = 0;
     }
 
-    public static void SaveData()
+    public static void SaveStateData()
     {
         DataSaver.SaveData(_currentStateData, "current_state");
     }
@@ -45,7 +44,7 @@ public class CurrentStateData
         _currentStateData.volume = Math.Min(Math.Max(_currentStateData.volume, 0), 100);
     }
 
-    public static List<SaveEntry> GetSaveEntries()
+    public static SaveEntry[] GetSaveEntries()
     {
         return _currentStateData.saveEntries;
     }
@@ -58,11 +57,6 @@ public class CurrentStateData
 
     public static bool LoadGameData(int index)
     {
-        if (_currentStateData.saveEntries.Count < index)
-        {
-            return false;
-        }
-        
         var loadedSaveEntry = _currentStateData.saveEntries[index];
         _currentGameData.playerName = loadedSaveEntry.playerName;
         _currentGameData.scene = loadedSaveEntry.scene;
@@ -70,6 +64,22 @@ public class CurrentStateData
         _currentGameData.playTime = loadedSaveEntry.playTime;
         
         return true;
+    }
+
+    public static void SaveGameData(string saveName, int index)
+    {
+        var saveEntry = new SaveEntry
+        {
+            saveName = saveName,
+            saveDateTime = DateTime.Now,
+            playerName = _currentGameData.playerName,
+            playTime = _currentGameData.playTime,
+            coin = _currentGameData.coin,
+            scene = _currentGameData.scene
+        };
+        
+        _currentStateData.saveEntries[index] = saveEntry;
+        SaveStateData();
     }
 
     public static string GetCurrentPlayerName()
