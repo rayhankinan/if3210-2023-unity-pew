@@ -53,6 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
+                Debug.Log($"multiplier = {multiplier}");
                 enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*multiplier), _shootHit.point);
             }
 

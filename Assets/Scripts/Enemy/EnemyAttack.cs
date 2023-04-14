@@ -70,7 +70,7 @@ public class EnemyAttack : MonoBehaviour
         {
             _dragonPetInRange = false;
         }
-        else if (other.gameObject.CompareTag("Healing Wizard"))
+        else if (other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard"))
         {
             _wizardPetInRange = false;
         }
