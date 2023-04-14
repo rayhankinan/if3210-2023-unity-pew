@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
-// TODO: BISA DITAMBAHKAN ANIMATOR ISPAUSED
 public class PauseManager : MonoBehaviour
 {
 	private static bool _isPaused;

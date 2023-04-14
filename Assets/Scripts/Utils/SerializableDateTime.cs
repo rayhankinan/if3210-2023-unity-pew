@@ -11,8 +11,10 @@ public struct SerializableDateTime {
     
     public static implicit operator SerializableDateTime(DateTime dt) 
     {
-        SerializableDateTime sdt = new SerializableDateTime();
-        sdt.value = dt.ToFileTimeUtc();
+        var sdt = new SerializableDateTime
+        {
+            value = dt.ToFileTimeUtc()
+        };
         return sdt;
     }
 

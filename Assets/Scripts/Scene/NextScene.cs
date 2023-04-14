@@ -15,8 +15,6 @@ public class NextScene: MonoBehaviour
     public void NextWithSave()
     {
         CurrentStateData.ChangeScene(scene);
-        CurrentStateData.SaveStateData(); // TODO: GANTI INI
-
-        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
+        SaveManager.OpenSaveFilesPanel();
     }
 }
