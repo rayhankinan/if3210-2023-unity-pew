@@ -17,7 +17,7 @@ public class QuestManager: MonoBehaviour
 
     private void Update()
     {
-        if (!_currentObjectives.All(objective => objective.IsCompleted())) return;
+        if (!IsQuestCompleted()) return;
         
         if (added == false)
         {
@@ -39,5 +39,10 @@ public class QuestManager: MonoBehaviour
     public static IEnumerable<ObjectiveManager> GetCurrentObjectives()
     {
         return _currentObjectives;
+    }
+
+    public static bool IsQuestCompleted()
+    {
+        return _currentObjectives.All(objective => objective.IsCompleted());
     }
 }
