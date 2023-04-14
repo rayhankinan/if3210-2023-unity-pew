@@ -1,15 +1,68 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+struct RandomSelection
+{
+    private readonly int _value;
+    private readonly float _probability;
+
+    public RandomSelection(int value, float probability) {
+        _value = value;
+        _probability = probability;
+    }
+
+    public int GetValue() {
+        return _value;
+    }
+
+    public float GetProbability() {
+        return _probability;
+    }
+}
 
 public class EnemyManager : MonoBehaviour
 {
+    private static readonly List<GameObject> ListOfEnemy = new();
+    
     public PlayerHealth playerHealth;
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
-    
 
     private EnemyFactory _enemyFactory;
     private IFactory Factory => _enemyFactory;
 
+    private static int GetRandomValue(params RandomSelection[] selections)
+    {
+        var rand = Random.value;
+        float currentProb = 0;
+        foreach (var selection in selections)
+        {
+            currentProb += selection.GetProbability();
+            if (rand <= currentProb)
+            {
+                return selection.GetValue();
+            }
+        }
+
+        return -1;
+    }
+
+    public static void RemoveEnemy(GameObject enemy)
+    {
+        ListOfEnemy.Remove(enemy);
+    }
+
+    public static void KillAllEnemy()
+    {
+        foreach (var enemyHealth in ListOfEnemy.Select(enemy => enemy.GetComponent<EnemyHealth>()))
+        {
+            enemyHealth.Kill();
+        }
+    }
+    
     private void Awake()
     {
         _enemyFactory = GetComponent<EnemyFactory>();
@@ -25,95 +78,40 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Jika quest selesai stop respawn enemy
-        if (QuestManager.IsQuestCompleted())
-        {
-            CancelInvoke();
-        }
-    }
-    
     private void Spawn()
     {
-        // Jika player telah mati maka tidak membuat enemy baru
-        if (playerHealth.currentHealth <= 0f)
+        // Jika player telah mati atau quest sudah beres maka tidak membuat enemy baru
+        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted())
         {
             return;
         }
 
         // Mendapatkan nilai random
-        var enemyTag = 0;
-        switch (_enemyFactory.enemyPrefab.Length)
+        var enemyTag = _enemyFactory.enemyPrefab.Length switch
         {
-            case 1:
-                enemyTag = 0;
-                break;
-            case 2:
-                enemyTag = GetRandomValue(
-                    new RandomSelection(0, .6f),
-                    new RandomSelection(1, .4f)
-                );
-                break;
-            default:
-                enemyTag = GetRandomValue(
-                    new RandomSelection(0, .4f),
-                    new RandomSelection(1, .35f),
-                    new RandomSelection(2, .25f)
-                );
-                break;
-        }
-    
+            1 => 0,
+            2 => GetRandomValue(new RandomSelection(0, .6f), new RandomSelection(1, .4f)),
+            _ => GetRandomValue(new RandomSelection(0, .4f), new RandomSelection(1, .35f), new RandomSelection(2, .25f))
+        };
+
         var spawnTag = Random.Range(0, spawnPoints.Length);
 
         // Menduplikasi enemy
-        Factory.FactoryMethod(enemyTag, spawnPoints[spawnTag]);
+        var newEnemy = Factory.FactoryMethod(enemyTag, spawnPoints[spawnTag]);
+        
+        ListOfEnemy.Add(newEnemy);
     }
 
     private void SpawnWizard()
     {
-        if (playerHealth.currentHealth <= 0f)
+        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted())
         {
             return;
         }
 
-        var enemyTag = 3;
-
-        Factory.FactoryMethod(enemyTag, spawnPoints[0]);
-    }
-
-    private struct RandomSelection
-    {
-        private int value;
-        private float probability;
-
-        public RandomSelection(int value, float probability) {
-            this.value = value;
-            this.probability = probability;
-        }
-
-        public int GetValue() {
-            return this.value;
-        }
-
-        public float GetProbability() {
-            return this.probability;
-        }
-    }
-
-    private int GetRandomValue(params RandomSelection[] selections)
-    {
-        float rand = Random.value;
-        float currentProb = 0;
-        foreach (var selection in selections)
-        {
-            currentProb += selection.GetProbability();
-            if (rand <= currentProb)
-            {
-                return selection.GetValue();
-            }
-        }
-
-        return -1;
+        const int enemyTag = 3;
+        var wizard = Factory.FactoryMethod(enemyTag, spawnPoints[0]);
+        
+        ListOfEnemy.Add(wizard);
     }
 }

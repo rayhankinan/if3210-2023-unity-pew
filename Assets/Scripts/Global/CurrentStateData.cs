@@ -62,6 +62,7 @@ public class CurrentStateData
     public static bool LoadGameData(int index)
     {
         var loadedSaveEntry = _currentStateData.saveEntries[index];
+        
         _currentGameData.playerName = loadedSaveEntry.playerName;
         _currentGameData.scene = loadedSaveEntry.scene;
         _currentGameData.coin = loadedSaveEntry.coin;
@@ -69,7 +70,8 @@ public class CurrentStateData
         _currentGameData.currentWeapon = loadedSaveEntry.currentWeapon;
         _currentGameData.weapons = loadedSaveEntry.weapons;
         _currentGameData.pets = loadedSaveEntry.pets;
-        
+        // _currentGameData.dmgMultiplier = 1f;
+
         return true;
     }
 
@@ -170,17 +172,10 @@ public class CurrentStateData
         return _currentGameData.currentWeapon;
     }
 
-    public static bool SetCurrentWeapon(int weapon)
+    public static void SetCurrentWeapon(int weapon)
     {
-        if (_currentGameData.weapons[weapon])
-        {
-            _currentGameData.currentWeapon = weapon;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (!_currentGameData.weapons[weapon]) return;
+        _currentGameData.currentWeapon = weapon;
     }
 
     public static void AddWeapon(int weapon)
@@ -188,12 +183,12 @@ public class CurrentStateData
         _currentGameData.weapons[weapon] = true;
     }
 
-    public static float getMultiplier()
+    public static float GetMultiplier()
     {
         return _currentGameData.dmgMultiplier;
     }
 
-    public static void setMultiplier(float multiplier)
+    public static void SetMultiplier(float multiplier)
     {
         _currentGameData.dmgMultiplier = multiplier;
     }

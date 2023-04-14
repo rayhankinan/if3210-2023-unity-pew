@@ -8,14 +8,18 @@ public class NextScene: MonoBehaviour
     public void NextWithoutSave()
     {
         CurrentStateData.ChangeScene(scene);
-        
-        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
+        SceneManager.LoadScene("cutscene_shopkeeper_turun");
     }
 
     public void NextWithSave()
     {
         CurrentStateData.ChangeScene(scene);
-        
         SaveManager.OpenSaveFilesPanel();
+    }
+
+    public void NextWithoutShopkeeper()
+    {
+        CurrentStateData.ChangeScene(scene);
+        SceneManager.LoadScene(scene);
     }
 }

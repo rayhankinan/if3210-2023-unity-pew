@@ -3,7 +3,7 @@
 public class EnemyHealth : MonoBehaviour
 {
     private static readonly int Dead = Animator.StringToHash("Dead");
-    
+
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
@@ -97,8 +97,39 @@ public class EnemyHealth : MonoBehaviour
         // Play Sound Dead
         _enemyAudio.clip = deathClip;
         _enemyAudio.Play();
+
+        // Remove From List
+        EnemyManager.RemoveEnemy(gameObject);
+        
+        // Add Coin Reward
+        CurrentStateData.AddCoin(coinValue);
+        
+        // Add Enemy to Quest
+        QuestManager.AddEnemy(gameObject);
     }
-    
+
+    public void Kill()
+    {
+        // Set Health to 0
+        // currentHealth = 0;
+        
+        // Set isDead
+        _isDead = true;
+
+        // SetCapcollider ke trigger
+        _capsuleCollider.isTrigger = true;
+
+        // Trigger play animation Dead
+        _anim.SetTrigger(Dead);
+
+        // Play Sound Dead
+        _enemyAudio.clip = deathClip;
+        _enemyAudio.Play();
+        
+        // Remove From List
+        EnemyManager.RemoveEnemy(gameObject);
+    }
+
     public void StartSinking()
     {
         // Disable Navmesh Component
@@ -110,12 +141,6 @@ public class EnemyHealth : MonoBehaviour
         // Set isSinking
         _isSinking = true;
 
-        // Add Coin
-        CurrentStateData.AddCoin(coinValue);
-        
-        // Add Enemy to Quest
-        QuestManager.AddEnemy(gameObject);
-        
         // Destroy Object
         Destroy(gameObject, 2f);
     }

@@ -10,7 +10,7 @@ public class SaveState : MonoBehaviour
         
         SaveManager.OnSave();
         
-        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
+        SceneManager.LoadScene("cutscene_shopkeeper_turun");
     }
 
     public void Back()
