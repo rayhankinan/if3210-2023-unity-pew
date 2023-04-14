@@ -14,6 +14,7 @@ public class Arrows : MonoBehaviour
     private Rigidbody rigidbody;
 
     private bool isHit;
+    public float multiplier = CurrentStateData.getMultiplier();
 
     public void Fly(Vector3 force){
         rigidbody.isKinematic = false;
@@ -28,7 +29,7 @@ public class Arrows : MonoBehaviour
         isHit = true;
         var enemyHealth = collider.GetComponent<EnemyHealth>();
         if(enemyHealth){
-            enemyHealth.TakeDamageSword(damage);
+            enemyHealth.TakeDamageSword(damage * multiplier);
         }
 
         rigidbody.velocity = Vector3.zero;
