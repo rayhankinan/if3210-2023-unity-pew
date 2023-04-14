@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     private LineRenderer _gunLine;
     private AudioSource _gunAudio;
     private Light _gunLight;
+    private bool oneHit;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PlayerShooting : MonoBehaviour
         _gunLight = GetComponent<Light>();
         
         _multiplier = CurrentStateData.GetMultiplier();
+        oneHit = false;
     }
 
     private void Shoot()
@@ -55,9 +57,16 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
-                _multiplier = CurrentStateData.GetMultiplier();
-                //Debug.Log($"multiplier = {_multiplier}");
-                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*_multiplier), _shootHit.point);
+                if (oneHit)
+                {
+                    enemyHealth.TakeDamage(Mathf.RoundToInt(enemyHealth.currentHealth), _shootHit.point);
+                }
+                else
+                {
+                    _multiplier = CurrentStateData.GetMultiplier();
+                    //Debug.Log($"multiplier = {_multiplier}");
+                    enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*_multiplier), _shootHit.point);    
+                }
             }
 
             _gunLine.SetPosition(1, _shootHit.point);
@@ -88,5 +97,10 @@ public class PlayerShooting : MonoBehaviour
         {
             DisableEffects();
         }
+    }
+
+    public void SetOneHit()
+    {
+        oneHit = true;
     }
 }
