@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _playerRigidbody;
     private int _floorMask;
     private Camera _camera;
+    PetWizardHealth _petWizardhealth;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         
         // Mendapatkan komponen Rigidbody
         _playerRigidbody = GetComponent<Rigidbody>();
+        _petWizardhealth = GetComponent<PetWizardHealth>();
     }
 
     private void Turning()
