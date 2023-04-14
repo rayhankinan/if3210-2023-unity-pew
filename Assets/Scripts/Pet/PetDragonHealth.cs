@@ -20,6 +20,7 @@ public class PetDragonHealth : MonoBehaviour
     private void Awake()
     {
         // Mendapatkan reference komponen
+        _isDead = false;
         _anim = GetComponent<Animator>();
         _petDragonMovement = GetComponent<PetDragonMovement>();
         _petDragonAttack = GetComponent<PetDragonAttack>();
@@ -31,7 +32,7 @@ public class PetDragonHealth : MonoBehaviour
         if (_isSinking)
         {
             // Memindahkan object kebawah
-            transform.Translate(-Vector3.up * (sinkSpeed * Time.deltaTime));
+            transform.Translate(Vector3.down * (sinkSpeed * Time.deltaTime));
         }
     }
 

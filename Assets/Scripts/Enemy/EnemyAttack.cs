@@ -12,8 +12,10 @@ public class EnemyAttack : MonoBehaviour
     private Animator _anim;
     private GameObject _player;
     private PlayerHealth _playerHealth;
+    private PetDragonHealth _petDragonHealth;
     private EnemyHealth _enemyHealth;
     private bool _playerInRange;
+    private bool _dragonPetInRange;
     private float _timer;
 
     private void Awake()
@@ -34,10 +36,17 @@ public class EnemyAttack : MonoBehaviour
     // Callback jika ada suatu object masuk kedalam trigger
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"{other.gameObject.layer} - {LayerMask.GetMask("Pet")}");
         // Set player in range
         if (other.gameObject == _player)
         {
             _playerInRange = true;
+        }
+        else if (other.gameObject.CompareTag("Pet Dragon"))
+        {
+            Debug.Log("Pet collide Pet dragon");
+            _petDragonHealth = other.gameObject.GetComponent<PetDragonHealth>();
+            _dragonPetInRange = true;
         }
     }
 
@@ -49,6 +58,10 @@ public class EnemyAttack : MonoBehaviour
         {
             _playerInRange = false;
         }
+        else if  (other.gameObject.CompareTag("Pet Dragon"))
+        {
+            _dragonPetInRange = false;
+        }
     }
 
 
@@ -56,7 +69,7 @@ public class EnemyAttack : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (_timer >= timeBetweenAttacks && _playerInRange && _enemyHealth.currentHealth > 0)
+        if (_timer >= timeBetweenAttacks && (_playerInRange || _dragonPetInRange) && _enemyHealth.currentHealth > 0)
         {
             _anim.SetTrigger(WizardAttack);
             Attack();
@@ -76,9 +89,20 @@ public class EnemyAttack : MonoBehaviour
         _timer = 0f;
 
         // Taking Damage
-        if (_playerHealth.currentHealth > 0)
+        if (_playerInRange)
         {
-            _playerHealth.TakeDamage(attackDamage);
+            if (_playerHealth.currentHealth > 0)
+            {
+                _playerHealth.TakeDamage(attackDamage);
+            }
+        }
+
+        if (_dragonPetInRange)
+        {
+            if (_petDragonHealth.currentHealth > 0)
+            {
+                _petDragonHealth.TakeDamage(attackDamage);
+            }
         }
     }
 }
