@@ -7,7 +7,6 @@ public struct SaveEntry
     public SerializableDateTime saveDateTime;
     public string playerName;
     public int coin;
-    public float score;
-    public int playTime;
+    public float playTime;
     public string scene;
 }

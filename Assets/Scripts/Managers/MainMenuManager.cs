@@ -19,10 +19,15 @@ public class MainMenuManager : MonoBehaviour
     {
         CurrentStateData.LoadData();
         AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
-        
+
         mainCanvas.SetActive(true);
         scoreboardCanvas.SetActive(false);
         loadCanvas.SetActive(false);
+    }
+
+    private void OnApplicationQuit()
+    {
+        CurrentStateData.SaveData();
     }
 
     public void PlayGame()
@@ -75,7 +80,7 @@ public class MainMenuManager : MonoBehaviour
     
     public void QuitGame()
     {
-        CurrentStateData.SaveData();
+        // CurrentStateData.SaveData();
         #if UNITY_EDITOR 
         EditorApplication.isPlaying = false;
         #else 

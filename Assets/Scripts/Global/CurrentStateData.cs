@@ -16,7 +16,6 @@ public class CurrentStateData
         _currentGameData.playerName = _currentStateData.playerName;
         _currentGameData.scene = "level_01";
         _currentGameData.coin = 0;
-        _currentGameData.score = 0;
         _currentGameData.playTime = 0;
     }
 
@@ -51,6 +50,12 @@ public class CurrentStateData
         return _currentStateData.saveEntries;
     }
 
+    public static List<ScoreEntry> GetScoreEntries()
+    {
+        _currentStateData.scoreEntries.Sort((s1, s2) => s1.playTime.CompareTo(s2.playTime));
+        return _currentStateData.scoreEntries;
+    }
+
     public static bool LoadGameData(int index)
     {
         if (_currentStateData.saveEntries.Count < index)
@@ -62,10 +67,31 @@ public class CurrentStateData
         _currentGameData.playerName = loadedSaveEntry.playerName;
         _currentGameData.scene = loadedSaveEntry.scene;
         _currentGameData.coin = loadedSaveEntry.coin;
-        _currentGameData.score = loadedSaveEntry.score;
         _currentGameData.playTime = loadedSaveEntry.playTime;
         
         return true;
+    }
+
+    public static void SaveGameData(string saveName, int index)
+    {
+        var saveEntry = new SaveEntry();
+        saveEntry.saveName = saveName;
+        saveEntry.saveDateTime = DateTime.Now;
+        saveEntry.playerName = _currentGameData.playerName;
+        saveEntry.playTime = _currentGameData.playTime;
+        saveEntry.coin = _currentGameData.coin;
+        saveEntry.scene = _currentGameData.scene;
+        
+        if (_currentStateData.saveEntries.Count < 3)
+        {
+            _currentStateData.saveEntries.Add(saveEntry);
+        }
+        else
+        {
+            _currentStateData.saveEntries[index] = saveEntry;
+        }
+        
+        SaveData();
     }
 
     public static string GetCurrentPlayerName()
@@ -90,14 +116,14 @@ public class CurrentStateData
         _currentGameData.coin -= coin;
     }
 
-    public static float GetCurrentScore()
+    public static float GetCurrentPlayTime()
     {
-        return _currentGameData.score;
+        return _currentGameData.playTime;
     }
 
-    public static void AddScore(float score)
+    public static void AddPlayTime(float delta)
     {
-        _currentGameData.score += score;
+        _currentGameData.playTime += delta;
     }
 
     public static string GetCurrentScene()
