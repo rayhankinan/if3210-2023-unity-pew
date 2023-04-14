@@ -18,6 +18,9 @@ public class QuestDisplay : MonoBehaviour
         foreach (var objective in QuestManager.GetCurrentObjectives())
         {
             _text.text += $"-. {objective.enemy.tag} ({objective.currentAmount}/{objective.amount})\n";
+        }
+        foreach (var objective in QuestManager.GetCurrentObjectives())
+        {
             if (objective.IsCompleted())
             {
                 _isComplete = true;
@@ -25,6 +28,7 @@ public class QuestDisplay : MonoBehaviour
             else
             {
                 _isComplete = false;
+                break;
             }
         }
         if (_isComplete == true)
