@@ -72,6 +72,28 @@ public class CurrentStateData
         return true;
     }
 
+    public static void SaveGameData(string saveName, int index)
+    {
+        var saveEntry = new SaveEntry();
+        saveEntry.saveName = saveName;
+        saveEntry.saveDateTime = DateTime.Now;
+        saveEntry.playerName = _currentGameData.playerName;
+        saveEntry.playTime = _currentGameData.playTime;
+        saveEntry.coin = _currentGameData.coin;
+        saveEntry.scene = _currentGameData.scene;
+        
+        if (_currentStateData.saveEntries.Count < 3)
+        {
+            _currentStateData.saveEntries.Add(saveEntry);
+        }
+        else
+        {
+            _currentStateData.saveEntries[index] = saveEntry;
+        }
+        
+        SaveData();
+    }
+
     public static string GetCurrentPlayerName()
     {
         return _currentGameData.playerName;
