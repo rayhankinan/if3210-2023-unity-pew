@@ -58,7 +58,7 @@ public class PetDragonMovement : MonoBehaviour
         if (
             other.CompareTag("ZomBear")
             || other.CompareTag("ZomBunny")
-            || other.CompareTag("Hellpehant")
+            || other.CompareTag("Hellephant")
             )
         {
             countEnemyInRange++;
@@ -70,7 +70,7 @@ public class PetDragonMovement : MonoBehaviour
         if (
             other.CompareTag("ZomBear") 
             || other.CompareTag("ZomBunny") 
-            || other.CompareTag("Hellpehant")
+            || other.CompareTag("Hellephant")
             )
         {
             countEnemyInRange--;
