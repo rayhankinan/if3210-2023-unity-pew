@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class CurrentStateData
 {
@@ -8,7 +9,10 @@ public class CurrentStateData
     public static void LoadData()
     {
         _currentStateData = DataSaver.LoadData<StateData>("current_state");
-        
+        _currentStateData ??= new StateData();
+        _currentStateData.saveEntries ??= new List<SaveEntry>();
+        _currentStateData.scoreEntries ??= new List<ScoreEntry>();
+
         _currentGameData.playerName = _currentStateData.playerName;
         _currentGameData.scene = "level_01";
         _currentGameData.coin = 0;
@@ -42,14 +46,26 @@ public class CurrentStateData
         _currentStateData.volume = Math.Min(Math.Max(_currentStateData.volume, 0), 100);
     }
 
-    public static void LoadGameData(int index)
+    public static List<SaveEntry> GetSaveEntries()
     {
+        return _currentStateData.saveEntries;
+    }
+
+    public static bool LoadGameData(int index)
+    {
+        if (_currentStateData.saveEntries.Count < index)
+        {
+            return false;
+        }
+        
         var loadedSaveEntry = _currentStateData.saveEntries[index];
         _currentGameData.playerName = loadedSaveEntry.playerName;
         _currentGameData.scene = loadedSaveEntry.scene;
         _currentGameData.coin = loadedSaveEntry.coin;
         _currentGameData.score = loadedSaveEntry.score;
         _currentGameData.playTime = loadedSaveEntry.playTime;
+        
+        return true;
     }
 
     public static string GetCurrentPlayerName()
