@@ -14,7 +14,7 @@ public class PetWizardHeal : MonoBehaviour
     void Start()
     {
         playerHealth = player.GetComponent<PlayerHealth>();
-        _timer = 0f;
+        _timer = 10f;
         if ((transform.position - player.transform.position).magnitude <= 6)
         {
             _playerInRange = true;
@@ -28,34 +28,43 @@ public class PetWizardHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((transform.position - player.transform.position).magnitude <= 6)
+        {
+            _playerInRange = true;
+        }
+        else
+        {
+            _playerInRange = false;
+        }
+
         _timer += Time.deltaTime;
         if (_playerInRange && _timer >= timeBetweenHeal && !PauseManager.CheckIfPaused())
         {
-            Debug.Log(_timer);
+            //Debug.Log(_timer);
             Heal();
         }
     }
 
     void Heal()
     {
-        Debug.Log("Heal");
+        //Debug.Log("Heal");
         _timer = 0f;
         playerHealth.TakeHealth(healAmount);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == player)
-        {
-            _playerInRange = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject == player)
+    //    {
+    //        _playerInRange = true;
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == player)
-        {
-            _playerInRange = false;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject == player)
+    //    {
+    //        _playerInRange = false;
+    //    }
+    //}
 }

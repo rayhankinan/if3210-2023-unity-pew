@@ -9,10 +9,12 @@ public class PetWizardHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
+    public GameObject spellEffect;
     public AudioClip deathClip;
     private PetWizardMovement _petWizardMovement;
+    private PetWizardHeal _petWizardHeal;
     private Animator _anim;
-    private bool _isDead;
+    public bool _isDead;
     private bool _isSinking;
 
     private void Awake()
@@ -21,6 +23,7 @@ public class PetWizardHealth : MonoBehaviour
         _isDead = false;
         _anim = GetComponent<Animator>();
         _petWizardMovement = GetComponent<PetWizardMovement>();
+        _petWizardHeal = GetComponent<PetWizardHeal>();
         currentHealth = startingHealth;
     }
 
@@ -46,6 +49,11 @@ public class PetWizardHealth : MonoBehaviour
 
         // Mematikan script petWizard movement
         _petWizardMovement.enabled = false;
+        if (_petWizardHeal != null)
+        {
+            _petWizardHeal.enabled = false;
+        }
+        spellEffect.SetActive(false);
     }
 
     // Fungsi untuk mendapatkan damage

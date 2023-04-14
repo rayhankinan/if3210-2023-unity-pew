@@ -6,8 +6,7 @@ public class QuestManager: MonoBehaviour
 {
     private static ObjectiveManager[] _currentObjectives;
 
-    private bool added = false;
-
+    private bool _added;
     public int rewardCompletion;
 
     private void Awake()
@@ -19,10 +18,14 @@ public class QuestManager: MonoBehaviour
     {
         if (!IsQuestCompleted()) return;
         
-        if (added == false)
+        if (_added == false)
         {
             CurrentStateData.AddCoin(rewardCompletion);
-            added = true;
+            
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            EnemyManager.KillAllEnemy();
+            
+            _added = true;
         }
         FinishManager.DisplayButton();
     }

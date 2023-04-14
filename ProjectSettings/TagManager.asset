@@ -12,6 +12,7 @@ TagManager:
   - FilesPanel
   - SaveNamePanel
   - SaveTitle
+  - Healing Wizard
   layers:
   - Default
   - TransparentFX
