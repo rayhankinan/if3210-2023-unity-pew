@@ -433,6 +433,8 @@ GameObject:
   - component: {fileID: 1249818700}
   - component: {fileID: 1249818699}
   - component: {fileID: 1249818701}
+  - component: {fileID: 3878630060345067260}
+  - component: {fileID: 3878630060345067261}
   m_Layer: 0
   m_Name: PetDragon
   m_TagString: Untagged
@@ -555,6 +557,59 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3878630060345067260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878630058993967848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 3878630060345067261}
+    fieldName: currentHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: 937c1509eb8a748da94e26d616086109, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 5
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 2
+  healthInfoSize: 15
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
+--- !u!114 &3878630060345067261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878630058993967848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc1f75eedd281f42b16b1213d8d521b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  sinkSpeed: 2.5
+  deathClip: {fileID: 0}
 --- !u!1 &3878630059011548836
 GameObject:
   m_ObjectHideFlags: 0
