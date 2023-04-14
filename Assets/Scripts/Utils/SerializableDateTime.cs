@@ -16,7 +16,7 @@ public struct SerializableDateTime {
         return sdt;
     }
 
-    public string ToString()
+    public override string ToString()
     {
         return DateTime.FromFileTimeUtc(value).ToString("u");
     }

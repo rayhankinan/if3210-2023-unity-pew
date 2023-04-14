@@ -623,7 +623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2023 April 13, 22:49
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save File 2
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2023 April 13, 22:49
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
@@ -3833,7 +3833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save File 3
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
@@ -4236,7 +4236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2023 April 13, 22:49
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
@@ -6255,7 +6255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save File 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
   m_sharedMaterial: {fileID: 2498811035900460705, guid: 7a971a589836f7c4997f2cf3309e5952, type: 2}
