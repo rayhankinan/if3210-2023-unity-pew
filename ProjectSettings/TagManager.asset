@@ -8,9 +8,10 @@ TagManager:
   - ZomBunny
   - Hellephant
   - Enemy
-  - Wizard
   - Pet Dragon
-  - Healing Wizard
+  - FilesPanel
+  - SaveNamePanel
+  - SaveTitle
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Shootable
-  - Pet
+  - 
   - Arrows
   - 
   - 

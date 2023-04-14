@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerMovement _playerMovement;
     private PlayerShooting _playerShooting;
     private PlayerShotgun _playerShotgun;
-    private bool _isDead;                                                
+    private bool _isDead;
     private bool _damaged;
 
     private void Awake()

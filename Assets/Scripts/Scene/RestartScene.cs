@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,7 +6,12 @@ public class RestartScene : MonoBehaviour
 {
     public void Restart()
     {
-        CurrentStateData.LoadStateData(); // TODO: GANTI INI
+        var loaded = CurrentStateData.LoadGameData(CurrentIndexData.GetIndex());
+
+        if (!loaded)
+        {
+            throw new Exception();
+        }
         
         SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }

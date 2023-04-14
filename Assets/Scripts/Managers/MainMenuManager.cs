@@ -75,7 +75,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadGame(int index)
     {
-        var loaded = CurrentStateData.LoadGameData(index);
+        CurrentIndexData.SetIndex(index);
+        
+        var loaded = CurrentStateData.LoadGameData(CurrentIndexData.GetIndex());
 
         if (!loaded)
         {

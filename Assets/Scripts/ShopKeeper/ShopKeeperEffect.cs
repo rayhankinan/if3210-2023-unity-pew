@@ -10,6 +10,7 @@ public class ShopKeeperEffect : MonoBehaviour
     private Vector3 _currentPosition;
     public float speed = 5f;
     public bool isShopKeeperFlying;
+    public bool showLightAllTime;
     private static readonly int ShopKeeperFlying = Animator.StringToHash("ShopKeeperFlying");
 
     // Start is called before the first frame update
@@ -41,7 +42,7 @@ public class ShopKeeperEffect : MonoBehaviour
         }
         else
         {
-            _shopKeeperLight.enabled = false;
+            _shopKeeperLight.enabled = false || showLightAllTime;
             if (transform.position.y > 0)
             {
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));
