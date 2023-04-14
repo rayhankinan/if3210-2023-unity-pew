@@ -9,6 +9,8 @@ TagManager:
   - Hellephant
   - Enemy
   - Wizard
+  - Pet Dragon
+  - Healing Wizard
   layers:
   - Default
   - TransparentFX

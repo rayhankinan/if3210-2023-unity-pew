@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PetDragonHealth : MonoBehaviour
+public class PetWizardHealth : MonoBehaviour
 {
     private static readonly int Dead = Animator.StringToHash("Dead");
 
@@ -11,7 +10,7 @@ public class PetDragonHealth : MonoBehaviour
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public AudioClip deathClip;
-    private PetDragonMovement _petDragonMovement;
+    private PetWizardMovement _petWizardMovement;
     private Animator _anim;
     private bool _isDead;
     private bool _isSinking;
@@ -21,7 +20,7 @@ public class PetDragonHealth : MonoBehaviour
         // Mendapatkan reference komponen
         _isDead = false;
         _anim = GetComponent<Animator>();
-        _petDragonMovement = GetComponent<PetDragonMovement>();
+        _petWizardMovement = GetComponent<PetWizardMovement>();
         currentHealth = startingHealth;
     }
 
@@ -42,11 +41,11 @@ public class PetDragonHealth : MonoBehaviour
         _anim.SetTrigger(Dead);
 
         // Memainkan suara ketika mati
-        //_petDragonAudio.clip = deathClip;
-        //_petDragonAudio.Play();
+        //_petWizardAudio.clip = deathClip;
+        //_petWizardAudio.Play();
 
-        // Mematikan script petDragon movement
-        _petDragonMovement.enabled = false;
+        // Mematikan script petWizard movement
+        _petWizardMovement.enabled = false;
     }
 
     // Fungsi untuk mendapatkan damage
@@ -56,7 +55,7 @@ public class PetDragonHealth : MonoBehaviour
         currentHealth -= amount;
 
         // Memainkan suara ketika terkena damage
-        //_petDragonAudio.Play();
+        //_petWizardAudio.Play();
 
         // Memanggil method Death() jika health <= 0 dan belum mati
         if (currentHealth <= 0 && !_isDead)

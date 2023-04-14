@@ -78,4 +78,18 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
     }
+
+    public void TakeHealth(int amount)
+    {
+        Debug.Log("Heal Player");
+        if (currentHealth + amount >= startingHealth)
+        {
+            _damaged = false;
+            currentHealth = startingHealth;
+        }
+        else
+        {
+            currentHealth += amount;
+        }
+    }
 }
