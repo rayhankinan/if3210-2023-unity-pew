@@ -9,7 +9,7 @@ public class Arrows : MonoBehaviour
     private float torque;
 
     [SerializeField]
-    private new Rigidbody rigidbody;
+    private Rigidbody rigidbody;
 
     private float _multiplier;
     private bool _isHit;
@@ -23,11 +23,11 @@ public class Arrows : MonoBehaviour
         _multiplier = CurrentStateData.GetMultiplier();
     }
 
-    private void OnTriggerEnter(Collider objectCollider) {
+    private void OnTriggerEnter(Collider collider) {
         if(_isHit) return;
         
         _isHit = true;
-        var enemyHealth = objectCollider.GetComponent<EnemyHealth>();
+        var enemyHealth = collider.GetComponent<EnemyHealth>();
         if(enemyHealth){
             enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage * _multiplier));
         }
@@ -35,6 +35,6 @@ public class Arrows : MonoBehaviour
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.isKinematic = true;
-        transform.SetParent(objectCollider.transform);
+        transform.SetParent(collider.transform);
     }
 }

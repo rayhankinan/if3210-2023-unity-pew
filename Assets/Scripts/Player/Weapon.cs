@@ -19,15 +19,17 @@ public class Weapon : MonoBehaviour
     public void Reload(){
         if(isReload || curArrow != null) return;
         isReload = true;
-        StartCoroutine(ReloadAfterTime());
-    }
-
-    private IEnumerator ReloadAfterTime(){
-        yield return new WaitForSeconds(reloadTime);
         curArrow = Instantiate(arrowPrefab, spawnPoint);
         curArrow.transform.localPosition = Vector3.zero;
         isReload = false;
     }
+
+    //private IEnumerator ReloadAfterTime(){
+      //  yield return new WaitForSeconds(reloadTime);
+        //curArrow = Instantiate(arrowPrefab, spawnPoint);
+        //curArrow.transform.localPosition = Vector3.zero;
+        //isReload = false;
+    //}
 
     public void Fire(float firePower){
         if(isReload || curArrow == null) return;
