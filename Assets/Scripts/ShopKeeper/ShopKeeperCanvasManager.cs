@@ -9,9 +9,12 @@ public class ShopKeeperCanvasManager : MonoBehaviour
     public GameObject[] shopPanelsGO;
     public ShopTemplate[] shopPanels;
     public Button[] buyButtons;
+    PauseManager pauseManager;
     // Start is called before the first frame update
     void Start()
     {
+        pauseManager = new PauseManager();
+
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             var shopPanelGO = shopPanelsGO[i];
@@ -27,7 +30,7 @@ public class ShopKeeperCanvasManager : MonoBehaviour
      if (Input.GetKey(KeyCode.Escape))
         {
             gameObject.SetActive(false);
-            Time.timeScale = 1;
+            pauseManager.Pause();
         }   
     }
 
