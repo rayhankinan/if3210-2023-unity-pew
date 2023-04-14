@@ -6,7 +6,6 @@ using System.Linq;
 
 public class PetDragonMovement : MonoBehaviour
 {
-    public Transform target;
     NavMeshAgent nav;
     Animator _anim;
     PetDragonAttack petDragonAttack;
