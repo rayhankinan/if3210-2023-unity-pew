@@ -19,7 +19,7 @@ public class CurrentStateData
         _currentGameData.currentWeapon = 0;
         _currentGameData.pets = new List<int>();
         _currentGameData.weapons = new []{true, true, true, true};
-        _currentGameData.dmgMultiplier = 1;
+        _currentGameData.dmgMultiplier = 1f;
     }
 
     public static void SaveStateData()
@@ -188,7 +188,7 @@ public class CurrentStateData
         _currentGameData.weapons[weapon] = true;
     }
 
-    public static void getMultiplier()
+    public static float getMultiplier()
     {
         return _currentGameData.dmgMultiplier;
     }

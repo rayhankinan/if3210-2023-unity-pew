@@ -61,7 +61,7 @@ public class PlayerShotgun : MonoBehaviour
                     var distance = Vector3.Distance(transform.position, _shootHit.point);
                     var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
                     var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
-                    enemyHealth.TakeDamage(damage*multiplier, _shootHit.point);
+                    enemyHealth.TakeDamage(Mathf.RoundToInt(damage*multiplier), _shootHit.point);
                 }
 
                 _gunLine.SetPosition(1, _shootHit.point);

@@ -53,7 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
-                enemyHealth.TakeDamage(damagePerShot*multiplier, _shootHit.point);
+                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*multiplier), _shootHit.point);
             }
 
             _gunLine.SetPosition(1, _shootHit.point);

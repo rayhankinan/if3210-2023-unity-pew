@@ -29,7 +29,7 @@ public class Arrows : MonoBehaviour
         isHit = true;
         var enemyHealth = collider.GetComponent<EnemyHealth>();
         if(enemyHealth){
-            enemyHealth.TakeDamageSword(damage * multiplier);
+            enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage*multiplier));
         }
 
         rigidbody.velocity = Vector3.zero;

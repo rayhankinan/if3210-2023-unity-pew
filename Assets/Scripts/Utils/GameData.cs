@@ -9,4 +9,5 @@ public struct GameData
     public List<int> pets;
     public int currentWeapon;
     public bool[] weapons;
+    public float dmgMultiplier;
 }

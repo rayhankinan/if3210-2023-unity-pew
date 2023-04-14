@@ -12,7 +12,7 @@ public class AttackArea : MonoBehaviour
     {
         var enemyHealth = collider.GetComponent<EnemyHealth>();
         if(enemyHealth){
-            enemyHealth.TakeDamageSword(damage*multiplier);
+            enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage*multiplier));
         }
     }
 }
