@@ -1448,6 +1448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetDragon
       objectReference: {fileID: 0}
+    - target: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3878630058993967862, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -1587,7 +1591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -321.63998
+      value: -208.2347
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -2017,7 +2021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: spawnTime
