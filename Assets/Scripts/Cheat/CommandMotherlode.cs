@@ -17,7 +17,7 @@ public class CommandMotherlode : CheatCommandBase
 
     public override void RunCommand()
     {
-        CurrentStateData.AddCoin(999999);
+        CurrentStateData.SetCurrentCoin(999999);
     }
 
     public static CommandMotherlode CreateCommand()

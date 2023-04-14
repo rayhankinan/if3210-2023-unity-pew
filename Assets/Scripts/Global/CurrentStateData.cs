@@ -104,6 +104,11 @@ public class CurrentStateData
         return _currentGameData.coin;
     }
 
+    public static int SetCurrentCoin(int coin)
+    {
+        return _currentGameData.coin = coin;
+    }
+    
     public static void AddCoin(int coin)
     {
         _currentGameData.coin += coin;
