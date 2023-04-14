@@ -6,10 +6,9 @@ public class CurrentStateData
     private static StateData _currentStateData;
     private static GameData _currentGameData;
 
-    public static void LoadData()
+    public static void LoadStateData()
     {
-        _currentStateData = DataSaver.LoadData<StateData>("current_state");
-        _currentStateData ??= new StateData();
+        _currentStateData = DataSaver.LoadData<StateData>("current_state") ?? new StateData();
         _currentStateData.saveEntries ??= new List<SaveEntry>();
         _currentStateData.scoreEntries ??= new List<ScoreEntry>();
 
@@ -19,7 +18,7 @@ public class CurrentStateData
         _currentGameData.playTime = 0;
     }
 
-    public static void SaveData()
+    public static void SaveStateData()
     {
         DataSaver.SaveData(_currentStateData, "current_state");
     }
@@ -74,14 +73,16 @@ public class CurrentStateData
 
     public static void SaveGameData(string saveName, int index)
     {
-        var saveEntry = new SaveEntry();
-        saveEntry.saveName = saveName;
-        saveEntry.saveDateTime = DateTime.Now;
-        saveEntry.playerName = _currentGameData.playerName;
-        saveEntry.playTime = _currentGameData.playTime;
-        saveEntry.coin = _currentGameData.coin;
-        saveEntry.scene = _currentGameData.scene;
-        
+        var saveEntry = new SaveEntry
+        {
+            saveName = saveName,
+            saveDateTime = DateTime.Now,
+            playerName = _currentGameData.playerName,
+            playTime = _currentGameData.playTime,
+            coin = _currentGameData.coin,
+            scene = _currentGameData.scene
+        };
+
         if (_currentStateData.saveEntries.Count < 3)
         {
             _currentStateData.saveEntries.Add(saveEntry);
@@ -91,7 +92,7 @@ public class CurrentStateData
             _currentStateData.saveEntries[index] = saveEntry;
         }
         
-        SaveData();
+        SaveStateData();
     }
 
     public static string GetCurrentPlayerName()

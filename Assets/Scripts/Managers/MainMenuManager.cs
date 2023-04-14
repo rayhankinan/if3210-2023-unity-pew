@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        CurrentStateData.LoadData();
+        CurrentStateData.LoadStateData(); // TODO: GANTI INI
         AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
 
         mainCanvas.SetActive(true);
@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        CurrentStateData.SaveData();
+        CurrentStateData.SaveStateData(); // TODO: GANTI INI
     }
 
     public void PlayGame()

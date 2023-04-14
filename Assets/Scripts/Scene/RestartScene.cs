@@ -5,7 +5,7 @@ public class RestartScene : MonoBehaviour
 {
     public void Restart()
     {
-        CurrentStateData.LoadData();
+        CurrentStateData.LoadStateData(); // TODO: GANTI INI
         
         SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
