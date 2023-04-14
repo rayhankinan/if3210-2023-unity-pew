@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Arrows : MonoBehaviour
@@ -11,30 +9,32 @@ public class Arrows : MonoBehaviour
     private float torque;
 
     [SerializeField]
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
-    private bool isHit;
-    public float multiplier = CurrentStateData.getMultiplier();
+    private float _multiplier;
+    private bool _isHit;
 
     public void Fly(Vector3 force){
         rigidbody.isKinematic = false;
         rigidbody.AddForce(force, ForceMode.Impulse);
         rigidbody.AddTorque(transform.right * torque);
         transform.SetParent(null);
+        
+        _multiplier = CurrentStateData.GetMultiplier();
     }
 
-    void OnTriggerEnter(Collider collider) {
-        if(isHit) return;
+    private void OnTriggerEnter(Collider objectCollider) {
+        if(_isHit) return;
         
-        isHit = true;
-        var enemyHealth = collider.GetComponent<EnemyHealth>();
+        _isHit = true;
+        var enemyHealth = objectCollider.GetComponent<EnemyHealth>();
         if(enemyHealth){
-            enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage*multiplier));
+            enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage * _multiplier));
         }
 
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.isKinematic = true;
-        transform.SetParent(collider.transform);
+        transform.SetParent(objectCollider.transform);
     }
 }

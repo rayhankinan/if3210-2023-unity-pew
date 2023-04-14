@@ -7,8 +7,8 @@ public class PlayerShooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
-    public float multiplier = CurrentStateData.getMultiplier();
-
+    
+    private float _multiplier;
     private float _timer;
     private Ray _shootRay;
     private RaycastHit _shootHit;
@@ -25,6 +25,8 @@ public class PlayerShooting : MonoBehaviour
         _gunLine = GetComponent<LineRenderer>();
         _gunAudio = GetComponent<AudioSource>();
         _gunLight = GetComponent<Light>();
+        
+        _multiplier = CurrentStateData.GetMultiplier();
     }
 
     private void Shoot()
@@ -53,7 +55,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
-                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*multiplier), _shootHit.point);
+                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot * _multiplier), _shootHit.point);
             }
 
             _gunLine.SetPosition(1, _shootHit.point);
