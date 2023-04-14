@@ -837,6 +837,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1797860516}
     - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: timeLimit
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: shopKeeper
       value: 
       objectReference: {fileID: 1662851796}
@@ -1668,7 +1672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -216.03203
+      value: -231.62665
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}

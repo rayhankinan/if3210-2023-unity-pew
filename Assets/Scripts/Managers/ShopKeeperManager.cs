@@ -11,6 +11,8 @@ public class ShopKeeperManager : MonoBehaviour
     private Animator _anim;
     private ShopKeeperEffect _shopKeeperEffect;
     public GameObject shopKeeperCanvas;
+    private float _startTime;
+    public float timeLimit;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +20,36 @@ public class ShopKeeperManager : MonoBehaviour
         _anim = GetComponent<Animator>();
         _shopKeeperEffect = shopKeeper.GetComponent<ShopKeeperEffect>();
         shopKeeperCanvas.SetActive(false);
+        _startTime = Time.time;
+
+        if (CurrentStateData.GetCurrentScene() == "level_01")
+        {
+            shopKeeper.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!shopKeeper.activeSelf)
+        {
+            return;
+        }
+        
+        if ((Time.time - _startTime) > (timeLimit + 5))
+        {
+            shopKeeper.SetActive(false);
+            _anim.SetBool("ShopKeeperAlive", false);
+            return;
+        }
+        
+        if (Time.time - _startTime > timeLimit)
+        {
+            _shopKeeperEffect.isShopKeeperFlying = true;
+            _shopKeeperEffect.floatHeight = 15;
+            return;
+        }
+        
         if (_shopKeeperEffect.isShopKeeperFlying)
         {
             _anim.SetBool("ShopKeeperFlying", true);

@@ -377,7 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd0d7d553e58bd4f99c2955c470df3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeapon: 0
 --- !u!1001 &1617527456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,6 +717,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1797860516}
+    - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: timeLimit
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: shopKeeper
       value: 
@@ -1343,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -284.83197
+      value: -231.62663
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
