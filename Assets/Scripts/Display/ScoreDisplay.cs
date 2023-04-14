@@ -12,7 +12,7 @@ public class ScoreDisplay : MonoBehaviour
     
     private void Update()
     {
-        var currentScore = CurrentStateData.GetCurrentScore();
+        var currentScore = CurrentStateData.GetCurrentPlayTime();
         var minutes = Mathf.FloorToInt(currentScore / 60);
         var seconds = Mathf.FloorToInt(currentScore % 60);
         
