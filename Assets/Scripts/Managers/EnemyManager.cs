@@ -19,6 +19,10 @@ public class EnemyManager : MonoBehaviour
     {
         // Mengeksekusi fungsi Spawn setiap beberapa detik sesui dengan nilai spawnTime
         InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
+        if (CurrentStateData.GetCurrentScene() == "level_04")
+        {
+            Invoke(nameof(SpawnWizard), spawnTime);
+        }
     }
     
     private void Spawn()
@@ -42,7 +46,7 @@ public class EnemyManager : MonoBehaviour
                     new RandomSelection(1, .4f)
                 );
                 break;
-            case 3:
+            default:
                 enemyTag = GetRandomValue(
                     new RandomSelection(0, .4f),
                     new RandomSelection(1, .35f),
@@ -55,6 +59,18 @@ public class EnemyManager : MonoBehaviour
 
         // Menduplikasi enemy
         Factory.FactoryMethod(enemyTag, spawnPoints[spawnTag]);
+    }
+
+    private void SpawnWizard()
+    {
+        if (playerHealth.currentHealth <= 0f)
+        {
+            return;
+        }
+
+        var enemyTag = 3;
+
+        Factory.FactoryMethod(enemyTag, spawnPoints[0]);
     }
 
     private struct RandomSelection

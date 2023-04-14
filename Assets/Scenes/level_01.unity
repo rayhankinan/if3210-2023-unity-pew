@@ -1282,7 +1282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -324.2773
+      value: -284.83197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -1521,6 +1521,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790380, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
+      propertyPath: enemyPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6158598208432632802, guid: ef20e3b4a3b0245fa8bd871d571fdb0f, type: 3}
+    - target: {fileID: 6281085328262790380, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: enemyPrefab.Array.data[1]
       value: 
       objectReference: {fileID: 100000, guid: 3688f3f3f312c984fa78e00c09819e6c, type: 3}
@@ -1574,7 +1578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: spawnTime
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: playerHealth
