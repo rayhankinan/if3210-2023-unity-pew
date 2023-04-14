@@ -1,9 +1,10 @@
 ﻿using System;
 
+[Serializable]
 public struct SaveEntry
 {
     public string saveName;
-    public DateTime saveDateTime;
+    public SerializableDateTime saveDateTime;
     public string playerName;
     public int coin;
     public float score;
