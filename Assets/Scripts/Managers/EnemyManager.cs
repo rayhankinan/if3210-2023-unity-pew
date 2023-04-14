@@ -24,6 +24,15 @@ public class EnemyManager : MonoBehaviour
             Invoke(nameof(SpawnWizard), spawnTime);
         }
     }
+
+    private void Update()
+    {
+        // Jika quest selesai stop respawn enemy
+        if (QuestManager.IsQuestCompleted())
+        {
+            CancelInvoke();
+        }
+    }
     
     private void Spawn()
     {
