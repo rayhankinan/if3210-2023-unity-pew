@@ -14,6 +14,15 @@ public class PetWizardHeal : MonoBehaviour
     void Start()
     {
         playerHealth = player.GetComponent<PlayerHealth>();
+        _timer = 0f;
+        if ((transform.position - player.transform.position).magnitude <= 6)
+        {
+            _playerInRange = true;
+        }
+        else
+        {
+            _playerInRange = false;
+        }
     }
 
     // Update is called once per frame
@@ -29,6 +38,7 @@ public class PetWizardHeal : MonoBehaviour
 
     void Heal()
     {
+        Debug.Log("Heal");
         _timer = 0f;
         playerHealth.TakeHealth(healAmount);
     }
