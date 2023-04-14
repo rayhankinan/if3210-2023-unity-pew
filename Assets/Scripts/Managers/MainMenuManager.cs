@@ -17,12 +17,17 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        CurrentStateData.LoadData();
+        CurrentStateData.LoadStateData(); // TODO: GANTI INI
         AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
-        
+
         mainCanvas.SetActive(true);
         scoreboardCanvas.SetActive(false);
         loadCanvas.SetActive(false);
+    }
+
+    private void OnApplicationQuit()
+    {
+        CurrentStateData.SaveStateData(); // TODO: GANTI INI
     }
 
     public void PlayGame()
@@ -40,17 +45,20 @@ public class MainMenuManager : MonoBehaviour
         var buttons = loadPanel.GetComponentsInChildren<Button>();
         var texts = loadPanel.GetComponentsInChildren<TMP_Text>();
 
-        for (int i = 0; i < saveEntries.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
-            buttons[i].interactable = true;
-            texts[2 * i].text = saveEntries[i].saveName;
-            texts[2 * i + 1].text = saveEntries[i].saveDateTime.ToString();
-        }
-        for (int i = saveEntries.Count; i < 3; i++)
-        {
-            buttons[i].interactable = false;
-            texts[2 * i].text = "(Empty Slot)";
-            texts[2 * i + 1].text = "";
+            if (saveEntries != null)
+            {
+                buttons[i].interactable = true;
+                texts[2 * i].text = saveEntries[i].saveName;
+                texts[2 * i + 1].text = saveEntries[i].saveDateTime.ToString();
+            }
+            else
+            {
+                buttons[i].interactable = false;
+                texts[2 * i].text = "(Empty Slot)";
+                texts[2 * i + 1].text = "";
+            }
         }
     }
 
@@ -75,7 +83,7 @@ public class MainMenuManager : MonoBehaviour
     
     public void QuitGame()
     {
-        CurrentStateData.SaveData();
+        // CurrentStateData.SaveData();
         #if UNITY_EDITOR 
         EditorApplication.isPlaying = false;
         #else 
