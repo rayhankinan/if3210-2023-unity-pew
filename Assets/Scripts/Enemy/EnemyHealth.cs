@@ -111,7 +111,7 @@ public class EnemyHealth : MonoBehaviour
     public void Kill()
     {
         // Set Health to 0
-        // currentHealth = 0;
+        currentHealth = 0;
         
         // Set isDead
         _isDead = true;
