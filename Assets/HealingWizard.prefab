@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  timeBetweenHeal: 0.15
+  timeBetweenHeal: 10
   healAmount: 10
 --- !u!114 &6011859116741034208
 MonoBehaviour:
