@@ -372,7 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd0d7d553e58bd4f99c2955c470df3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeapon: 0
 --- !u!1 &1538099854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8333785434490985530, guid: a3b4c0d1e4ad54829bdc5da759b7b363, type: 3}
@@ -1358,23 +1357,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736781440779, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_RootOrder

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,7 +6,14 @@ public class RestartScene : MonoBehaviour
 {
     public void Restart()
     {
-        SaveManager.OpenSaveFilesPanel();
+        var loaded = CurrentStateData.LoadGameData(CurrentIndexData.GetIndex());
+
+        if (!loaded)
+        {
+            throw new Exception();
+        }
+        
+        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
 
     public void MainMenu()
