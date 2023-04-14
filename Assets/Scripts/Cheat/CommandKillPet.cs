@@ -6,8 +6,8 @@ public class CommandKillPet : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
-    //private GameObject _pet;
-    //private PetDragonHealth _petDragonHealth;
+    private GameObject _pet;
+    private PetDragonHealth _petDragonHealth;
 
     public CommandKillPet()
     {
@@ -19,7 +19,7 @@ public class CommandKillPet : CheatCommandBase
 
     public override void RunCommand()
     {
-        //_petDragonHealth.StartSinking();
+        _petDragonHealth.TakeDamage(_petDragonHealth.currentHealth);
     }
 
     public static CommandKillPet CreateCommand()

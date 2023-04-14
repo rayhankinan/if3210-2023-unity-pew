@@ -7,7 +7,7 @@ public class CommandNoDamagePet : CheatCommandBase
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
 
-    public CommandNoDamage()
+    public CommandNoDamagePet()
     {
         commandID = "no_damage_pet";
         commandDescription = "Enemy attacks will not affect to pet health";
