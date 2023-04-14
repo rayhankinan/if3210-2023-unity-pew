@@ -9,7 +9,7 @@ public class CurrentStateData
     public static void LoadStateData()
     {
         _currentStateData = DataSaver.LoadData<StateData>("current_state") ?? new StateData();
-        _currentStateData.saveEntries ??= new List<SaveEntry>();
+        _currentStateData.saveEntries ??= new SaveEntry[3];
         _currentStateData.scoreEntries ??= new List<ScoreEntry>();
 
         _currentGameData.playerName = _currentStateData.playerName;
@@ -44,7 +44,7 @@ public class CurrentStateData
         _currentStateData.volume = Math.Min(Math.Max(_currentStateData.volume, 0), 100);
     }
 
-    public static List<SaveEntry> GetSaveEntries()
+    public static SaveEntry[] GetSaveEntries()
     {
         return _currentStateData.saveEntries;
     }
@@ -57,11 +57,6 @@ public class CurrentStateData
 
     public static bool LoadGameData(int index)
     {
-        if (_currentStateData.saveEntries.Count < index)
-        {
-            return false;
-        }
-        
         var loadedSaveEntry = _currentStateData.saveEntries[index];
         _currentGameData.playerName = loadedSaveEntry.playerName;
         _currentGameData.scene = loadedSaveEntry.scene;
@@ -82,16 +77,8 @@ public class CurrentStateData
             coin = _currentGameData.coin,
             scene = _currentGameData.scene
         };
-
-        if (_currentStateData.saveEntries.Count < 3)
-        {
-            _currentStateData.saveEntries.Add(saveEntry);
-        }
-        else
-        {
-            _currentStateData.saveEntries[index] = saveEntry;
-        }
         
+        _currentStateData.saveEntries[index] = saveEntry;
         SaveStateData();
     }
 

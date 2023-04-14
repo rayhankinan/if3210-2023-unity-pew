@@ -45,17 +45,20 @@ public class MainMenuManager : MonoBehaviour
         var buttons = loadPanel.GetComponentsInChildren<Button>();
         var texts = loadPanel.GetComponentsInChildren<TMP_Text>();
 
-        for (int i = 0; i < saveEntries.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
-            buttons[i].interactable = true;
-            texts[2 * i].text = saveEntries[i].saveName;
-            texts[2 * i + 1].text = saveEntries[i].saveDateTime.ToString();
-        }
-        for (int i = saveEntries.Count; i < 3; i++)
-        {
-            buttons[i].interactable = false;
-            texts[2 * i].text = "(Empty Slot)";
-            texts[2 * i + 1].text = "";
+            if (saveEntries != null)
+            {
+                buttons[i].interactable = true;
+                texts[2 * i].text = saveEntries[i].saveName;
+                texts[2 * i + 1].text = saveEntries[i].saveDateTime.ToString();
+            }
+            else
+            {
+                buttons[i].interactable = false;
+                texts[2 * i].text = "(Empty Slot)";
+                texts[2 * i + 1].text = "";
+            }
         }
     }
 
