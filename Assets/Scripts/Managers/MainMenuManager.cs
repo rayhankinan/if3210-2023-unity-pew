@@ -13,11 +13,15 @@ public class MainMenuManager : MonoBehaviour
     public GameObject scoreboardCanvas;
     public GameObject loadCanvas;
     public GameObject loadPanel;
-    
+
+    private void Awake()
+    {
+        CurrentStateData.LoadStateData();
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
-        CurrentStateData.LoadStateData(); // TODO: GANTI INI
         AudioListener.volume = (float) CurrentStateData.GetVolume() / 100;
 
         mainCanvas.SetActive(true);
@@ -27,7 +31,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        CurrentStateData.SaveStateData(); // TODO: GANTI INI
+        CurrentStateData.SaveStateData();
     }
 
     public void PlayGame()
@@ -45,7 +49,7 @@ public class MainMenuManager : MonoBehaviour
         var buttons = loadPanel.GetComponentsInChildren<Button>();
         var texts = loadPanel.GetComponentsInChildren<TMP_Text>();
 
-        for (int i = 0; i < 3; i++)
+        for (var i = 0; i < 3; i++)
         {
             if (saveEntries != null)
             {
