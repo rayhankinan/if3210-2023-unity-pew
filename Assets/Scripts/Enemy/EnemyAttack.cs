@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyAttack : MonoBehaviour
 {
     private static readonly int PlayerDead = Animator.StringToHash("PlayerDead");
+    private static readonly int WizardAttack = Animator.StringToHash("Attack");
     
     public float timeBetweenAttacks = 0.5f;
     public int attackDamage = 10;
@@ -57,6 +58,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (_timer >= timeBetweenAttacks && _playerInRange && _enemyHealth.currentHealth > 0)
         {
+            _anim.SetTrigger(WizardAttack);
             Attack();
         }
 
