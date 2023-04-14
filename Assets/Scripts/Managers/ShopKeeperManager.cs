@@ -13,6 +13,7 @@ public class ShopKeeperManager : MonoBehaviour
     public GameObject shopKeeperCanvas;
     private float _startTime;
     public float timeLimit;
+    public GameObject enemyManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,12 @@ public class ShopKeeperManager : MonoBehaviour
         if (CurrentStateData.GetCurrentScene() == "level_01")
         {
             shopKeeper.SetActive(false);
+            enemyManager.SetActive(true);
+        }
+        else
+        {
+            shopKeeper.SetActive(true);
+            enemyManager.SetActive(false);
         }
     }
 
@@ -39,6 +46,7 @@ public class ShopKeeperManager : MonoBehaviour
         if ((Time.time - _startTime) > (timeLimit + 5))
         {
             shopKeeper.SetActive(false);
+            enemyManager.SetActive(true);
             _anim.SetBool("ShopKeeperAlive", false);
             return;
         }

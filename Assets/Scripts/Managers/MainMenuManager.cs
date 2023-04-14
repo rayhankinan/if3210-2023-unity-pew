@@ -51,7 +51,7 @@ public class MainMenuManager : MonoBehaviour
 
         for (var i = 0; i < 3; i++)
         {
-            if (saveEntries != null)
+            if (saveEntries[i].playTime > 0)
             {
                 buttons[i].interactable = true;
                 texts[2 * i].text = saveEntries[i].saveName;

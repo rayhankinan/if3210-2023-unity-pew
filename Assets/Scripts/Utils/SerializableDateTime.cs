@@ -6,14 +6,14 @@ public struct SerializableDateTime {
     
     public static implicit operator DateTime(SerializableDateTime sdt) 
     {
-        return DateTime.FromFileTimeUtc(sdt.value);
+        return DateTime.FromFileTime(sdt.value);
     }
     
     public static implicit operator SerializableDateTime(DateTime dt) 
     {
         var sdt = new SerializableDateTime
         {
-            value = dt.ToFileTimeUtc()
+            value = dt.ToFileTime()
         };
         return sdt;
     }

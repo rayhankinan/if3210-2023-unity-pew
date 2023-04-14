@@ -845,9 +845,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1662851796}
     - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 6281085328810752971}
+    - target: {fileID: 1887973514, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: shopKeeperCanvas
       value: 
       objectReference: {fileID: 796717174}
+    - target: {fileID: 5287674830426242889, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1897369622}
+    - target: {fileID: 5287674830426242889, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Back
+      objectReference: {fileID: 0}
     - target: {fileID: 8806000715362971552, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -938,6 +950,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de52442555b174340b27dc91c546b341, type: 3}
+--- !u!114 &1897369622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1829729850735918865, guid: de52442555b174340b27dc91c546b341, type: 3}
+  m_PrefabInstance: {fileID: 1897369621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582b2b2bf60d453493ba3163990cb0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039698470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 987431045587671492, guid: a3b4c0d1e4ad54829bdc5da759b7b363, type: 3}
@@ -2121,6 +2144,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
+      propertyPath: shopKeeper
+      value: 
+      objectReference: {fileID: 1662851796}
+    - target: {fileID: 6281085328262790383, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1797860516}
@@ -2138,6 +2165,11 @@ PrefabInstance:
       objectReference: {fileID: 430053296}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
+--- !u!1 &6281085328810752971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6281085328262790379, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
+  m_PrefabInstance: {fileID: 6281085328810752970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7667173300149823124
 PrefabInstance:
   m_ObjectHideFlags: 0
