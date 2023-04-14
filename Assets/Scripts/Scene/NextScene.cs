@@ -15,7 +15,6 @@ public class NextScene: MonoBehaviour
     public void NextWithSave()
     {
         CurrentStateData.ChangeScene(scene);
-        
         CurrentStateData.SaveData();
 
         SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
