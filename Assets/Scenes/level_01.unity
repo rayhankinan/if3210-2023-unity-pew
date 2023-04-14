@@ -623,9 +623,6 @@ MonoBehaviour:
   weapon: {fileID: 2039698472}
   maxFirePower: 40
   firePowerSpeed: 10
-  rotateSpeed: 5
-  minRotation: -50
-  maxRotation: 50
 --- !u!1001 &1617527456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,6 +844,22 @@ PrefabInstance:
       propertyPath: shopKeeperCanvas
       value: 
       objectReference: {fileID: 796717174}
+    - target: {fileID: 5124206711629580588, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124206711629580588, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124206711629580588, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124206711629580588, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveState, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8806000715362971552, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1671,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -471.9679
+      value: -231.62663
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -1976,7 +1989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790379, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6281085328262790380, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: enemyPrefab.Array.size

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level_04.unity
     guid: 1e8d413a7aad47847b4d2a870df97018
+  - enabled: 1
+    path: Assets/Scenes/cutscene_shopkeeper_turun.unity
+    guid: 27b7aa68d73236946b097ca0b5773320
   m_configObjects: {}
