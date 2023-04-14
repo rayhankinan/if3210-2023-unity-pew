@@ -24,15 +24,12 @@ public class BowController : MonoBehaviour
     [SerializeField]
     private float maxRotation;
 
-    private float mouseY;
-
     private bool fire;
 
     // Start is called before the first frame update
     void Start()
     {
         weapon.Reload();
-
     }
 
     // Update is called once per frame

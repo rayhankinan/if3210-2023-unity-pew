@@ -15,6 +15,7 @@ public class NextScene: MonoBehaviour
     public void NextWithSave()
     {
         CurrentStateData.ChangeScene(scene);
+        
         SaveManager.OpenSaveFilesPanel();
     }
 }
