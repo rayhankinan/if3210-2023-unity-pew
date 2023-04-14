@@ -5,9 +5,9 @@ using UnityEngine;
 public class QuestManager: MonoBehaviour
 {
     private static ObjectiveManager[] _currentObjectives;
-
-    private bool _added;
+    
     public int rewardCompletion;
+    private bool _added;
 
     private void Awake()
     {
@@ -20,12 +20,12 @@ public class QuestManager: MonoBehaviour
         
         if (_added == false)
         {
-            CurrentStateData.AddCoin(rewardCompletion);
-            
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             EnemyManager.KillAllEnemy();
             
             _added = true;
+            
+            CurrentStateData.AddCoin(rewardCompletion);
         }
         FinishManager.DisplayButton();
     }

@@ -57,7 +57,8 @@ public class EnemyManager : MonoBehaviour
 
     public static void KillAllEnemy()
     {
-        foreach (var enemyHealth in ListOfEnemy.Select(enemy => enemy.GetComponent<EnemyHealth>()))
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+        foreach (var enemyHealth in ListOfEnemy.Select(enemy => enemy.GetComponent<EnemyHealth>()).ToList())
         {
             enemyHealth.Kill();
         }
