@@ -41,12 +41,11 @@ public class SaveManager : MonoBehaviour
 
         for (var i = 0; i < 3; i++)
         {
-            buttons[i].interactable = true;
-            
             var i1 = i;
+            buttons[i].interactable = true;
             buttons[i].onClick.AddListener(() => OpenSaveNamePanel(i1));
             
-            if (saveEntries != null)
+            if (saveEntries[i].playTime > 0)
             {
                 texts[2 * i].text = saveEntries[i].saveName;
                 texts[2 * i + 1].text = saveEntries[i].saveDateTime.ToString();

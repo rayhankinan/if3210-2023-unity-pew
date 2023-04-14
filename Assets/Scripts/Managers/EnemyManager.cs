@@ -30,6 +30,7 @@ public class EnemyManager : MonoBehaviour
     public PlayerHealth playerHealth;
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
+    public GameObject shopKeeper;
 
     private EnemyFactory _enemyFactory;
     private IFactory Factory => _enemyFactory;
@@ -82,7 +83,7 @@ public class EnemyManager : MonoBehaviour
     private void Spawn()
     {
         // Jika player telah mati atau quest sudah beres maka tidak membuat enemy baru
-        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted())
+        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted() || shopKeeper.activeSelf)
         {
             return;
         }

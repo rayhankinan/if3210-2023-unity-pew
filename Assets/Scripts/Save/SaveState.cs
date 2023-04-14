@@ -7,9 +7,8 @@ public class SaveState : MonoBehaviour
     {
         InputManager.GetText();
         CurrentStateData.SaveGameData(InputManager.GetText(), SaveManager.GetCurrentSlotIndex());
-        
         SaveManager.OnSave();
-        
+
         SceneManager.LoadScene("cutscene_shopkeeper_turun");
     }
 
