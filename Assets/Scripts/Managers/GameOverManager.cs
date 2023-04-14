@@ -6,7 +6,8 @@ public class GameOverManager : MonoBehaviour
     private static readonly int GameOver = Animator.StringToHash("GameOver");
     
     public PlayerHealth playerHealth;
-    public float restartDelay = 5f;
+    public float waitMenuDelay = 10f;
+    public float restartDelay = 20f;
     
     private Animator _anim;
     private float _restartTimer;
@@ -22,6 +23,11 @@ public class GameOverManager : MonoBehaviour
 
         _anim.SetTrigger(GameOver);
         _restartTimer += Time.deltaTime;
+
+        if (_restartTimer >= waitMenuDelay)
+        {
+            BackManager.AccessMenu();
+        }
 
         if (_restartTimer >= restartDelay)
         {
