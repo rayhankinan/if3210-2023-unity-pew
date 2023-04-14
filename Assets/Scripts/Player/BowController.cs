@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BowController : MonoBehaviour
@@ -14,15 +12,6 @@ public class BowController : MonoBehaviour
     private float firePowerSpeed;
 
     private float firePower;
-
-    [SerializeField]
-    private float rotateSpeed;
-
-    [SerializeField]
-    private float minRotation;
-
-    [SerializeField]
-    private float maxRotation;
 
     private bool fire;
 
