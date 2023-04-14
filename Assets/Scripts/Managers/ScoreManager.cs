@@ -4,6 +4,6 @@ public class ScoreManager : MonoBehaviour
 {
     private void Update()
     {
-        CurrentStateData.AddScore(Time.deltaTime);
+        CurrentStateData.AddPlayTime(Time.deltaTime);
     }
 }

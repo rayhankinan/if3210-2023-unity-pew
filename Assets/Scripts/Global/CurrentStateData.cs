@@ -1,25 +1,34 @@
 using System;
+using System.Collections.Generic;
 
 public class CurrentStateData
 {
     private static StateData _currentStateData;
+    private static GameData _currentGameData;
 
-    public static void LoadData()
+    public static void LoadStateData()
     {
-        _currentStateData = DataSaver.LoadData<StateData>("current_state");
+        _currentStateData = DataSaver.LoadData<StateData>("current_state") ?? new StateData();
+        _currentStateData.saveEntries ??= new SaveEntry[3];
+        _currentStateData.scoreEntries ??= new List<ScoreEntry>();
+
+        _currentGameData.playerName = _currentStateData.playerName;
+        _currentGameData.scene = "level_01";
+        _currentGameData.coin = 0;
+        _currentGameData.playTime = 0;
     }
 
-    public static void SaveData()
+    public static void SaveStateData()
     {
         DataSaver.SaveData(_currentStateData, "current_state");
     }
 
-    public static string GetPlayerName()
+    public static string GetGlobalPlayerName()
     {
         return _currentStateData.playerName;
     }
 
-    public static void ChangeName(string name)
+    public static void ChangeGlobalPlayerName(string name)
     {
         _currentStateData.playerName = name;
     }
@@ -35,40 +44,83 @@ public class CurrentStateData
         _currentStateData.volume = Math.Min(Math.Max(_currentStateData.volume, 0), 100);
     }
 
+    public static SaveEntry[] GetSaveEntries()
+    {
+        return _currentStateData.saveEntries;
+    }
+
+    public static List<ScoreEntry> GetScoreEntries()
+    {
+        _currentStateData.scoreEntries.Sort((s1, s2) => s1.playTime.CompareTo(s2.playTime));
+        return _currentStateData.scoreEntries;
+    }
+
+    public static bool LoadGameData(int index)
+    {
+        var loadedSaveEntry = _currentStateData.saveEntries[index];
+        _currentGameData.playerName = loadedSaveEntry.playerName;
+        _currentGameData.scene = loadedSaveEntry.scene;
+        _currentGameData.coin = loadedSaveEntry.coin;
+        _currentGameData.playTime = loadedSaveEntry.playTime;
+        
+        return true;
+    }
+
+    public static void SaveGameData(string saveName, int index)
+    {
+        var saveEntry = new SaveEntry
+        {
+            saveName = saveName,
+            saveDateTime = DateTime.Now,
+            playerName = _currentGameData.playerName,
+            playTime = _currentGameData.playTime,
+            coin = _currentGameData.coin,
+            scene = _currentGameData.scene
+        };
+        
+        _currentStateData.saveEntries[index] = saveEntry;
+        SaveStateData();
+    }
+
+    public static string GetCurrentPlayerName()
+    {
+        return _currentGameData.playerName;
+    }
+
     public static int GetCurrentCoin()
     {
-        return _currentStateData.coin;
+        return _currentGameData.coin;
     }
 
     public static void AddCoin(int coin)
     {
-        _currentStateData.coin += coin;
+        _currentGameData.coin += coin;
     }
 
     public static void SubtractCoin(int coin)
     {
-        if (_currentStateData.coin < coin) throw new InvalidOperationException("Coin tidak bisa lebih kecil dari 0");
+        if (_currentGameData.coin < coin) throw new InvalidOperationException("Coin tidak bisa lebih kecil dari 0");
 
-        _currentStateData.coin -= coin;
+        _currentGameData.coin -= coin;
     }
 
-    public static float GetCurrentScore()
+    public static float GetCurrentPlayTime()
     {
-        return _currentStateData.score;
+        return _currentGameData.playTime;
     }
 
-    public static void AddScore(float score)
+    public static void AddPlayTime(float delta)
     {
-        _currentStateData.score += score;
+        _currentGameData.playTime += delta;
     }
 
     public static string GetCurrentScene()
     {
-        return _currentStateData.scene;
+        return _currentGameData.scene;
     }
 
     public static void ChangeScene(string scene)
     {
-        _currentStateData.scene = scene;
+        _currentGameData.scene = scene;
     }
 }

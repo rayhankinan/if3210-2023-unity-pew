@@ -63,6 +63,25 @@ public class EnemyHealth : MonoBehaviour
             Death();
         }
     }
+
+    public void TakeDamageSword(int amount)
+    {
+        // Check jika dead
+        if (_isDead)
+            return;
+
+        // Play audio
+        _enemyAudio.Play();
+
+        // Kurangi health
+        currentHealth -= amount;
+        
+        // Dead jika health <= 0
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
+    }
     
     private void Death()
     {

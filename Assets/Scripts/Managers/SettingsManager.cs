@@ -15,7 +15,7 @@ public class SettingsManager : MonoBehaviour
 
         if (settingsPanel.activeSelf)
         {
-            playerName.text = CurrentStateData.GetPlayerName();
+            playerName.text = CurrentStateData.GetGlobalPlayerName();
             volumeInfo.text = CurrentStateData.GetVolume() + "%";
         }
         else
@@ -31,7 +31,7 @@ public class SettingsManager : MonoBehaviour
     
     private void ChangeName()
     {
-        CurrentStateData.ChangeName(playerName.text);
+        CurrentStateData.ChangeGlobalPlayerName(playerName.text);
     }
     
     public void VolumeUp()

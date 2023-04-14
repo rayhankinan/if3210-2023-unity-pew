@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,10 +19,9 @@ public class ScoreboardManager : MonoBehaviour
         headerTextFields[0].text = "Rank";
         headerTextFields[1].text = "Player Name";
         headerTextFields[2].text = "Time Spent";
-
-        // @TODO change this to actual instantiations
-        const int numberOfItems = 21;
-        for (var i = 1; i <= numberOfItems; i++)
+        
+        var scoreEntries = CurrentStateData.GetScoreEntries();
+        for (var i = 1; i <= scoreEntries.Count; i++)
         {
             var entry = Instantiate(scoreEntryPrefab, content.transform);
             var entryRectTransform = entry.GetComponent<RectTransform>();
@@ -29,14 +29,18 @@ public class ScoreboardManager : MonoBehaviour
             
             var entryTextFields = entry.GetComponentsInChildren<TMP_Text>();
             entryTextFields[0].text = "# " + i;
-            entryTextFields[1].text = "Player " + i;
-            entryTextFields[2].text = "20m 45s";
+            entryTextFields[1].text = scoreEntries[i].playerName;
+
+            int secs, mins;
+            secs = Mathf.FloorToInt(scoreEntries[i].playTime);
+            (mins, secs) = (secs / 60, secs % 60);
+            entryTextFields[2].text = $"{mins}m {secs}s";
         }
 
         // Fit content size
         var contentRectTransform = content.GetComponent<RectTransform>();
         var contentSizeDelta = contentRectTransform.sizeDelta;
-        contentRectTransform.sizeDelta = new Vector2(contentSizeDelta.x, 50 * numberOfItems + contentSizeDelta.y);
+        contentRectTransform.sizeDelta = new Vector2(contentSizeDelta.x, 50 * Math.Max(8, scoreEntries.Count) + contentSizeDelta.y);
 
         var scrollRect = GetComponent<ScrollRect>();
         scrollRect.verticalNormalizedPosition = 1f;
