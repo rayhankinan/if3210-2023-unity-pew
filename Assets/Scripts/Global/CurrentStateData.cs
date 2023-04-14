@@ -16,6 +16,9 @@ public class CurrentStateData
         _currentGameData.scene = "level_01";
         _currentGameData.coin = 0;
         _currentGameData.playTime = 0;
+        _currentGameData.currentWeapon = 0;
+        _currentGameData.pets = new List<int>();
+        _currentGameData.weapons = new []{true, false, false, false};
     }
 
     public static void SaveStateData()
@@ -62,6 +65,9 @@ public class CurrentStateData
         _currentGameData.scene = loadedSaveEntry.scene;
         _currentGameData.coin = loadedSaveEntry.coin;
         _currentGameData.playTime = loadedSaveEntry.playTime;
+        _currentGameData.currentWeapon = loadedSaveEntry.currentWeapon;
+        _currentGameData.weapons = loadedSaveEntry.weapons;
+        _currentGameData.pets = loadedSaveEntry.pets;
         
         return true;
     }
@@ -75,7 +81,10 @@ public class CurrentStateData
             playerName = _currentGameData.playerName,
             playTime = _currentGameData.playTime,
             coin = _currentGameData.coin,
-            scene = _currentGameData.scene
+            scene = _currentGameData.scene,
+            currentWeapon = _currentGameData.currentWeapon,
+            weapons = _currentGameData.weapons,
+            pets = _currentGameData.pets
         };
         
         _currentStateData.saveEntries[index] = saveEntry;
@@ -97,11 +106,13 @@ public class CurrentStateData
         _currentGameData.coin += coin;
     }
 
-    public static void SubtractCoin(int coin)
+    public static bool SubtractCoin(int coin)
     {
-        if (_currentGameData.coin < coin) throw new InvalidOperationException("Coin tidak bisa lebih kecil dari 0");
+        if (_currentGameData.coin < coin) 
+            return false;
 
         _currentGameData.coin -= coin;
+        return true;
     }
 
     public static float GetCurrentPlayTime()
@@ -122,5 +133,57 @@ public class CurrentStateData
     public static void ChangeScene(string scene)
     {
         _currentGameData.scene = scene;
+    }
+
+    public static int GetCurrentPet()
+    {
+        if (_currentGameData.pets.Count > 0)
+        {
+            return _currentGameData.pets[0];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public static void RemoveCurrentPet()
+    {
+        if (_currentGameData.pets.Count > 0)
+        {
+            _currentGameData.pets.RemoveAt(0);
+        }
+        else
+        {
+            throw new Exception("How can you remove pet that is nowhere to be found??");
+        }
+    }
+
+    public static bool[] GetWeapons()
+    {
+        return _currentGameData.weapons;
+    }
+
+    public static int GetCurrentWeapon()
+    {
+        return _currentGameData.currentWeapon;
+    }
+
+    public static bool SetCurrentWeapon(int weapon)
+    {
+        if (_currentGameData.weapons[weapon])
+        {
+            _currentGameData.currentWeapon = weapon;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void AddWeapon(int weapon)
+    {
+        _currentGameData.weapons[weapon] = true;
     }
 }

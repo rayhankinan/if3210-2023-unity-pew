@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-
-    public int selectedWeapon;
+    private int selectedWeapon;
 
     // Start is called before the first frame update
     private void Start()
     {
-        SelectWeapon();
+        selectedWeapon = CurrentStateData.GetCurrentWeapon();
     }
 
     // Update is called once per frame
@@ -45,18 +44,10 @@ public class WeaponSwitching : MonoBehaviour
             selectedWeapon = 3;
         }
 
-        if(previousSelectedWeapon != selectedWeapon){
-            SelectWeapon();
+        if (previousSelectedWeapon != selectedWeapon)
+        {
+            selectedWeapon = CurrentStateData.GetCurrentWeapon();
         }
         
-    }
-
-    private void SelectWeapon (){
-        var i = 0;
-        foreach (Transform weapon in transform)
-        {
-            weapon.gameObject.SetActive(i == selectedWeapon);
-            i++;
-        }
     }
 }
