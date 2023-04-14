@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class StateData
 {
     public string playerName;
-    public int volume = 100;
-    public int coin;
-    public float score;
-    public string scene = "level_01";
+    public int volume;
+    
+    public List<SaveEntry> saveEntries;
+    public List<ScoreEntry> scoreEntries;
 }
