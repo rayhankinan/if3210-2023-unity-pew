@@ -50,7 +50,7 @@ public class EnemyAttack : MonoBehaviour
             _petDragonHealth = other.gameObject.GetComponent<PetDragonHealth>();
             _dragonPetInRange = true;
         }
-        else if (other.gameObject.CompareTag("Healing Wizard"))
+        else if (other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard"))
         {
             //Debug.Log("Pet collide Pet dragon");
             _petWizardHealth = other.gameObject.GetComponent<PetWizardHealth>();

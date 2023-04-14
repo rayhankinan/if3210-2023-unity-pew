@@ -719,6 +719,13 @@ GameObject:
   - component: {fileID: 4730965595014968122}
   - component: {fileID: 4682464273516918282}
   - component: {fileID: 4633181098716970822}
+  - component: {fileID: 136306802872759231}
+  - component: {fileID: 136306802872759232}
+  - component: {fileID: 136306802872759233}
+  - component: {fileID: 136306802872759234}
+  - component: {fileID: 136306802872759235}
+  - component: {fileID: 136306802872759236}
+  - component: {fileID: 136306802872759237}
   m_Layer: 0
   m_Name: AuraBuffWizard
   m_TagString: Untagged
@@ -754,7 +761,7 @@ Animator:
   m_GameObject: {fileID: 4732280675408980258}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bed7a092d53e7c748bd65db98cebf9d6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2890c9060ce4f6b45b4082d87f47b27e, type: 2}
+  m_Controller: {fileID: 9100000, guid: be4ec115dc480d646b1fec04fbc343a4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -779,6 +786,141 @@ CapsuleCollider:
   m_Height: 1.882848
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
+--- !u!54 &136306802872759231
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 42
+  m_CollisionDetection: 0
+--- !u!135 &136306802872759232
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &136306802872759233
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &136306802872759234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb77e85ec671e094ebe44dbb418980b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  buffMultiplier: 1.2
+--- !u!114 &136306802872759235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032212bdb232bf1439bed31f448f58b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  sinkSpeed: 2.5
+  spellEffect: {fileID: 8240965085000011025}
+  deathClip: {fileID: 0}
+  _isDead: 0
+--- !u!114 &136306802872759236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b007548fb74216041b41b9e14fb1f881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  player: {fileID: 0}
+  speed: 6
+--- !u!114 &136306802872759237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732280675408980258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b67d8750d564547b048e7c973b12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLink:
+    targetScript: {fileID: 136306802872759235}
+    fieldName: currentHealth
+  HealthbarPrefab: {fileID: 5772736350173923517, guid: 937c1509eb8a748da94e26d616086109, type: 3}
+  yOffset: -0.5
+  keepSize: 1
+  scale: 5
+  sizeOffsets: {x: 0, y: 0}
+  DrawOFFDistance: 0
+  drawDistance: 10
+  showHealthInfo: 1
+  healthInfoAlignment: 2
+  healthInfoSize: 15
+  alphaSettings:
+    defaultAlpha: 0.7
+    defaultFadeSpeed: 0.1
+    fullAplpha: 1
+    fullFadeSpeed: 0.1
+    nullAlpha: 0
+    nullFadeSpeed: 0.1
+    onHit:
+      fadeSpeed: 0.1
+      onHitAlpha: 1
+      duration: 1
+  canvas: {fileID: 0}
 --- !u!1 &4732285027951600140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,6 +2792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+--- !u!1 &8240965085000011025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+  m_PrefabInstance: {fileID: 4731066565397455004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8287102626950618276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3650638188812647480, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}

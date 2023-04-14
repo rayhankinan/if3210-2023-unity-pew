@@ -55,8 +55,9 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
-                Debug.Log($"multiplier = {multiplier}");
-                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*multiplier), _shootHit.point);
+                _multiplier = CurrentStateData.GetMultiplier();
+                //Debug.Log($"multiplier = {_multiplier}");
+                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*_multiplier), _shootHit.point);
             }
 
             _gunLine.SetPosition(1, _shootHit.point);

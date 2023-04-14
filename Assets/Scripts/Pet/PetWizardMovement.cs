@@ -33,7 +33,7 @@ public class PetWizardMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((player.transform.position - transform.position).magnitude >= 5)
+        if ((player.transform.position - transform.position).magnitude >= 4.5)
         {
             _anim.SetBool(IsWalking, true);
             //_anim.SetTrigger("Walk");

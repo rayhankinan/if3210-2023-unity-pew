@@ -36,12 +36,13 @@ public class PetWizardAuraBuff : MonoBehaviour
         {
             if (_playerInRange)
             {
-                //Debug.Log(_timer);
-                CurrentStateData.setMultiplier(buffMultiplier);
+                //Debug.Log($"Set Multiplier = {buffMultiplier}");
+                CurrentStateData.SetMultiplier(buffMultiplier);
             }
             else
             {
-                CurrentStateData.setMultiplier(1);
+                //Debug.Log($"Set Multiplier = {1}");
+                CurrentStateData.SetMultiplier(1);
             }
 
         }
