@@ -18,11 +18,17 @@ public class PauseManager : MonoBehaviour
 	{
 		if (Time.timeScale == 0)
 		{
-			paused.TransitionTo(.01f);
+			if (paused != null)
+            {
+				paused.TransitionTo(.01f);
+            }
 		}
 		else
 		{
-			unpaused.TransitionTo(.01f);
+			if (unpaused != null)
+			{
+				unpaused?.TransitionTo(.01f);
+			}
 		}
 	}
 	

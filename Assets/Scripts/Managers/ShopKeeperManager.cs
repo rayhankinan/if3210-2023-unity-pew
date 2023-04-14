@@ -13,6 +13,7 @@ public class ShopKeeperManager : MonoBehaviour
     public GameObject shopKeeperCanvas;
     private float _startTime;
     public float timeLimit;
+    PauseManager pauseManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class ShopKeeperManager : MonoBehaviour
         _shopKeeperEffect = shopKeeper.GetComponent<ShopKeeperEffect>();
         shopKeeperCanvas.SetActive(false);
         _startTime = Time.time;
+        pauseManager = new PauseManager();
 
         if (CurrentStateData.GetCurrentScene() == "level_01")
         {
@@ -70,7 +72,7 @@ public class ShopKeeperManager : MonoBehaviour
             else
             {
                 Debug.Log("True");
-                Time.timeScale = 0;
+                pauseManager.Pause();
                 shopKeeperCanvas.SetActive(true);
             }
         }
