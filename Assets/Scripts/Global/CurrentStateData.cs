@@ -18,7 +18,7 @@ public class CurrentStateData
         _currentGameData.playTime = 0;
         _currentGameData.currentWeapon = 0;
         _currentGameData.pets = new List<int>();
-        _currentGameData.weapons = new []{true, false, false, false};
+        _currentGameData.weapons = new []{true, true, true, true};
     }
 
     public static void SaveStateData()
