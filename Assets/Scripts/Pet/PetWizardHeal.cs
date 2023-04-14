@@ -5,7 +5,7 @@ using UnityEngine;
 public class PetWizardHeal : MonoBehaviour
 {
     public GameObject player;
-    public float timeBetweenHeal = 0.15f;
+    public float timeBetweenHeal = 10f;
     public int healAmount = 10;
     float _timer;
     PlayerHealth playerHealth;
@@ -22,6 +22,7 @@ public class PetWizardHeal : MonoBehaviour
         _timer += Time.deltaTime;
         if (_playerInRange && _timer >= timeBetweenHeal && !PauseManager.CheckIfPaused())
         {
+            Debug.Log(_timer);
             Heal();
         }
     }

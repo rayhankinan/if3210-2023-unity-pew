@@ -36,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
     // Callback jika ada suatu object masuk kedalam trigger
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other.gameObject.layer} - {LayerMask.GetMask("Pet")}");
+        //Debug.Log($"{other.gameObject.layer} - {LayerMask.GetMask("Pet")}");
         // Set player in range
         if (other.gameObject == _player)
         {
@@ -44,7 +44,7 @@ public class EnemyAttack : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Pet Dragon"))
         {
-            Debug.Log("Pet collide Pet dragon");
+            //Debug.Log("Pet collide Pet dragon");
             _petDragonHealth = other.gameObject.GetComponent<PetDragonHealth>();
             _dragonPetInRange = true;
         }

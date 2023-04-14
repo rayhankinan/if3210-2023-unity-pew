@@ -1530,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3878630058993967862, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
       propertyPath: m_RootOrder
@@ -1957,6 +1957,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 603214407}
+    - target: {fileID: 6011859116741034211, guid: 920c87dc94a991f428a54bc7115930a1, type: 3}
+      propertyPath: timeBetweenHeal
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6011859116741034221, guid: 920c87dc94a991f428a54bc7115930a1, type: 3}
       propertyPath: target
       value: 
