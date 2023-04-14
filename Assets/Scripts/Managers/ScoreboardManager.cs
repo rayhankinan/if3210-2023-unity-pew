@@ -40,7 +40,7 @@ public class ScoreboardManager : MonoBehaviour
         // Fit content size
         var contentRectTransform = content.GetComponent<RectTransform>();
         var contentSizeDelta = contentRectTransform.sizeDelta;
-        contentRectTransform.sizeDelta = new Vector2(contentSizeDelta.x, 50 * scoreEntries.Count + contentSizeDelta.y);
+        contentRectTransform.sizeDelta = new Vector2(contentSizeDelta.x, 50 * Math.Max(8, scoreEntries.Count) + contentSizeDelta.y);
 
         var scrollRect = GetComponent<ScrollRect>();
         scrollRect.verticalNormalizedPosition = 1f;
