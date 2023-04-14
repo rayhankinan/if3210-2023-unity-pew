@@ -9,6 +9,7 @@ public class PlayerShotgun : MonoBehaviour
     public float timeBetweenBullets = 1.5f;
     public float range = 30f;
     public float maxDamageDistance = 10f;
+    public float multiplier = CurrentStateData.getMultiplier();
 
     private float _timer;
     private Ray _shootRay;
@@ -60,7 +61,7 @@ public class PlayerShotgun : MonoBehaviour
                     var distance = Vector3.Distance(transform.position, _shootHit.point);
                     var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
                     var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
-                    enemyHealth.TakeDamage(damage, _shootHit.point);
+                    enemyHealth.TakeDamage(Mathf.RoundToInt(damage*multiplier), _shootHit.point);
                 }
 
                 _gunLine.SetPosition(1, _shootHit.point);

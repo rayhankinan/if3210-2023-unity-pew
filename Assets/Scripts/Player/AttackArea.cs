@@ -6,12 +6,13 @@ public class AttackArea : MonoBehaviour
 {
     public int damage = 25;
     private RaycastHit _attackHit;
+    public float multiplier = CurrentStateData.getMultiplier();
 
     private void OnTriggerEnter(Collider collider)
     {
         var enemyHealth = collider.GetComponent<EnemyHealth>();
         if(enemyHealth){
-            enemyHealth.TakeDamageSword(damage);
+            enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage*multiplier));
         }
     }
 }

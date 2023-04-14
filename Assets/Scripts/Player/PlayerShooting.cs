@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+    public float multiplier = CurrentStateData.getMultiplier();
 
     private float _timer;
     private Ray _shootRay;
@@ -52,7 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth)
             {
-                enemyHealth.TakeDamage(damagePerShot, _shootHit.point);
+                enemyHealth.TakeDamage(Mathf.RoundToInt(damagePerShot*multiplier), _shootHit.point);
             }
 
             _gunLine.SetPosition(1, _shootHit.point);
