@@ -52,20 +52,20 @@ public class ShopKeeperEffect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter True");
+        //Debug.Log("Enter True");
         if (other.gameObject != player) return;
 
-        Debug.Log("Set True");
+        //Debug.Log("Set True");
         isShopKeeperFlying = true;
         _anim.SetBool(ShopKeeperFlying, true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Enter False");
+        //Debug.Log("Enter False");
         if (other.gameObject != player) return;
 
-        Debug.Log("Set False");
+        //Debug.Log("Set False");
         isShopKeeperFlying = false;
         _anim.SetBool(ShopKeeperFlying, false);
     }
