@@ -1,32 +1,37 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
+    private static GameObject _background;
+    private static GameObject _saveTitle;
     private static GameObject _saveFilesPanel;
     private static GameObject _saveNamePanel;
-    private static TMP_InputField _saveNameInputField;
     private static int _slotIndex;
-    
-    public GameObject saveFilesPanel;
-    public GameObject saveNamePanel;
-    public TMP_InputField saveNameInputField;
+
+    public GameObject inputBackground;
+    public GameObject inputSaveTitle;
+    public GameObject inputSaveFilesPanel;
+    public GameObject inputSaveNamePanel;
 
     public void Awake()
     {
-        _saveFilesPanel = saveFilesPanel;
-        _saveNamePanel = saveNamePanel;
-        _saveNameInputField = saveNameInputField;
+        _background = inputBackground;
+        _saveTitle = inputSaveTitle;
+        _saveFilesPanel = inputSaveFilesPanel;
+        _saveNamePanel = inputSaveNamePanel;
         
+        _background.SetActive(false);
+        _saveTitle.SetActive(false);
         _saveFilesPanel.SetActive(false);
         _saveNamePanel.SetActive(false);
     }
 
     public static void OpenSaveFilesPanel()
     {
+        _background.SetActive(true);
+        _saveTitle.SetActive(true);
         _saveFilesPanel.SetActive(true);
         _saveNamePanel.SetActive(false);
         
@@ -56,24 +61,29 @@ public class SaveManager : MonoBehaviour
 
     private static void OpenSaveNamePanel(int index)
     {
+        _saveTitle.SetActive(false);
         _saveFilesPanel.SetActive(false);
         _saveNamePanel.SetActive(true);
 
         _slotIndex = index;
-        _saveNameInputField.text = $"Save Slot {index+1}";
+        InputManager.SetText($"Save Slot {index+1}");
     }
 
-    public void OnSave()
+    public static int GetCurrentSlotIndex()
     {
-        CurrentStateData.SaveGameData(_saveNameInputField.text, _slotIndex);
+        return _slotIndex;
+    }
+
+    public static void OnSave()
+    {
+        _saveTitle.SetActive(false);
         _saveFilesPanel.SetActive(false);
         _saveNamePanel.SetActive(false);
-        
-        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
     }
 
-    public void OnBack()
+    public static void OnBack()
     {
+        _saveTitle.SetActive(true);
         _saveFilesPanel.SetActive(true);
         _saveNamePanel.SetActive(false);
     }
