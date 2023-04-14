@@ -57,7 +57,8 @@ public class WeaponSwitching : MonoBehaviour
         {
             SelectWeapon();
         }
-        
+
+        CurrentStateData.SetCurrentWeapon(selectedWeapon);
     }
 
     void SelectWeapon(){
