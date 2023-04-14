@@ -61,7 +61,7 @@ public class ShopKeeperManager : MonoBehaviour
             _anim.SetBool("ShopKeeperFlying", false);
         }
 
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKey(KeyCode.B) && !PauseManager.CheckIfPaused())
         {
             Debug.Log("Press B");
             if (!_shopKeeperEffect.isShopKeeperFlying)

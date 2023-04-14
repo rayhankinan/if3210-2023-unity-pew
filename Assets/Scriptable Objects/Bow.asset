@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bf552455ed0a1428340e4ed10a5806, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
+  type: Weapon
   title: Bow
   description: A long range weapon that can be charged to increase the range
   price: 0

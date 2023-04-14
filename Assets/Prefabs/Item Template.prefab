@@ -218,6 +218,7 @@ MonoBehaviour:
   title: {fileID: 1916449442370456998}
   description: {fileID: 1916449443256068261}
   price: {fileID: 1916449443394405797}
+  buyButton: {fileID: 0}
 --- !u!1 &1916449442370457016
 GameObject:
   m_ObjectHideFlags: 0

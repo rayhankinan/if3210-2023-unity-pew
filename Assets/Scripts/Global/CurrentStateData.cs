@@ -162,6 +162,11 @@ public class CurrentStateData
         }
     }
 
+    public static void AddPet(int pet)
+    {
+        _currentGameData.pets.Add(pet);
+    }
+
     public static bool[] GetWeapons()
     {
         return _currentGameData.weapons;

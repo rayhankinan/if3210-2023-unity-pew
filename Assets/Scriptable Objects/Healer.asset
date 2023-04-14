@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bf552455ed0a1428340e4ed10a5806, type: 3}
   m_Name: Healer
   m_EditorClassIdentifier: 
-  title: Healer
+  type: Pet
+  title: Healing Wizard
   description: A healing pet
   price: 0

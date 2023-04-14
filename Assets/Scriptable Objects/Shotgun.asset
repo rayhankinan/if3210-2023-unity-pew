@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bf552455ed0a1428340e4ed10a5806, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  type: Weapon
   title: Shotgun
   description: A close range weapon that shoots multiple bullets at the same time
   price: 0
