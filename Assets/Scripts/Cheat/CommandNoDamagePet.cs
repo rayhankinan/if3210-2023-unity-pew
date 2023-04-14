@@ -6,6 +6,7 @@ public class CommandNoDamagePet : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
+    
 
     public CommandNoDamagePet()
     {

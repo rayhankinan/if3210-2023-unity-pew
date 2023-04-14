@@ -46,12 +46,19 @@ public class CheatManager : MonoBehaviour
         CommandOneHitKill.CreateCommand();
         CommandMotherlode.CreateCommand();
         CommandDoubleSpeed.CreateCommand();
+        CommandNoDamagePet.CreateCommand();
+        CommandKillPet.CreateCommand();
     }
     
     void Start()
     {
         consoleCanvas.gameObject.SetActive(false);
         CreateCommands();
+        /*AddMessageToConsole("Cheat list");
+        List<string> keys = new List<string>(Commands.Keys);
+        foreach (string res in keys) {
+            AddMessageToConsole(res.ToString());
+        }*/
     }
 
     void Update()
@@ -80,7 +87,7 @@ public class CheatManager : MonoBehaviour
     {
         if (!Commands.ContainsKey(_name))
         {
-            Commands.Add(_name.Trim(), _command);
+            Commands.Add(_name, _command);
         }
     }
     
@@ -91,7 +98,13 @@ public class CheatManager : MonoBehaviour
     
     private void ParseInput(string input)
     {
-        string[] _input = input.Split(null);
+        string[] _input = input.Split();
+        /*AddMessageToConsole(_input.Length.ToString());
+        foreach (string res in _input)
+        {
+            AddMessageToConsole(res);
+        }
+        AddMessageToConsole(_input[0]);*/
 
         if (_input.Length == 0 || _input == null)
         {
@@ -101,11 +114,13 @@ public class CheatManager : MonoBehaviour
 
         if (!Commands.ContainsKey(_input[0]))
         {
-            AddMessageToConsole("Command not recognized.");
+            AddMessageToConsole("Command not recognized!!!!!");
         }
         else
         {
             Commands[_input[0]].RunCommand();
+            //AddMessageToConsole(Commands[_input[0]].);
+            AddMessageToConsole(Commands[_input[0]].commandDescription);
         }
     }
 }

@@ -6,7 +6,11 @@ public class CommandOneHitKill : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
-    private EnemyHealth _enemyHealth;
+    //private GameObject enemy = GameObject.FindGameObjectWithTag("Player");
+    //EnemyHealth playerHealth
+    private RaycastHit raycastHit;
+    EnemyHealth enemyHealth;
+        //= raycastHit.collider.GetComponent<EnemyHealth>();
 
     public CommandOneHitKill()
     {
@@ -18,7 +22,10 @@ public class CommandOneHitKill : CheatCommandBase
 
     public override void RunCommand()
     {
-        _enemyHealth.currentHealth = 1;
+        
+        enemyHealth = raycastHit.collider.GetComponent<EnemyHealth>();
+        Debug.Log(enemyHealth.currentHealth);
+        enemyHealth.currentHealth = 1;
     }
 
     public static CommandOneHitKill CreateCommand()

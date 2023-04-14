@@ -6,7 +6,7 @@ public class CommandDoubleSpeed : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
-    private GameObject _player;
+    private GameObject _player = GameObject.FindGameObjectWithTag("Player");
     private PlayerMovement _playerMovement;
 
     public CommandDoubleSpeed()
@@ -19,6 +19,7 @@ public class CommandDoubleSpeed : CheatCommandBase
 
     public override void RunCommand()
     {
+        _playerMovement = _player.GetComponent<PlayerMovement>();
         _playerMovement.speed *= 2;
     }
 
