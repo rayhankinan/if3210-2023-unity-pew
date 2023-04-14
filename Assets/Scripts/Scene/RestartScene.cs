@@ -5,9 +5,7 @@ public class RestartScene : MonoBehaviour
 {
     public void Restart()
     {
-        CurrentStateData.LoadStateData(); // TODO: GANTI INI
-        
-        SceneManager.LoadScene(CurrentStateData.GetCurrentScene());
+        SaveManager.OpenSaveFilesPanel();
     }
 
     public void MainMenu()
