@@ -17,5 +17,9 @@ public class BarManager : MonoBehaviour
         if(CurrentStateData.GetCurrentWeapon() == 3){
             barSlider.SetActive(true);
         }
+        else
+        {
+            barSlider.SetActive(false);
+        }
     }
 }
