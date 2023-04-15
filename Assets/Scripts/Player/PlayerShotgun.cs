@@ -19,6 +19,7 @@ public class PlayerShotgun : MonoBehaviour
     private LineRenderer _gunLine;
     private AudioSource _gunAudio;
     private Light _gunLight;
+    private bool oneHit;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class PlayerShotgun : MonoBehaviour
         _gunLight = GetComponent<Light>();
         
         _multiplier = CurrentStateData.GetMultiplier();
+        oneHit = false;
     }
 
     private void Shoot()
@@ -60,10 +62,17 @@ public class PlayerShotgun : MonoBehaviour
 
                 if (enemyHealth)
                 {
-                    var distance = Vector3.Distance(transform.position, _shootHit.point);
-                    var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
-                    var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
-                    enemyHealth.TakeDamage(Mathf.RoundToInt(damage * _multiplier), _shootHit.point);
+                    if (oneHit)
+                    {
+                        enemyHealth.TakeDamage(Mathf.RoundToInt(enemyHealth.currentHealth), _shootHit.point);
+                    }
+                    else
+                    {
+                        var distance = Vector3.Distance(transform.position, _shootHit.point);
+                        var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
+                        var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);
+                        enemyHealth.TakeDamage(Mathf.RoundToInt(damage * _multiplier), _shootHit.point);
+                    }
                 }
 
                 _gunLine.SetPosition(1, _shootHit.point);
@@ -95,5 +104,10 @@ public class PlayerShotgun : MonoBehaviour
         {
             DisableEffects();
         }
+    }
+    
+    public void SetOneHit()
+    {
+        oneHit = true;
     }
 }

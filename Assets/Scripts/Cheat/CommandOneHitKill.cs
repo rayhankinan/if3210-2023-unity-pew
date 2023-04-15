@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CommandOneHitKill : CheatCommandBase
@@ -13,6 +14,9 @@ public class CommandOneHitKill : CheatCommandBase
         //= raycastHit.collider.GetComponent<EnemyHealth>();
     private GameObject player = GameObject.FindGameObjectWithTag("Player");
     private PlayerShooting playerShooting;
+    private PlayerShotgun playerShotgun;
+    private AttackArea playerSword;
+    private int selectedWeapon = CurrentStateData.GetCurrentWeapon();
 
     public CommandOneHitKill()
     {
@@ -24,8 +28,26 @@ public class CommandOneHitKill : CheatCommandBase
 
     public override void RunCommand()
     {
-        playerShooting = player.GetComponentInChildren<PlayerShooting>();
-        playerShooting.SetOneHit();
+        //default weapon
+        if (selectedWeapon == 0)
+        {
+            playerShooting = player.GetComponentInChildren<PlayerShooting>();
+            playerShooting.SetOneHit();
+        }
+        
+        //shotgun
+        else if (selectedWeapon == 1)
+        {
+            playerShotgun = player.GetComponentInChildren<PlayerShotgun>();
+            playerShotgun.SetOneHit();
+        }
+        
+        //sword
+        else if (selectedWeapon == 2)
+        {
+            playerSword = player.GetComponentInChildren<AttackArea>();
+            playerSword.SetOneHit();
+        }
     }
 
     public static CommandOneHitKill CreateCommand()
