@@ -6,6 +6,11 @@ public class PetHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
-    public PetManager manager;
+    protected PetManager manager;
     public int initialHealthReduced = 0;
+
+    public void SetManager(PetManager manager)
+    {
+        this.manager = manager;
+    }
 }

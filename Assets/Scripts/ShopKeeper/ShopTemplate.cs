@@ -57,25 +57,14 @@ public class ShopTemplate : MonoBehaviour
                 petType = 2;
             }
 
-            Debug.Log("Add Pet");
+            //Debug.Log("Add Pet");
             CurrentStateData.AddPet(petType);
 
-            Debug.Log($"Length = {CurrentStateData.GetPetsLength()}");
+            //Debug.Log($"Length = {CurrentStateData.GetPetsLength()}");
             if (CurrentStateData.GetPetsLength() == 1)
             {
-                Debug.Log($"Pet Type = {petType}");
-                if (petType == 0)
-                {
-                    Instantiate(manager.healerPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
-                }
-                else if (petType == 1)
-                {
-                    Instantiate(manager.attackerPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
-                }
-                else if (petType == 2)
-                {
-                    Instantiate(manager.buffPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
-                }
+                //Debug.Log($"Pet Type = {petType}");
+                PetManager.tryToSpawnNewPet = true;
             }
         }
 

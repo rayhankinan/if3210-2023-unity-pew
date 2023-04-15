@@ -72,11 +72,12 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
             CurrentStateData.SetCurrentPethealth(-1);
             Death();
         }
-        Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
+        //Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
     }
 
     public void StartSinking()
     {
+        CurrentStateData.RemoveCurrentPet();
         // Disable Navmesh Component
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
 
@@ -86,6 +87,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
         // Set isSinking
         _isSinking = true;
 
+        manager.TryToSpawnNextPet(transform);
         // Destroy Object
         Destroy(gameObject, 2f);
     }

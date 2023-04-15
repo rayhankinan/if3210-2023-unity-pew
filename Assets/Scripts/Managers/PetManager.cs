@@ -7,6 +7,8 @@ public class PetManager : MonoBehaviour
     public GameObject healerPet;
     public GameObject attackerPet;
     public GameObject buffPet;
+    public static bool tryToSpawnNewPet = false;
+    public static Transform nextTransform;
 
     GameObject player;
     // Start is called before the first frame update
@@ -19,17 +21,22 @@ public class PetManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (tryToSpawnNewPet)
+        {
+            //TryToSpawnNextPet(nextTransform);
+            SpawnCurrentPetNearPlayer();
+            tryToSpawnNewPet = false;
+        }
     }
 
     public void SpawnCurrentPetNearPlayer()
     {
         int petType = CurrentStateData.GetCurrentPet();
 
-        Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
+        //Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
         if (petType != -1)
         {
-            if (CurrentStateData.GetCurrentPethealth() <= 0)
+            if (CurrentStateData.GetCurrentPethealth() <= 0 && !tryToSpawnNewPet)
             {
                 CurrentStateData.RemoveCurrentPet();
                 petType = CurrentStateData.GetCurrentPet();
@@ -50,7 +57,14 @@ public class PetManager : MonoBehaviour
                     }
 
                     var petHealth = pet.GetComponent<PetHealth>();
-                    petHealth.manager = this;
+                    if (petHealth != null)
+                    {
+                        petHealth.SetManager(this);
+                    }
+                    else
+                    {
+                        Debug.Log("petHealth is null");
+                    }
                 }
             }
             else
@@ -71,7 +85,44 @@ public class PetManager : MonoBehaviour
 
 
                 var petHealth = pet.GetComponent<PetHealth>();
-                petHealth.manager = this;
+                if (petHealth != null)
+                {
+                    petHealth.SetManager(this);
+                }
+                else
+                {
+                    Debug.Log("petHealth is null");
+                }
+            }
+        }
+    }
+
+    public void TryToSpawnNextPet(Transform transform)
+    {
+        int petType = CurrentStateData.GetCurrentPet();
+
+        //Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
+        if (petType != -1)
+        {
+            GameObject pet = null;
+            if (petType == 0)
+            {
+                pet = Instantiate(healerPet, transform.position, transform.rotation);
+            }
+            else if (petType == 1)
+            {
+                pet = Instantiate(attackerPet, transform.position, transform.rotation);
+            }
+            else if (petType == 2)
+            {
+                pet = Instantiate(buffPet, transform.position, transform.rotation);
+            }
+
+
+            var petHealth = pet.GetComponent<PetHealth>();
+            if (petHealth != null)
+            {
+                petHealth.SetManager(this);
             }
         }
     }

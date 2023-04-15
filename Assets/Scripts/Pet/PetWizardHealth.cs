@@ -29,6 +29,15 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
 
     private void Update()
     {
+        if (manager == null)
+        {
+            Debug.Log("Manager == null");
+        }
+        else
+        {
+            Debug.Log("Manager =! null");
+        }
+
         if (CurrentStateData.GetCurrentPethealth() != -1 && currentHealth > CurrentStateData.GetCurrentPethealth())
         {
             TakeDamage(startingHealth - CurrentStateData.GetCurrentPethealth());
@@ -84,6 +93,7 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
 
     public void StartSinking()
     {
+        CurrentStateData.RemoveCurrentPet();
         // Disable Navmesh Component
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
 
@@ -93,6 +103,7 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
         // Set isSinking
         _isSinking = true;
 
+        manager.TryToSpawnNextPet(transform);
         // Destroy Object
         Destroy(gameObject, 2f);
     }
