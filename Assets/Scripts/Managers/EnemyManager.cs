@@ -106,7 +106,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnWizard()
     {
-        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted())
+        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted() || shopKeeper.activeSelf)
         {
             return;
         }

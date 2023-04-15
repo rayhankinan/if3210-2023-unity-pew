@@ -18,7 +18,6 @@ public class ShopKeeperCanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentStateData.AddCoin(3);
         coinText.text = CurrentStateData.GetCurrentCoin().ToString();
         pauseManager = new PauseManager();
 
