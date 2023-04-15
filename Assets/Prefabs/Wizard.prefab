@@ -17076,8 +17076,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fce027b40770a44298a6f5a4233bfb04, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: bbfa8634106339e46acf3beabd3d382d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -17212,7 +17212,7 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   coinValue: 10
-  deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
+  deathClip: {fileID: 8300000, guid: 2cd249cd2a0415345ae3474fe3181a53, type: 3}
 --- !u!114 &-1786895813096079071
 MonoBehaviour:
   m_ObjectHideFlags: 0
