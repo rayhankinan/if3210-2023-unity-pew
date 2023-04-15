@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetWizardHealth : MonoBehaviour
+public class PetWizardHealth : MonoBehaviour, IDamageableFriendly
 {
     private static readonly int Dead = Animator.StringToHash("Dead");
 
