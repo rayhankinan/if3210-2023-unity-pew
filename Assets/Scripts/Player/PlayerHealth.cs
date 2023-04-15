@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerShotgun _playerShotgun;
     private bool _isDead;
     private bool _damaged;
+    private bool _immortal;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         _playerShotgun = GetComponentInChildren<PlayerShotgun>();
 
         currentHealth = startingHealth;
+        _immortal = false;
     }
 
     private void Update()
@@ -65,10 +67,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _damaged = true;
-        
-        // Mengurangi health
-        currentHealth -= amount;
 
+        if (!_immortal)
+        {
+            // Mengurangi health
+            currentHealth -= amount;
+        }
+        
         // Memainkan suara ketika terkena damage
         _playerAudio.Play();
 
@@ -91,5 +96,10 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth += amount;
         }
+    }
+
+    public void Immortal()
+    {
+        _immortal = true;
     }
 }

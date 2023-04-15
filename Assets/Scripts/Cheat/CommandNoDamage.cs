@@ -6,7 +6,8 @@ public class CommandNoDamage : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
-    private PlayerHealth _playerHealth;
+    private GameObject player = GameObject.FindGameObjectWithTag("Player");
+    private PlayerHealth playerHealth;
 
     public CommandNoDamage()
     {
@@ -18,7 +19,8 @@ public class CommandNoDamage : CheatCommandBase
 
     public override void RunCommand()
     {
-        //_playerHealth._damaged = false;
+        playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.Immortal();
     }
 
     public static CommandNoDamage CreateCommand()
