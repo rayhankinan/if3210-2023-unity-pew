@@ -58,17 +58,20 @@ public class ShopTemplate : MonoBehaviour
 
             CurrentStateData.AddPet(petType);
 
-            if (petType == 0)
+            if (CurrentStateData.GetPetsLength() == 1)
             {
-                Instantiate(manager.healerPet, manager.player.transform.position, manager.player.transform.rotation);
-            }
-            else if (petType == 1)
-            {
-                Instantiate(manager.attackerPet, manager.player.transform.position, manager.player.transform.rotation);
-            }
-            else if (petType == 2)
-            {
-                Instantiate(manager.buffPet, manager.player.transform.position, manager.player.transform.rotation);
+                if (petType == 0)
+                {
+                    Instantiate(manager.healerPet, manager.player.transform.position, manager.player.transform.rotation);
+                }
+                else if (petType == 1)
+                {
+                    Instantiate(manager.attackerPet, manager.player.transform.position, manager.player.transform.rotation);
+                }
+                else if (petType == 2)
+                {
+                    Instantiate(manager.buffPet, manager.player.transform.position, manager.player.transform.rotation);
+                }
             }
         }
 
