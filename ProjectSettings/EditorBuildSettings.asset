@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cutscene_lucid.unity
     guid: f4b8fe8f556fecd45a763725dc59a498
+  - enabled: 1
+    path: Assets/Scenes/cutscene_epilog.unity
+    guid: ec2fed2b30628a3438fdfded7cbe2342
+  - enabled: 1
+    path: Assets/Scenes/the_end.unity
+    guid: fcd68dae8bac0b64eadd6be27032b55f
   m_configObjects: {}
