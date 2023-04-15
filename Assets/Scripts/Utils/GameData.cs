@@ -10,4 +10,5 @@ public struct GameData
     public int currentWeapon;
     public bool[] weapons;
     public float dmgMultiplier;
+    public int currentPetHealth;
 }

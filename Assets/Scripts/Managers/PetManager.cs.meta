@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7f44ad59daf48294c94a2557c970c758
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - healerPet: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
+  - attackerPet: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
+  - buffPet: {fileID: 8634337098157262005, guid: 28a81099d60193a43a41ac743efd3786, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

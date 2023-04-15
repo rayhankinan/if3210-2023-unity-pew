@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetWizardHealth : MonoBehaviour, IDamageableFriendly
+public class PetWizardHealth : PetHealth, IDamageableFriendly
 {
     private static readonly int Dead = Animator.StringToHash("Dead");
 
-    public int startingHealth = 100;
-    public int currentHealth;
     public float sinkSpeed = 2.5f;
     public GameObject spellEffect;
     public AudioClip deathClip;
@@ -31,6 +29,11 @@ public class PetWizardHealth : MonoBehaviour, IDamageableFriendly
 
     private void Update()
     {
+        if (CurrentStateData.GetCurrentPethealth() != -1 && currentHealth > CurrentStateData.GetCurrentPethealth())
+        {
+            TakeDamage(startingHealth - CurrentStateData.GetCurrentPethealth());
+        }
+
         if (_isSinking)
         {
             // Memindahkan object kebawah
@@ -65,14 +68,16 @@ public class PetWizardHealth : MonoBehaviour, IDamageableFriendly
         {
             // Mengurangi health
             currentHealth -= amount;
+            CurrentStateData.SetCurrentPethealth(currentHealth);
         }
-        
+
         // Memainkan suara ketika terkena damage
         //_petWizardAudio.Play();
 
         // Memanggil method Death() jika health <= 0 dan belum mati
         if (currentHealth <= 0 && !_isDead)
         {
+            CurrentStateData.SetCurrentPethealth(-1);
             Death();
         }
     }

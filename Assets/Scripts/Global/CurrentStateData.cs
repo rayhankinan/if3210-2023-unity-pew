@@ -20,6 +20,7 @@ public class CurrentStateData
         _currentGameData.pets = new List<int>();
         _currentGameData.weapons = new []{true, true, true, true};
         _currentGameData.dmgMultiplier = 1f;
+        _currentGameData.currentPetHealth = -1;
     }
 
     public static void SaveStateData()
@@ -175,6 +176,16 @@ public class CurrentStateData
     public static int GetPetsLength()
     {
         return _currentGameData.pets.Count;
+    }
+
+    public static int GetCurrentPethealth()
+    {
+        return _currentGameData.currentPetHealth;
+    }
+
+    public static void SetCurrentPethealth(int amount)
+    {
+        _currentGameData.currentPetHealth = amount;
     }
 
     public static bool[] GetWeapons()

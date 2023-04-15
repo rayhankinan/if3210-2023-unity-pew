@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PetDragonHealth : MonoBehaviour, IDamageableFriendly
+public class PetDragonHealth : PetHealth, IDamageableFriendly
 {
     private static readonly int Dead = Animator.StringToHash("Dead");
-
-    public int startingHealth = 100;
-    public int currentHealth;
     public float sinkSpeed = 2.5f;
     public AudioClip deathClip;
     private PetDragonMovement _petDragonMovement;
@@ -29,6 +26,11 @@ public class PetDragonHealth : MonoBehaviour, IDamageableFriendly
 
     private void Update()
     {
+        if (CurrentStateData.GetCurrentPethealth() != -1 && currentHealth > CurrentStateData.GetCurrentPethealth())
+        {
+            TakeDamage(startingHealth - CurrentStateData.GetCurrentPethealth());
+        }
+
         if (_isSinking)
         {
             // Memindahkan object kebawah
@@ -58,6 +60,7 @@ public class PetDragonHealth : MonoBehaviour, IDamageableFriendly
         {
             // Mengurangi health
             currentHealth -= amount;
+            CurrentStateData.SetCurrentPethealth(currentHealth);
         }
 
         // Memainkan suara ketika terkena damage
@@ -66,8 +69,10 @@ public class PetDragonHealth : MonoBehaviour, IDamageableFriendly
         // Memanggil method Death() jika health <= 0 dan belum mati
         if (currentHealth <= 0 && !_isDead)
         {
+            CurrentStateData.SetCurrentPethealth(-1);
             Death();
         }
+        Debug.Log($"CurrentStateData.GetCurrentPethealth() = {CurrentStateData.GetCurrentPethealth()}");
     }
 
     public void StartSinking()
