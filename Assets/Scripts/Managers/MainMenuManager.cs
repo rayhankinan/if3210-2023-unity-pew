@@ -36,7 +36,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("level_01");
+        SceneManager.LoadScene("cutscene_bedroom");
     }
 
     public void OpenLoad()

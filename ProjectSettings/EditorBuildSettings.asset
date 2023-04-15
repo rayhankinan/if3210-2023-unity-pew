@@ -23,4 +23,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cutscene_shopkeeper_turun.unity
     guid: 27b7aa68d73236946b097ca0b5773320
+  - enabled: 1
+    path: Assets/Scenes/cutscene_bedroom.unity
+    guid: 7ad6b957c0780a44ca4dcc9a7b5353a2
+  - enabled: 1
+    path: Assets/Scenes/cutscene_shop.unity
+    guid: f22e909d33e00aa4f81adcfb59765668
+  - enabled: 1
+    path: Assets/Scenes/cutscene_boss.unity
+    guid: 5e60131bcce34c94cb6a2d462b8b8875
+  - enabled: 1
+    path: Assets/Scenes/cutscene_ending.unity
+    guid: 821f86ac5b1eef54b9d53be7ef85aa71
+  - enabled: 1
+    path: Assets/Scenes/cutscene_lucid.unity
+    guid: f4b8fe8f556fecd45a763725dc59a498
   m_configObjects: {}
