@@ -13,6 +13,7 @@ public class PetWizardHeal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         _timer = 10f;
         if ((transform.position - player.transform.position).magnitude <= 6)

@@ -16,6 +16,7 @@ public class PetWizardHealth : MonoBehaviour
     private Animator _anim;
     public bool _isDead;
     private bool _isSinking;
+    private bool _immortal;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PetWizardHealth : MonoBehaviour
         _petWizardMovement = GetComponent<PetWizardMovement>();
         _petWizardHeal = GetComponent<PetWizardHeal>();
         currentHealth = startingHealth;
+        _immortal = false;
     }
 
     private void Update()
@@ -59,9 +61,12 @@ public class PetWizardHealth : MonoBehaviour
     // Fungsi untuk mendapatkan damage
     public void TakeDamage(int amount)
     {
-        // Mengurangi health
-        currentHealth -= amount;
-
+        if (!_immortal)
+        {
+            // Mengurangi health
+            currentHealth -= amount;
+        }
+        
         // Memainkan suara ketika terkena damage
         //_petWizardAudio.Play();
 
@@ -85,5 +90,10 @@ public class PetWizardHealth : MonoBehaviour
 
         // Destroy Object
         Destroy(gameObject, 2f);
+    }
+
+    public void Immortal()
+    {
+        _immortal = true;
     }
 }

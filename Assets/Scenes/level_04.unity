@@ -938,28 +938,15 @@ PrefabInstance:
       propertyPath: rewardCompletion
       value: 100
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4374317338395077591, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
+    - {fileID: 1909588049684891313, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
 --- !u!1 &2656012611018054415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2829165633787732441, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
   m_PrefabInstance: {fileID: 2656012611018054414}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2656012611018054416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2656012611018054415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7b7e36c8704243ade1a3c019446ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 153412, guid: f264ab47e25d0374ba89abced0b94b2a, type: 3}
-  amount: 2
-  currentAmount: 0
 --- !u!114 &2656012611018054417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,23 +1181,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736689739938, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342930736781440779, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_RootOrder
@@ -1278,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -215.11465
+      value: -180.71466
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -1385,6 +1372,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: buffPet
+      value: 
+      objectReference: {fileID: 8634337098157262005, guid: 28a81099d60193a43a41ac743efd3786, type: 3}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: healerPet
+      value: 
+      objectReference: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: attackerPet
+      value: 
+      objectReference: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
 --- !u!1001 &4954687097589864193
@@ -1516,6 +1515,10 @@ PrefabInstance:
       propertyPath: enemyPrefab.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6281085328262790380, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
+      propertyPath: enemyPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6158598208432632802, guid: ef20e3b4a3b0245fa8bd871d571fdb0f, type: 3}
     - target: {fileID: 6281085328262790380, guid: 9d30cbc572366488b9d29671b418febf, type: 3}
       propertyPath: enemyPrefab.Array.data[1]
       value: 

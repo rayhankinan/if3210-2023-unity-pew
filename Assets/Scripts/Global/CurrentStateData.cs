@@ -172,6 +172,11 @@ public class CurrentStateData
         _currentGameData.pets.Add(pet);
     }
 
+    public static int GetPetsLength()
+    {
+        return _currentGameData.pets.Count;
+    }
+
     public static bool[] GetWeapons()
     {
         return _currentGameData.weapons;

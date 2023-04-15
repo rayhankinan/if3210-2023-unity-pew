@@ -81,7 +81,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (_timer >= timeBetweenAttacks && (_playerInRange || _dragonPetInRange || _wizardPetInRange) && _enemyHealth.currentHealth > 0)
         {
-            if (gameObject.CompareTag($"Wizard"))
+            if (gameObject.CompareTag("Wizard"))
             {
                 _anim.SetTrigger(WizardAttack);
             }
