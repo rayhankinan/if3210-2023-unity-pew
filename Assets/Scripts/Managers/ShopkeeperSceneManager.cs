@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScorekeeperSceneManager : MonoBehaviour
+public class ShopkeeperSceneManager : MonoBehaviour
 {
     public float timeLimit;
     float _startTime;
