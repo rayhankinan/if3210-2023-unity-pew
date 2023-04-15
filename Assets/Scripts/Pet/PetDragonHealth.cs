@@ -15,6 +15,7 @@ public class PetDragonHealth : MonoBehaviour
     private Animator _anim;
     private bool _isDead;
     private bool _isSinking;
+    private bool _immortal;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PetDragonHealth : MonoBehaviour
         _anim = GetComponent<Animator>();
         _petDragonMovement = GetComponent<PetDragonMovement>();
         currentHealth = startingHealth;
+        _immortal = false;
     }
 
     private void Update()
@@ -52,8 +54,11 @@ public class PetDragonHealth : MonoBehaviour
     // Fungsi untuk mendapatkan damage
     public void TakeDamage(int amount)
     {
-        // Mengurangi health
-        currentHealth -= amount;
+        if (!_immortal)
+        {
+            // Mengurangi health
+            currentHealth -= amount;
+        }
 
         // Memainkan suara ketika terkena damage
         //_petDragonAudio.Play();
@@ -78,5 +83,10 @@ public class PetDragonHealth : MonoBehaviour
 
         // Destroy Object
         Destroy(gameObject, 2f);
+    }
+    
+    public void Immortal()
+    {
+        _immortal = true;
     }
 }
