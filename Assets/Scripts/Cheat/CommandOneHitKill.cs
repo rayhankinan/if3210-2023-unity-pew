@@ -16,6 +16,7 @@ public class CommandOneHitKill : CheatCommandBase
     private PlayerShooting playerShooting;
     private PlayerShotgun playerShotgun;
     private AttackArea playerSword;
+    private Arrows playerBow;
     private int selectedWeapon = CurrentStateData.GetCurrentWeapon();
 
     public CommandOneHitKill()
@@ -47,6 +48,13 @@ public class CommandOneHitKill : CheatCommandBase
         {
             playerSword = player.GetComponentInChildren<AttackArea>();
             playerSword.SetOneHit();
+        }
+        
+        //bow
+        else if (selectedWeapon == 3)
+        {
+            playerBow = player.GetComponentInChildren<Arrows>();
+            playerBow.SetOneHit();
         }
     }
 
