@@ -18,6 +18,7 @@ public class ShopKeeperCanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         coinText.text = CurrentStateData.GetCurrentCoin().ToString();
         pauseManager = new PauseManager();
 
@@ -56,6 +57,8 @@ public class ShopKeeperCanvasManager : MonoBehaviour
 
     public void BroadcastCheckPuchaseable()
     {
+        coinText.text = CurrentStateData.GetCurrentCoin().ToString();
+
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             var shopPanel = shopPanels[i];

@@ -29,6 +29,7 @@ public class ShopTemplate : MonoBehaviour
     {
         CurrentStateData.SubtractCoin(int.Parse(price.text));
 
+        Debug.Log($"type = {type}");
         if (type == 0) // Weapon
         {
             int weaponType = 1;
@@ -56,21 +57,24 @@ public class ShopTemplate : MonoBehaviour
                 petType = 2;
             }
 
+            Debug.Log("Add Pet");
             CurrentStateData.AddPet(petType);
 
+            Debug.Log($"Length = {CurrentStateData.GetPetsLength()}");
             if (CurrentStateData.GetPetsLength() == 1)
             {
+                Debug.Log($"Pet Type = {petType}");
                 if (petType == 0)
                 {
-                    Instantiate(manager.healerPet, manager.player.transform.position, manager.player.transform.rotation);
+                    Instantiate(manager.healerPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
                 }
                 else if (petType == 1)
                 {
-                    Instantiate(manager.attackerPet, manager.player.transform.position, manager.player.transform.rotation);
+                    Instantiate(manager.attackerPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
                 }
                 else if (petType == 2)
                 {
-                    Instantiate(manager.buffPet, manager.player.transform.position, manager.player.transform.rotation);
+                    Instantiate(manager.buffPet, manager.player.transform.position + Vector3.right, manager.player.transform.rotation);
                 }
             }
         }

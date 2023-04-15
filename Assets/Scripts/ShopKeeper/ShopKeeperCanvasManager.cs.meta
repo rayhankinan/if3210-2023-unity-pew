@@ -3,7 +3,12 @@ guid: 2b63e03a8834bd84e818cbdddbd0704f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - healerPet: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
+  - attackerPet: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
+  - buffPet: {fileID: 8634337098157262005, guid: 28a81099d60193a43a41ac743efd3786, type: 3}
+  - coinText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
