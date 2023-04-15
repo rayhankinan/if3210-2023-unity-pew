@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: scene
       value: cutscene_ending
       objectReference: {fileID: 0}
+    - target: {fileID: 3687290339219436217, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextWithoutShopkeeper
+      objectReference: {fileID: 0}
     - target: {fileID: 5586712432078565062, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: anim
       value: 

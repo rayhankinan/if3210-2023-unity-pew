@@ -11,19 +11,9 @@ public class NextScene: MonoBehaviour
 
     public void NextWithoutSave()
     {
-        if (CurrentStateData.GetCurrentScene() == "level_04")
-        {
-            
-            CurrentStateData.ChangeScene(scene);
-            StartCoroutine(Crossfade());
-            SceneManager.LoadScene(scene);
-        }
-        else
-        {
-            StartCoroutine(Crossfade());
-            SceneManager.LoadScene("cutscene_shopkeeper_turun");
-            CurrentStateData.ChangeScene(scene);
-        }
+        StartCoroutine(Crossfade());
+        SceneManager.LoadScene("cutscene_shopkeeper_turun");
+        CurrentStateData.ChangeScene(scene);
     }
 
     public void NextWithSave()
