@@ -20,6 +20,7 @@ public class PetWizardMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
         _wizardRigidBody = GetComponent<Rigidbody>();

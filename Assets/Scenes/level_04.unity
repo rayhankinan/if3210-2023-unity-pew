@@ -1265,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -284.83197
+      value: -180.71466
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -1372,6 +1372,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: buffPet
+      value: 
+      objectReference: {fileID: 8634337098157262005, guid: 28a81099d60193a43a41ac743efd3786, type: 3}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: healerPet
+      value: 
+      objectReference: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
+    - target: {fileID: 4585095600171146813, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
+      propertyPath: attackerPet
+      value: 
+      objectReference: {fileID: 3878630058993967848, guid: 4e419e9017ae57241a3bb11b099c5d4d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c0de46e4a262ca4cb1785d62388e489, type: 3}
 --- !u!1001 &4954687097589864193
