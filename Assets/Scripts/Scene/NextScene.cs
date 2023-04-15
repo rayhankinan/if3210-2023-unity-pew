@@ -7,8 +7,11 @@ public class NextScene: MonoBehaviour
 
     public void NextWithoutSave()
     {
+        if (CurrentStateData.GetCurrentScene() != "level_04")
+        {
+            SceneManager.LoadScene("cutscene_shopkeeper_turun");
+        }
         CurrentStateData.ChangeScene(scene);
-        SceneManager.LoadScene("cutscene_shopkeeper_turun");
     }
 
     public void NextWithSave()

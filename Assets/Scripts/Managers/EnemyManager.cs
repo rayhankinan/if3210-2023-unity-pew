@@ -34,6 +34,7 @@ public class EnemyManager : MonoBehaviour
 
     private EnemyFactory _enemyFactory;
     private IFactory Factory => _enemyFactory;
+    private bool _isWizardSpawned;
 
     private static int GetRandomValue(params RandomSelection[] selections)
     {
@@ -68,16 +69,17 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         _enemyFactory = GetComponent<EnemyFactory>();
+        _isWizardSpawned = false;
     }
 
     private void Start()
     {
         // Mengeksekusi fungsi Spawn setiap beberapa detik sesui dengan nilai spawnTime
-        InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
         if (CurrentStateData.GetCurrentScene() == "level_04")
         {
-            Invoke(nameof(SpawnWizard), spawnTime);
+            InvokeRepeating(nameof(SpawnWizard), spawnTime, spawnTime);
         }
+        InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
     }
 
     private void Spawn()
@@ -106,13 +108,13 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnWizard()
     {
-        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted() || shopKeeper.activeSelf)
+        if (playerHealth.currentHealth <= 0f || QuestManager.IsQuestCompleted() || shopKeeper.activeSelf || _isWizardSpawned)
         {
             return;
         }
 
-        const int enemyTag = 3;
-        var wizard = Factory.FactoryMethod(enemyTag, spawnPoints[0]);
+        var wizard = Factory.FactoryMethod(3, spawnPoints[0]);
+        _isWizardSpawned = true;
         
         ListOfEnemy.Add(wizard);
     }
