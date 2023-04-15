@@ -28,7 +28,7 @@ public class CommandNoDamagePet : CheatCommandBase
         if (currentPet != -1)
         {
             ImmortalPet(currentPet);
-            CurrentStateData.RemoveCurrentPet();
+            //CurrentStateData.RemoveCurrentPet();
         }
     }
 

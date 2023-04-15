@@ -12,12 +12,12 @@ public class CommandOneHitKill : CheatCommandBase
     //private RaycastHit raycastHit;
     //EnemyHealth enemyHealth;
         //= raycastHit.collider.GetComponent<EnemyHealth>();
-    private GameObject player = GameObject.FindGameObjectWithTag("Player");
-    private PlayerShooting playerShooting;
-    private PlayerShotgun playerShotgun;
-    private AttackArea playerSword;
-    private Arrows playerBow;
-    private int selectedWeapon = CurrentStateData.GetCurrentWeapon();
+    private GameObject player;
+    private PlayerShooting defaultWeapon;
+    private PlayerShotgun shotgunWeapon;
+    private AttackArea swordWeapon;
+    private Arrows bowWeapon;
+    private int currentWeapon;
 
     public CommandOneHitKill()
     {
@@ -29,35 +29,35 @@ public class CommandOneHitKill : CheatCommandBase
 
     public override void RunCommand()
     {
-        //default weapon
-        if (selectedWeapon == 0)
-        {
-            playerShooting = player.GetComponentInChildren<PlayerShooting>();
-            playerShooting.SetOneHit();
-        }
-        
-        //shotgun
-        else if (selectedWeapon == 1)
-        {
-            playerShotgun = player.GetComponentInChildren<PlayerShotgun>();
-            playerShotgun.SetOneHit();
-        }
-        
-        //sword
-        else if (selectedWeapon == 2)
-        {
-            playerSword = player.GetComponentInChildren<AttackArea>();
-            playerSword.SetOneHit();
-        }
-        
-        //bow
-        else if (selectedWeapon == 3)
-        {
-            playerBow = player.GetComponentInChildren<Arrows>();
-            playerBow.SetOneHit();
-        }
+        player = GameObject.FindGameObjectWithTag("Player");
+        currentWeapon = CurrentStateData.GetCurrentWeapon();
+        OneHitKillWeapon(currentWeapon);
     }
 
+    private void OneHitKillWeapon(int currentWeapon)
+    {
+        if (currentWeapon == 0)
+        {
+            defaultWeapon = player.GetComponentInChildren<PlayerShooting>();
+            defaultWeapon.SetOneHit();
+        }
+        else if (currentWeapon == 1)
+        {
+            shotgunWeapon = player.GetComponentInChildren<PlayerShotgun>();
+            shotgunWeapon.SetOneHit();
+        }
+        else if (currentWeapon == 2)
+        {
+            swordWeapon = player.GetComponentInChildren<AttackArea>();
+            swordWeapon.SetOneHit();
+        }
+        else if (currentWeapon == 3)
+        {
+            bowWeapon = player.GetComponentInChildren<Arrows>();
+            bowWeapon.SetOneHit();
+        }
+    }
+    
     public static CommandOneHitKill CreateCommand()
     {
         return new CommandOneHitKill();
