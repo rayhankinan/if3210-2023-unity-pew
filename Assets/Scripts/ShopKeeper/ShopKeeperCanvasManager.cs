@@ -14,13 +14,11 @@ public class ShopKeeperCanvasManager : MonoBehaviour
     public GameObject attackerPet;
     public GameObject buffPet;
     public Text coinText;
-    PauseManager pauseManager;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         coinText.text = CurrentStateData.GetCurrentCoin().ToString();
-        pauseManager = new PauseManager();
 
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
@@ -37,7 +35,7 @@ public class ShopKeeperCanvasManager : MonoBehaviour
      if (Input.GetKey(KeyCode.Escape))
         {
             gameObject.SetActive(false);
-            pauseManager.Pause();
+            PauseManager.StaticPauseOrUnPause();
         }   
     }
 

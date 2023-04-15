@@ -39,6 +39,12 @@ public class PauseManager : MonoBehaviour
 		Lowpass();
 	}
 
+	public static void StaticPauseOrUnPause()
+    {
+		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+		_isPaused = Time.timeScale == 0;
+	}
+
 	public static bool CheckIfPaused()
 	{
 		return _isPaused;
