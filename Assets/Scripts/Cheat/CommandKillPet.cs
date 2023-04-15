@@ -6,12 +6,14 @@ public class CommandKillPet : CheatCommandBase
 {
     public override string commandID { get; protected set; }
     public override string commandDescription { get; protected set; }
+    
     private GameObject healerPet;
     private GameObject attackerPet;
     private GameObject buffPet;
     private PetWizardHealth petWizardHealth;
     private PetDragonHealth petDragonHealth;
-    private ShopKeeperCanvasManager manager;
+    private int currentPet;
+    //private ShopKeeperCanvasManager manager;
 
     public CommandKillPet()
     {
@@ -23,12 +25,12 @@ public class CommandKillPet : CheatCommandBase
 
     public override void RunCommand()
     {
-        int currentPet = CurrentStateData.GetCurrentPet();
+        currentPet = CurrentStateData.GetCurrentPet();
         if (currentPet != -1)
         {
             KillPet(currentPet);
             CurrentStateData.RemoveCurrentPet();
-            currentPet = CurrentStateData.GetCurrentPet();
+            //currentPet = CurrentStateData.GetCurrentPet();
         }
     }
 
