@@ -94,7 +94,7 @@ public class PlayerShotgun : MonoBehaviour
             }
             else
             {
-                _gunLine.SetPosition(1, _shootRay.origin + _shootRay.direction * range);
+                //_gunLine.SetPosition(1, _shootRay.origin + _shootRay.direction * range);
                 lineRenderer.SetPosition(1, _shootRay.origin + _shootRay.direction * range);
                 lineRendererList.Add(obj);
             }
