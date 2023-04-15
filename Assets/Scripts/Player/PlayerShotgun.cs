@@ -68,6 +68,7 @@ public class PlayerShotgun : MonoBehaviour
                     }
                     else
                     {
+                        _multiplier = CurrentStateData.GetMultiplier();
                         var distance = Vector3.Distance(transform.position, _shootHit.point);
                         var damageDistanceFactor = 1f - Mathf.Clamp01(distance / maxDamageDistance);
                         var damage = Mathf.RoundToInt(baseDamagePerShot * damageDistanceFactor);

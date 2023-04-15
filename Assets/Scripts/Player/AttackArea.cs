@@ -25,6 +25,7 @@ public class AttackArea : MonoBehaviour
             }
             else
             {
+                _multiplier = CurrentStateData.GetMultiplier();
                 enemyHealth.TakeDamageSword(Mathf.RoundToInt(damage * _multiplier));
             }
         }
