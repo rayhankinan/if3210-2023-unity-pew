@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public GameObject shopKeeper;
+
     private void Update()
     {
-        CurrentStateData.AddPlayTime(Time.deltaTime);
+        if (!shopKeeper.activeSelf)
+        {
+            CurrentStateData.AddPlayTime(Time.deltaTime);
+        }
     }
 }

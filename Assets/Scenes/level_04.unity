@@ -655,6 +655,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2899201030359270546, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3330418814595299882, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: scene
       value: cutscene_ending
@@ -662,6 +666,10 @@ PrefabInstance:
     - target: {fileID: 5586712432078565062, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: scene
       value: cutscene_ending
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260535326465059767, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8806000715362971552, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_Pivot.x
@@ -1126,6 +1134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4174745927214051172, guid: a3563dd93185d44899c6d064a026c9ee, type: 3}
+      propertyPath: shopKeeper
+      value: 
+      objectReference: {fileID: 1662851796}
     - target: {fileID: 7698428189197037137, guid: a3563dd93185d44899c6d064a026c9ee, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1265,7 +1277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -180.71466
+      value: -284.83197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
