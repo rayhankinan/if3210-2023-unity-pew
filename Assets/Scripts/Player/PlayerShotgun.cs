@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerShotgun : MonoBehaviour
 {
@@ -20,9 +21,11 @@ public class PlayerShotgun : MonoBehaviour
     private AudioSource _gunAudio;
     private Light _gunLight;
     private bool oneHit;
+    private List<GameObject> lineRendererList = new List<GameObject>(); 
 
     private void Awake()
     {
+        _timer = timeBetweenBullets;
         _shootableMask = LayerMask.GetMask("Shootable");
         _gunParticles = GetComponent<ParticleSystem>();
         _gunLine = GetComponent<LineRenderer>();
@@ -44,13 +47,22 @@ public class PlayerShotgun : MonoBehaviour
         _gunParticles.Stop();
         _gunParticles.Play();
 
-        _gunLine.enabled = true;
+        //_gunLine.enabled = true;
         
         var position = transform.position;
-        _gunLine.SetPosition(0, position);
+        //_gunLine.SetPosition(0, position);
         _shootRay.origin = position;
         
         for (var i = 0; i < pelletsPerShot; i++){
+            GameObject obj = new GameObject("line");
+            var lineRenderer = obj.AddComponent<LineRenderer>();
+            var lineColor = Color.yellow;
+            lineRenderer.startColor = lineColor;
+            lineRenderer.endColor = lineColor;
+            lineRenderer.startWidth = 0.05f;
+            lineRenderer.endWidth = 0.05f;
+            lineRenderer.SetPosition(0, position);
+
             var forward = transform.forward;
             var direction = forward + Random.insideUnitSphere * 0.2f;
             _shootRay.direction = direction;
@@ -76,17 +88,28 @@ public class PlayerShotgun : MonoBehaviour
                     }
                 }
 
-                _gunLine.SetPosition(1, _shootHit.point);
+                lineRenderer.SetPosition(1, _shootHit.point);
+                lineRendererList.Add(obj);
+                //_gunLine.SetPosition(1, _shootHit.point);
             }
             else
             {
                 _gunLine.SetPosition(1, _shootRay.origin + _shootRay.direction * range);
+                lineRenderer.SetPosition(1, _shootRay.origin + _shootRay.direction * range);
+                lineRendererList.Add(obj);
             }
         }
     }
     
     public void DisableEffects()
     {
+        lineRendererList.ForEach((lineRenderer) =>
+        {
+            Destroy(lineRenderer);
+        });
+
+        lineRendererList.Clear();
+
         _gunLine.enabled = false;
         _gunLight.enabled = false;
     }
