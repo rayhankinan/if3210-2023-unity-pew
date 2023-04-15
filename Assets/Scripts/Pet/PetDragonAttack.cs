@@ -7,13 +7,16 @@ public class PetDragonAttack : MonoBehaviour
     public GameObject projectile;
     Animator _anim;
     Rigidbody dragonRigidBody;
-    int frameBetweenFire = 15;
+    //int frameBetweenFire = 15;
+    float _timeBetweenFireball = 0.1f;
+    float _time;
     bool attack = false;
-    int frame = 0;
+    //int frame = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        _time = _timeBetweenFireball;
         _anim = GetComponent<Animator>();
         dragonRigidBody = GetComponent<Rigidbody>();
         
@@ -22,17 +25,19 @@ public class PetDragonAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (frame > 15)
-        {
-            frame = 0;
-        } 
-        else
-        {
-            frame++; 
-        }
+        _time += Time.deltaTime;
+        //if (frame > 15)
+        //{
+        //    frame = 0;
+        //} 
+        //else
+        //{
+        //    frame++; 
+        //}
         //Debug.Log($"frame = {frame}");
 
-        if (attack && frame == frameBetweenFire)
+        //if (attack && frame == frameBetweenFire)
+        if (attack && _time >= _timeBetweenFireball)
         {
             Attack();
         }
@@ -59,11 +64,12 @@ public class PetDragonAttack : MonoBehaviour
     void Attack()
     {
         //Debug.Log("Spawn fireball");
-        frame = 0;
+        //frame = 0;
+        _time = 0;
         attack = false;
         GameObject fireball = Instantiate(projectile,
             transform.position + (transform.rotation * (new Vector3(0, 1, 1.5f))),
             transform.rotation * Quaternion.Euler(-90, 0, 0)
-            );
+        );
     }
 }
