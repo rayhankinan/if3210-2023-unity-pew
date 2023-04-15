@@ -48,7 +48,7 @@ public class ShopKeeperManager : MonoBehaviour
         {
             shopKeeper.SetActive(false);
             enemyManager.SetActive(true);
-            _anim.SetBool("ShopKeeperAlive", false);
+            
             return;
         }
         
@@ -56,6 +56,7 @@ public class ShopKeeperManager : MonoBehaviour
         {
             _shopKeeperEffect.isShopKeeperFlying = true;
             _shopKeeperEffect.floatHeight = 15;
+            _anim.SetBool("ShopKeeperAlive", false);
             return;
         }
         
