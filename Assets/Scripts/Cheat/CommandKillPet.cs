@@ -45,7 +45,7 @@ public class CommandKillPet : CheatCommandBase
         else if (currentPet == 1)
         {
             attackerPet = GameObject.FindGameObjectWithTag("Pet Dragon");
-            petDragonHealth = healerPet.GetComponentInChildren<PetDragonHealth>();
+            petDragonHealth = attackerPet.GetComponentInChildren<PetDragonHealth>();
             petDragonHealth.TakeDamage(petDragonHealth.currentHealth);
         }
         else if (currentPet == 2)
