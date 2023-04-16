@@ -10,6 +10,7 @@ public struct SaveEntry
     public int coin;
     public float playTime;
     public string scene;
+    public int currentPetHealth;
     public List<int> pets;
     public int currentWeapon;
     public bool[] weapons;

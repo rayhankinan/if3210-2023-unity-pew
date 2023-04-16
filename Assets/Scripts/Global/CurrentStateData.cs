@@ -53,13 +53,7 @@ public class CurrentStateData
     {
         return _currentStateData.saveEntries;
     }
-
-    public static List<ScoreEntry> GetScoreEntries()
-    {
-        _currentStateData.scoreEntries.Sort((s1, s2) => s1.playTime.CompareTo(s2.playTime));
-        return _currentStateData.scoreEntries;
-    }
-
+    
     public static bool LoadGameData(int index)
     {
         var loadedSaveEntry = _currentStateData.saveEntries[index];
@@ -70,6 +64,7 @@ public class CurrentStateData
         _currentGameData.playTime = loadedSaveEntry.playTime;
         _currentGameData.currentWeapon = loadedSaveEntry.currentWeapon;
         _currentGameData.weapons = loadedSaveEntry.weapons;
+        _currentGameData.currentPetHealth = loadedSaveEntry.currentPetHealth;
         _currentGameData.pets = loadedSaveEntry.pets;
         // _currentGameData.dmgMultiplier = 1f;
 
@@ -88,6 +83,7 @@ public class CurrentStateData
             scene = _currentGameData.scene,
             currentWeapon = _currentGameData.currentWeapon,
             weapons = _currentGameData.weapons,
+            currentPetHealth = _currentGameData.currentPetHealth,
             pets = _currentGameData.pets
         };
         
@@ -95,6 +91,23 @@ public class CurrentStateData
         SaveStateData();
     }
 
+    public static List<ScoreEntry> GetScoreEntries()
+    {
+        _currentStateData.scoreEntries.Sort((s1, s2) => s1.playTime.CompareTo(s2.playTime));
+        return _currentStateData.scoreEntries;
+    }
+
+    public static void AddScoreEntry(string playerName, float playTime)
+    {
+        var scoreEntry = new ScoreEntry
+        {
+            playerName = playerName,
+            playTime = playTime
+        };
+        
+        _currentStateData.scoreEntries.Add(scoreEntry);
+    }
+    
     public static string GetCurrentPlayerName()
     {
         return _currentGameData.playerName;
