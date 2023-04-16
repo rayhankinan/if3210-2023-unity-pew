@@ -113,9 +113,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: -4}
-  m_SizeDelta: {x: 79.1, y: 30}
-  m_Pivot: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -10.5718, y: -4.0000076}
+  m_SizeDelta: {x: 147.5288, y: 30}
+  m_Pivot: {x: 0.9999999, y: 0.5}
 --- !u!222 &1107455424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -895,6 +895,10 @@ MonoBehaviour:
   - {fileID: 5515217751078834720}
   - {fileID: 3190597892292002226}
   buyButtons: []
+  player: {fileID: 0}
+  healerPet: {fileID: 0}
+  attackerPet: {fileID: 0}
+  buffPet: {fileID: 0}
   coinText: {fileID: 1107455423}
 --- !u!1001 &169229235004588017
 PrefabInstance:
