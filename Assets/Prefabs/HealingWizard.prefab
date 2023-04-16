@@ -998,7 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   timeBetweenHeal: 10
-  healAmount: 10
+  healAmount: 20
 --- !u!114 &6565987977077161839
 MonoBehaviour:
   m_ObjectHideFlags: 0

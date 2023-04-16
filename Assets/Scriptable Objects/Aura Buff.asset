@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Pet
   title: Buff Wizard
   description: An aura buff pet
-  price: 4
+  price: 50

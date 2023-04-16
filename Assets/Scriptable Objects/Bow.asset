@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Weapon
   title: Bow
   description: A long range weapon that can be charged to increase the range
-  price: 0
+  price: 30

@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Pet
   title: Healing Wizard
   description: A healing pet
-  price: 20
+  price: 50
