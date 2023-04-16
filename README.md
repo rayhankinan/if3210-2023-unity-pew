@@ -9,31 +9,38 @@ Aplikasi ini dibangun dengan menggunakan Unity.
 
 ## Screenshots
 #### Main Menu
-<img alt="Menu" src="screenshot/Menu.jpg" height="200"/>
+<img alt="Menu" src="screenshot/Menu.png" height="200"/>
 
 #### Settings
-<img alt="Settings" src="screenshot/Settings.jpg" height="200"/>
+<img alt="Settings" src="screenshot/Settings.png" height="200"/>
 
 #### Load Game
-<img alt="Load Game" src="screenshot/Load Game.jpg" height="200"/>
+<img alt="Load Game" src="screenshot/Load Game.png" height="200"/>
 
 #### Save Game
-<img alt="Load Game" src="screenshot/Save Game.jpg" height="200"/>
+<img alt="Load Game" src="screenshot/Save Game.png" height="200"/>
 
 #### Gameplay
-<img alt="Gameplay 1" src="screenshot/Gameplay 1.jpg" height="200"/>
+<img alt="Gameplay 1" src="screenshot/Gameplay 1.png" height="200"/>
 <br>
 <br>
-<img alt="Gameplay 2" src="screenshot/Gameplay 2.jpg" height="200"/>
+<img alt="Gameplay 2" src="screenshot/Gameplay 2.png" height="200"/>
+
+#### Shop
+<img alt="Shop 1" src="screenshot/Shop 1.png" height="200"/>
+<br>
+<br>
+<img alt="Shop 2" src="screenshot/Shop 2.png" height="200"/>
+
 
 #### Cutscenes
-<img alt="Cutscene 1" src="screenshot/Cutscene 1.jpg" height="200"/>
+<img alt="Cutscene 1" src="screenshot/Cutscene 1.png" height="200"/>
 <br>
 <br>
-<img alt="Cutscene 2" src="screenshot/Cutscene 2.jpg" height="200"/>
+<img alt="Cutscene 2" src="screenshot/Cutscene 2.png" height="200"/>
 <br>
 <br>
-<img alt="Cutscene 3" src="screenshot/Cutscene 3.jpg" height="200"/>
+<img alt="Cutscene 3" src="screenshot/Cutscene 3.png" height="200"/>
 
 ## Anggota Kelompok
 <table>
