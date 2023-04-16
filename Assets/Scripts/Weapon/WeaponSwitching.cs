@@ -14,26 +14,46 @@ public class WeaponSwitching : MonoBehaviour
     private void Update()
     {
         var previousSelectedWeapon = selectedWeapon;
+        var count = 0;
         var myWeapon = CurrentStateData.GetWeapons();
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f){
-            if(selectedWeapon <= 0)
-                selectedWeapon = 3;
-            else
-                selectedWeapon--;
-            while(!myWeapon[selectedWeapon]){
-                selectedWeapon--;
-                Debug.Log(selectedWeapon);
+        foreach (bool i in myWeapon)
+        {
+            if (i)
+            {
+                count++;
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f){
-            if(selectedWeapon >= transform.childCount - 1)
-                selectedWeapon = 0;
-            else
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f){
+            if (count != 1)
+            {
+                if (selectedWeapon == 0)
+                {
+                    selectedWeapon = 3;
+                }
+
+                selectedWeapon--;
+                while(!myWeapon[selectedWeapon])
+                {
+                    selectedWeapon--;
+                }
+            }
+            
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (count != 1)
+            {
+                if (selectedWeapon == 3)
+                {
+                    selectedWeapon = 0;
+                }
+
                 selectedWeapon++;
-            while(!myWeapon[selectedWeapon]){
-                selectedWeapon++;
-                Debug.Log(selectedWeapon);
+                while(!myWeapon[selectedWeapon])
+                {
+                    selectedWeapon++;
+                }
             }
         }
 

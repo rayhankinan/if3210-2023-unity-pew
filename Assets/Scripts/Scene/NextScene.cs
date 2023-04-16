@@ -27,8 +27,8 @@ public class NextScene: MonoBehaviour
 
     public void NextWithScoreboard()
     {
+        CurrentStateData.AddScoreEntry(CurrentStateData.GetCurrentPlayerName(), CurrentStateData.GetCurrentPlayTime());
         CurrentStateData.ChangeScene(scene);
         SceneManager.LoadScene(scene);
-        CurrentStateData.AddScoreEntry(CurrentStateData.GetCurrentPlayerName(), CurrentStateData.GetCurrentPlayTime());
     }
 }
