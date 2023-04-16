@@ -863,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6562163028296039410
 Transform:
   m_ObjectHideFlags: 0
@@ -955,10 +955,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 6564527777199245118}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5.5
+  m_Radius: 4
+  m_Speed: 7.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 51
   m_AngularSpeed: 120
   m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  initialHealthReduced: 0
   sinkSpeed: 2.5
   spellEffect: {fileID: 3876139547675789168}
   deathClip: {fileID: 0}

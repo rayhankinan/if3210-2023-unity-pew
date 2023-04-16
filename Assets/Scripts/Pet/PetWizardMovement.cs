@@ -43,68 +43,57 @@ public class PetWizardMovement : MonoBehaviour
         }
         else
         {
-            if (_enemyInRange)
-            {
-                //_anim.SetTrigger("Walk");
-                _anim.SetBool(IsWalking, true);
-                Debug.Log("Move from enemy");
-                nav.SetDestination((enemyPosition * -1).normalized);
-            }
-            else
-            {
-                //_anim.SetTrigger("Idle");
-                _anim.SetBool(IsWalking, false);
-            }
+            _anim.SetBool(IsWalking, false);
         }
     }
 
-    private void Turning()
-    {
-        // Mendapatkan vector dari posisi player dan posisi floorHit
-        var wizardToEnemy = enemyPosition - transform.position;
-        wizardToEnemy.y = 0f;
+    //private void Turning()
+    //{
+    //    // Mendapatkan vector dari posisi player dan posisi floorHit
+    //    var wizardToEnemy = enemyPosition - transform.position;
+    //    wizardToEnemy.y = 0f;
 
-        // Mendapatkan look rotation baru ke hit position
-        var newRotation = Quaternion.LookRotation(wizardToEnemy);
+    //    // Mendapatkan look rotation baru ke hit position
+    //    var newRotation = Quaternion.LookRotation(wizardToEnemy);
 
-        // Rotasi player
-        _wizardRigidBody.MoveRotation(newRotation);
-    }
+    //    // Rotasi player
+    //    _wizardRigidBody.MoveRotation(newRotation);
+    //}
 
-    private void Move(float h, float v)
-    {
-        // Set nilai x dan y
-        _movement.Set(h, 0f, v);
+    //private void Move(float h, float v)
+    //{
+    //    // Set nilai x dan y
+    //    _movement.Set(h, 0f, v);
 
-        // Menormalisasi nilai vector agar total panjang dari vector adalah 1
-        _movement = _movement.normalized * (speed * Time.deltaTime);
+    //    // Menormalisasi nilai vector agar total panjang dari vector adalah 1
+    //    _movement = _movement.normalized * (speed * Time.deltaTime);
 
-        // Move to position
-        _wizardRigidBody.MovePosition(transform.position + _movement);
-    }
+    //    // Move to position
+    //    _wizardRigidBody.MovePosition(transform.position + _movement);
+    //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (
-            other.gameObject.CompareTag("ZomBunny")
-            || other.gameObject.CompareTag("ZomBear")
-            || other.gameObject.CompareTag("Hellephant")
-            )
-        {
-            enemyPosition = other.gameObject.transform.position;
-            _enemyInRange = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (
+    //        other.gameObject.CompareTag("ZomBunny")
+    //        || other.gameObject.CompareTag("ZomBear")
+    //        || other.gameObject.CompareTag("Hellephant")
+    //        )
+    //    {
+    //        enemyPosition = other.gameObject.transform.position;
+    //        _enemyInRange = true;
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (
-            other.gameObject.CompareTag("ZomBunny")
-            || other.gameObject.CompareTag("ZomBear")
-            || other.gameObject.CompareTag("Hellephant")
-            )
-        {
-            _enemyInRange = false;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (
+    //        other.gameObject.CompareTag("ZomBunny")
+    //        || other.gameObject.CompareTag("ZomBear")
+    //        || other.gameObject.CompareTag("Hellephant")
+    //        )
+    //    {
+    //        _enemyInRange = false;
+    //    }
+    //}
 }
