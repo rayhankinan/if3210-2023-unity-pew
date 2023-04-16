@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class StateData
 {
     public string playerName;
-    public int volume;
+    public int volume = 100;
     
     public SaveEntry[] saveEntries;
     public List<ScoreEntry> scoreEntries;

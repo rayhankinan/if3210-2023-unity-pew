@@ -14,12 +14,6 @@ public class WeaponController : MonoBehaviour
 
     private float firePower;
 
-    [SerializeField] private float rotateSpeed;
-
-    [SerializeField] private float minRotation;
-
-    [SerializeField] private float maxRotation;
-
     private float mouseY;
     private bool fire;
     
@@ -32,10 +26,6 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseY -= Input.GetAxis("Mouse Y") * rotateSpeed;
-        mouseY = Mathf.Clamp(mouseY, maxRotation, minRotation);
-        weapon.transform.localRotation = Quaternion.Euler(mouseY, weapon.transform.localEulerAngles.y, weapon.transform.localEulerAngles.z);
-
         if (Input.GetMouseButtonDown(1))
         {
             fire = true;
