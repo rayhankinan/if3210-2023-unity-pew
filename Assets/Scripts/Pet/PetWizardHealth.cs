@@ -29,17 +29,18 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
 
     private void Update()
     {
-        if (manager == null)
-        {
-            Debug.Log("Manager == null");
-        }
-        else
-        {
-            Debug.Log("Manager =! null");
-        }
+        //if (manager == null)
+        //{
+        //    Debug.Log("Manager == null");
+        //}
+        //else
+        //{
+        //    Debug.Log("Manager =! null");
+        //}
 
         if (CurrentStateData.GetCurrentPethealth() != -1 && currentHealth > CurrentStateData.GetCurrentPethealth())
         {
+            Debug.Log("reduce");
             TakeDamage(startingHealth - CurrentStateData.GetCurrentPethealth());
         }
 

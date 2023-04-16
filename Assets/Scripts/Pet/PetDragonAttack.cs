@@ -15,6 +15,7 @@ public class PetDragonAttack : MonoBehaviour
     RaycastHit Hit;
     public float chaseRadius = 5f;
     int _shootableMask;
+    private AudioSource _fireAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class PetDragonAttack : MonoBehaviour
         _anim = GetComponent<Animator>();
         petDragonMovement = GetComponent<PetDragonMovement>();
         dragonRigidBody = GetComponent<Rigidbody>();
+        _fireAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class PetDragonAttack : MonoBehaviour
             var dragonPosition = new Vector3(transform.position.x, 0, transform.position.z);
             if (Vector3.Distance(dragonPosition, enemyPosition) < chaseRadius)
             {
+                _fireAudio.Play();
                 if (HasLineOfSightTo(enemyTransfom))
                 {
                     _anim.SetTrigger("Attack");

@@ -23,7 +23,7 @@ public class PetManager : MonoBehaviour
     {
         if (tryToSpawnNewPet)
         {
-            //TryToSpawnNextPet(nextTransform);
+            Debug.Log("Try to spawn pet");
             SpawnCurrentPetNearPlayer();
             tryToSpawnNewPet = false;
         }
@@ -72,21 +72,23 @@ public class PetManager : MonoBehaviour
                 GameObject pet = null;
                 if (petType == 0)
                 {
-                    pet = Instantiate(healerPet, player.transform.position + Vector3.right, player.transform.rotation);
+                    pet = Instantiate(healerPet, player.transform.position + (Vector3.right * 0.5f), player.transform.rotation);
                 }
                 else if (petType == 1)
                 {
-                    pet = Instantiate(attackerPet, player.transform.position + Vector3.right, player.transform.rotation);
+                    pet = Instantiate(attackerPet, player.transform.position + (Vector3.right * 0.5f), player.transform.rotation);
                 }
                 else if (petType == 2)
                 {
-                    pet = Instantiate(buffPet, player.transform.position + Vector3.right, player.transform.rotation);
+                    pet = Instantiate(buffPet, player.transform.position + (Vector3.right * 0.5f), player.transform.rotation);
                 }
 
+                //Debug.Log($"petType  = {petType}");
 
                 var petHealth = pet.GetComponent<PetHealth>();
                 if (petHealth != null)
                 {
+                    //Debug.Log("petHealth != null");
                     petHealth.SetManager(this);
                 }
                 else

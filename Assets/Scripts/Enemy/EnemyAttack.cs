@@ -43,13 +43,13 @@ public class EnemyAttack : MonoBehaviour
         {
             _playerInRange = true;
         }
-        else if (other.gameObject.CompareTag("Pet Dragon"))
+        else if ((other.gameObject.CompareTag("Pet Dragon")) && !other.isTrigger)
         {
             //Debug.Log("Pet collide Pet dragon");
             _petDragonHealth = other.gameObject.GetComponent<PetDragonHealth>();
             _dragonPetInRange = true;
         }
-        else if (other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard"))
+        else if ((other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard")) && !other.isTrigger)
         {
             //Debug.Log("Pet collide Pet dragon");
             _petWizardHealth = other.gameObject.GetComponent<PetWizardHealth>();
@@ -65,11 +65,11 @@ public class EnemyAttack : MonoBehaviour
         {
             _playerInRange = false;
         }
-        else if  (other.gameObject.CompareTag("Pet Dragon"))
+        else if  (other.gameObject.CompareTag("Pet Dragon") && !other.isTrigger)
         {
             _dragonPetInRange = false;
         }
-        else if (other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard"))
+        else if ((other.gameObject.CompareTag("Healing Wizard") || other.gameObject.CompareTag("Aura Buff Wizard")) && !other.isTrigger)
         {
             _wizardPetInRange = false;
         }

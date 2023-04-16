@@ -28,6 +28,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
     {
         if (CurrentStateData.GetCurrentPethealth() != -1 && currentHealth > CurrentStateData.GetCurrentPethealth())
         {
+            Debug.Log("reduce");
             TakeDamage(startingHealth - CurrentStateData.GetCurrentPethealth());
         }
 
@@ -56,6 +57,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
     // Fungsi untuk mendapatkan damage
     public void TakeDamage(int amount)
     {
+        //Debug.Log("Take Damage");
         if (!_immortal)
         {
             // Mengurangi health

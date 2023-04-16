@@ -60,7 +60,7 @@ public class ShopTemplate : MonoBehaviour
             //Debug.Log("Add Pet");
             CurrentStateData.AddPet(petType);
 
-            //Debug.Log($"Length = {CurrentStateData.GetPetsLength()}");
+            Debug.Log($"Length = {CurrentStateData.GetPetsLength()}");
             if (CurrentStateData.GetPetsLength() == 1)
             {
                 //Debug.Log($"Pet Type = {petType}");
