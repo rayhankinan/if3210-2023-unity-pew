@@ -29,10 +29,10 @@ public class ScoreboardManager : MonoBehaviour
             
             var entryTextFields = entry.GetComponentsInChildren<TMP_Text>();
             entryTextFields[0].text = "# " + i;
-            entryTextFields[1].text = scoreEntries[i].playerName;
+            entryTextFields[1].text = scoreEntries[i-1].playerName;
 
             int secs, mins;
-            secs = Mathf.FloorToInt(scoreEntries[i].playTime);
+            secs = Mathf.FloorToInt(scoreEntries[i-1].playTime);
             (mins, secs) = (secs / 60, secs % 60);
             entryTextFields[2].text = $"{mins}m {secs}s";
         }
