@@ -1157,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -471.9679
+      value: -185.76001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
@@ -1560,6 +1560,10 @@ PrefabInstance:
     - target: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
       propertyPath: m_Name
       value: HealingWizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564527777199245118, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104302b61f98b9d4aa8d05d2399da197, type: 3}

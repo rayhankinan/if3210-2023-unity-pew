@@ -10,11 +10,13 @@ public class PetWizardHeal : MonoBehaviour
     float _timer;
     PlayerHealth playerHealth;
     bool _playerInRange;
+    AudioSource _healAudio;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
+        _healAudio = GetComponent<AudioSource>();
         _timer = 10f;
         if ((transform.position - player.transform.position).magnitude <= 6)
         {
@@ -48,6 +50,7 @@ public class PetWizardHeal : MonoBehaviour
 
     void Heal()
     {
+        _healAudio.Play();
         //Debug.Log("Heal");
         _timer = 0f;
         playerHealth.TakeHealth(healAmount);
