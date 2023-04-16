@@ -93,7 +93,7 @@ public class PetDragonAttack : MonoBehaviour
     {    
         var enemyPosition = new Vector3(target.position.x, 0, target.position.z);
         var fireballOrigin = new Vector3(transform.position.x, 0, transform.position.z);
-        if (Physics.SphereCast(fireballOrigin, 1.15f, (enemyPosition - fireballOrigin).normalized, out Hit, chaseRadius, _shootableMask))
+        if (Physics.SphereCast(fireballOrigin, 1.05f, (enemyPosition - fireballOrigin).normalized, out Hit, chaseRadius, _shootableMask))
         {
             EnemyHealth damageable;
             if (Hit.collider.TryGetComponent<EnemyHealth>(out damageable))
