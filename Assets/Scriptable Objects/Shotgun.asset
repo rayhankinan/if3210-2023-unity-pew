@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Weapon
   title: Shotgun
   description: A close range weapon that shoots multiple bullets at the same time
-  price: 0
+  price: 20
