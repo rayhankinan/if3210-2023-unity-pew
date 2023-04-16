@@ -936,7 +936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1909588049684891313, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: amount
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2829165633787732441, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: m_Name
@@ -944,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4374317338395077591, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: amount
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5852815715898314045, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: rewardCompletion
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 153412, guid: f264ab47e25d0374ba89abced0b94b2a, type: 3}
-  amount: 2
+  amount: 3
   currentAmount: 0
 --- !u!1001 &3746765772502811183
 PrefabInstance:
@@ -1126,7 +1126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -432.75195
+      value: -284.832
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}

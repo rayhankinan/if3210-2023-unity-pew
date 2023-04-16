@@ -77,7 +77,7 @@ public class EnemyManager : MonoBehaviour
         // Mengeksekusi fungsi Spawn setiap beberapa detik sesui dengan nilai spawnTime
         if (CurrentStateData.GetCurrentScene() == "level_04")
         {
-            InvokeRepeating(nameof(SpawnWizard), spawnTime, spawnTime);
+            InvokeRepeating(nameof(SpawnWizard), 60, spawnTime);
         }
         InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
     }
