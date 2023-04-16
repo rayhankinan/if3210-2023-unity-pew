@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Weapon
   title: Sword
   description: A close range melee weapon
-  price: 0
+  price: 30

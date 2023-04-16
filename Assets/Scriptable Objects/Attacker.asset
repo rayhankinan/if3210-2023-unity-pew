@@ -15,4 +15,4 @@ MonoBehaviour:
   type: Pet
   title: Dragon
   description: An attacking pet
-  price: 0
+  price: 50
