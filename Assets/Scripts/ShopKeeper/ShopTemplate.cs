@@ -32,14 +32,14 @@ public class ShopTemplate : MonoBehaviour
         Debug.Log($"type = {type}");
         if (type == 0) // Weapon
         {
-            int weaponType = 1;
+            int weaponType = 3;
             if (title.text == "Sword")
             {
                 weaponType = 2;
             }
             else if (title.text == "Shotgun")
             {
-                weaponType = 3;
+                weaponType = 1;
             }
 
             CurrentStateData.AddWeapon(weaponType);
@@ -80,7 +80,24 @@ public class ShopTemplate : MonoBehaviour
         }
         else
         {
-            buyButton.gameObject.SetActive(true);
+            var weapons = CurrentStateData.GetWeapons();
+            if (title.text == "Bow" && weapons[3])
+            {
+                buyButton.gameObject.SetActive(false);
+            }
+            if (title.text == "Sword" && weapons[2])
+            {
+                buyButton.gameObject.SetActive(false);
+            }
+            else if (title.text == "Shotgun" && weapons[1])
+            {
+                buyButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                buyButton.gameObject.SetActive(true);
+
+            }
         }
     }
 }
