@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6921728722862749835, guid: 38b34e7880132f4488a9359874fe0eaf, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6921728722862749835, guid: 38b34e7880132f4488a9359874fe0eaf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,6 +693,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1897369623}
+    - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 0}
@@ -701,16 +705,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NextWithScoreboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: AddReward
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: NextScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: QuestManager, Assembly-CSharp
+      value: FinishManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2207186554377652659, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2899201030359270546, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_AnchorMax.y
@@ -728,6 +744,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextWithoutSave
       objectReference: {fileID: 0}
+    - target: {fileID: 4936105749807724024, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_Text
+      value: Finish Game
+      objectReference: {fileID: 0}
     - target: {fileID: 5586712432078565062, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: anim
       value: 
@@ -735,6 +755,10 @@ PrefabInstance:
     - target: {fileID: 5586712432078565062, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: scene
       value: cutscene_ending
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251605679872278527, guid: de52442555b174340b27dc91c546b341, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260535326465059767, guid: de52442555b174340b27dc91c546b341, type: 3}
       propertyPath: m_AnchorMax.y
@@ -830,6 +854,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de52442555b174340b27dc91c546b341, type: 3}
+--- !u!1 &1897369622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7548115169113786854, guid: de52442555b174340b27dc91c546b341, type: 3}
+  m_PrefabInstance: {fileID: 1897369621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1897369623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897369622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10427ff5337b43b8a875c007d0b343cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: cutscene_ending
 --- !u!1001 &969666995914457150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1346,7 +1388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -205.02397
+      value: -215.11465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
