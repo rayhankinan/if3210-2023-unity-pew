@@ -30,12 +30,18 @@ public class WeaponSwitching : MonoBehaviour
                 if (selectedWeapon == 0)
                 {
                     selectedWeapon = 3;
+                    while (myWeapon[selectedWeapon] == false)
+                    {
+                        selectedWeapon--;
+                    }
                 }
-
-                selectedWeapon--;
-                while(!myWeapon[selectedWeapon])
+                else
                 {
                     selectedWeapon--;
+                    while (myWeapon[selectedWeapon] == false)
+                    {
+                        selectedWeapon--;
+                    }
                 }
             }
             
@@ -48,11 +54,20 @@ public class WeaponSwitching : MonoBehaviour
                 {
                     selectedWeapon = 0;
                 }
-
-                selectedWeapon++;
-                while(!myWeapon[selectedWeapon])
+                else
                 {
                     selectedWeapon++;
+                    while (!myWeapon[selectedWeapon])
+                    {
+                        if (selectedWeapon == 3)
+                        {
+                            selectedWeapon = 0;
+                        }
+                        else
+                        {
+                            selectedWeapon++;
+                        }
+                    }
                 }
             }
         }
