@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireballMove : MonoBehaviour
 {
-    public float speed = 8f;
+    public float speed = 10f;
     Vector3 initialPosition;
     int fireballDamage = 10;
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class FireballMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - initialPosition).magnitude > 4.5)
+        if ((transform.position - initialPosition).magnitude > 6.5)
         {
             Destroy(this.gameObject);
         } else

@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour, IDamageableFriendly
         _playerShotgun = GetComponentInChildren<PlayerShotgun>();
 
         currentHealth = startingHealth;
-        _immortal = false;
+        _immortal = true;
     }
 
     private void Update()

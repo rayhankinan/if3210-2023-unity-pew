@@ -21,7 +21,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
         _anim = GetComponent<Animator>();
         _petDragonMovement = GetComponent<PetDragonMovement>();
         currentHealth = startingHealth;
-        _immortal = false;
+        _immortal = true;
     }
 
     private void Update()

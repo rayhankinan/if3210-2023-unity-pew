@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource _enemyAudio;
     private ParticleSystem _hitParticles;
     private CapsuleCollider _capsuleCollider;
-    private bool _isDead;
+    public bool _isDead;
     private bool _isSinking;
     
     private void Awake()
