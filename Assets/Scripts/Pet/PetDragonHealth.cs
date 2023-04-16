@@ -9,6 +9,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
     public float sinkSpeed = 2.5f;
     public AudioClip deathClip;
     private PetDragonMovement _petDragonMovement;
+    private PetDragonAttack _petdragonAttack;
     private Animator _anim;
     private bool _isDead;
     private bool _isSinking;
@@ -20,6 +21,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
         _isDead = false;
         _anim = GetComponent<Animator>();
         _petDragonMovement = GetComponent<PetDragonMovement>();
+        _petdragonAttack = GetComponent<PetDragonAttack>();
         currentHealth = startingHealth;
         _immortal = false;
     }
@@ -42,6 +44,9 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
     private void Death()
     {
         _isDead = true;
+        // Mematikan script petDragon movement
+        _petDragonMovement.enabled = false;
+        _petdragonAttack.enabled = false;
 
         // Mentrigger animasi Die
         _anim.SetTrigger(Dead);
@@ -50,8 +55,7 @@ public class PetDragonHealth : PetHealth, IDamageableFriendly
         //_petDragonAudio.clip = deathClip;
         //_petDragonAudio.Play();
 
-        // Mematikan script petDragon movement
-        _petDragonMovement.enabled = false;
+        
     }
 
     // Fungsi untuk mendapatkan damage

@@ -450,7 +450,7 @@ ModelImporter:
       - time: 1
         functionName: StartSinking
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7cc1f75eedd281f42b16b1213d8d521b, type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
