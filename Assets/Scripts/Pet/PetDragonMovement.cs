@@ -92,6 +92,7 @@ public class PetDragonMovement : MonoBehaviour
             other.CompareTag("ZomBear")
             || other.CompareTag("ZomBunny")
             || other.CompareTag("Hellephant")
+            || other.CompareTag("Wizard")
             )
         {
             var enemyHealth = other.GetComponent<EnemyHealth>();
@@ -108,6 +109,7 @@ public class PetDragonMovement : MonoBehaviour
             other.CompareTag("ZomBear")
             || other.CompareTag("ZomBunny")
             || other.CompareTag("Hellephant")
+            || other.CompareTag("Wizard")
             )
         {
             var enemyHealth = other.GetComponent<EnemyHealth>();

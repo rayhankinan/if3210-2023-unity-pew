@@ -45,15 +45,15 @@ public class PetManager : MonoBehaviour
                     GameObject pet = null;
                     if (petType == 0)
                     {
-                        Instantiate(healerPet, player.transform.position + Vector3.right, player.transform.rotation);
+                        pet = Instantiate(healerPet, player.transform.position + Vector3.right, player.transform.rotation);
                     }
                     else if (petType == 1)
                     {
-                        Instantiate(attackerPet, player.transform.position + Vector3.right, player.transform.rotation);
+                        pet = Instantiate(attackerPet, player.transform.position + Vector3.right, player.transform.rotation);
                     }
                     else if (petType == 2)
                     {
-                        Instantiate(buffPet, player.transform.position + Vector3.right, player.transform.rotation);
+                        pet = Instantiate(buffPet, player.transform.position + Vector3.right, player.transform.rotation);
                     }
 
                     var petHealth = pet.GetComponent<PetHealth>();

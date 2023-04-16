@@ -11,6 +11,7 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
     public AudioClip deathClip;
     private PetWizardMovement _petWizardMovement;
     private PetWizardHeal _petWizardHeal;
+    private PetWizardAuraBuff _petWizardAuraBuff;
     private Animator _anim;
     public bool _isDead;
     private bool _isSinking;
@@ -23,6 +24,7 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
         _anim = GetComponent<Animator>();
         _petWizardMovement = GetComponent<PetWizardMovement>();
         _petWizardHeal = GetComponent<PetWizardHeal>();
+        _petWizardAuraBuff = GetComponent<PetWizardAuraBuff>();
         currentHealth = startingHealth;
         _immortal = false;
     }
@@ -54,6 +56,16 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
     private void Death()
     {
         _isDead = true;
+        _petWizardMovement.enabled = false;
+        if (_petWizardHeal != null)
+        {
+            _petWizardHeal.enabled = false;
+        }
+
+        if (_petWizardAuraBuff != null)
+        {
+            _petWizardAuraBuff.enabled = false;
+        }
 
         // Mentrigger animasi Die
         _anim.SetTrigger(Dead);
@@ -63,11 +75,7 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
         //_petWizardAudio.Play();
 
         // Mematikan script petWizard movement
-        _petWizardMovement.enabled = false;
-        if (_petWizardHeal != null)
-        {
-            _petWizardHeal.enabled = false;
-        }
+        
         spellEffect.SetActive(false);
     }
 
