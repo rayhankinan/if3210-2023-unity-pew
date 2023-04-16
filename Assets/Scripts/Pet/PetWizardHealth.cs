@@ -103,7 +103,11 @@ public class PetWizardHealth : PetHealth, IDamageableFriendly
         // Set isSinking
         _isSinking = true;
 
-        manager.TryToSpawnNextPet(transform);
+        if (manager != null)
+        {
+            manager.TryToSpawnNextPet(transform);
+
+        }
         // Destroy Object
         Destroy(gameObject, 2f);
     }

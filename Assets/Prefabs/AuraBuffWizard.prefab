@@ -1527,7 +1527,7 @@ MonoBehaviour:
   currentHealth: 0
   initialHealthReduced: 0
   sinkSpeed: 2.5
-  spellEffect: {fileID: 0}
+  spellEffect: {fileID: 6097473850256497615}
   deathClip: {fileID: 0}
   _isDead: 0
 --- !u!114 &4006903749936520787
@@ -2793,6 +2793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
+--- !u!1 &6097473850256497615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
+  m_PrefabInstance: {fileID: 1219587595847138090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6179763127296330362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4984980826245493072, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
