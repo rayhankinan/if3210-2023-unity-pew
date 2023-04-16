@@ -934,13 +934,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1909588049684891313, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
+      propertyPath: amount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2829165633787732441, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: m_Name
       value: QuestManager
       objectReference: {fileID: 0}
     - target: {fileID: 4374317338395077591, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: amount
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5852815715898314045, guid: 0341a61660bab4a7699d6143557f90d7, type: 3}
       propertyPath: rewardCompletion
@@ -1102,7 +1106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342930737666647880, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -471.9679
+      value: -284.832
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c5a75ed836e4b8bba7a1115a46206c, type: 3}

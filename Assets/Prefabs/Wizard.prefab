@@ -17173,7 +17173,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 2
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -17209,11 +17209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 500
+  startingHealth: 1500
   currentHealth: 0
   sinkSpeed: 2.5
   coinValue: 10
   deathClip: {fileID: 8300000, guid: 2cd249cd2a0415345ae3474fe3181a53, type: 3}
+  _isDead: 0
 --- !u!114 &-1786895813096079071
 MonoBehaviour:
   m_ObjectHideFlags: 0
